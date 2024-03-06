@@ -11,11 +11,11 @@ namespace epoHless
         /// </summary>
         public delegate void AudioCallback(float volume);
         private AudioCallback OnVolumeChanged;
-        
+
         private Slider slider;
-        
+
         public float Volume => slider.value; // Getter *Property* for the volume
-        
+
         private void Awake()
         {
             slider = GetComponent<Slider>();
@@ -29,12 +29,12 @@ namespace epoHless
         {
             slider.onValueChanged.AddListener(ChangeVolume);
         }
-        
+
         private void OnDisable()
         {
             slider.onValueChanged.RemoveListener(ChangeVolume);
         }
-        
+
         void ChangeVolume(float value)
         {
             OnVolumeChanged?.Invoke(value);
@@ -44,12 +44,12 @@ namespace epoHless
         {
             OnVolumeChanged += callback;
         }
-        
+
         public void RemoveListener(AudioCallback callback)
         {
             OnVolumeChanged -= callback;
         }
-        
+
         public void SetVolume(float volume)
         {
             slider.value = volume;

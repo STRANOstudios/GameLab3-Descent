@@ -10,9 +10,10 @@ namespace epoHless
     {
         Master,
         Music,
-        Sfx
+        Sfx,
+        Dialogue
     }
-    
+
     /// <summary>
     /// Wrapper class for the AudioMixerGroup and AudioSlider
     /// </summary>
@@ -28,22 +29,22 @@ namespace epoHless
             if (PlayerPrefs.HasKey($"AudioVolume_{AudioType.ToString()}") && AudioSlider != null && AudioMixerGroup != null)
             {
                 var volume = PlayerPrefs.GetFloat($"AudioVolume_{AudioType.ToString()}");
-                
+
                 AudioMixerGroup.audioMixer.SetFloat(AudioType.ToString(), volume);
                 AudioSlider.SetVolume(volume);
             }
         }
-        
+
         public void Listen()
         {
-            AudioSlider.AddListener(OnVolumeChanged);;
+            AudioSlider.AddListener(OnVolumeChanged); ;
         }
-        
+
         public void Unlisten()
         {
             AudioSlider.RemoveListener(OnVolumeChanged);
         }
-        
+
         void OnVolumeChanged(float volume)
         {
             AudioMixerGroup.audioMixer.SetFloat(AudioType.ToString(), AudioSlider.Volume);

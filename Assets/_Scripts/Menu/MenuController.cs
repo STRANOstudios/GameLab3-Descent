@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuController : MonoBehaviour
 {
@@ -8,6 +9,15 @@ public class MenuController : MonoBehaviour
     public string _newGameLevel;
     private string levelToLoad;
     [SerializeField] GameObject noSaveGameDialog = null;
+
+    [Header("Gameplay Settings")]
+    [SerializeField] TMP_Text controllerSenTextValue = null;
+    [SerializeField] Slider controllerSenSlider = null;
+    [SerializeField] int defaultSen = 4;
+    public int mainControllerSen = 4;
+
+    [Header("Toggle settings")]
+    [SerializeField] Toggle invertYToggle = null;
 
     public void NewGameDialogsYes()
     {
@@ -38,5 +48,19 @@ public class MenuController : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void SetControllerSen(float value)
+    {
+        mainControllerSen=Mathf.RoundToInt(value);
+        controllerSenTextValue.text = value.ToString("0");
+    }
+
+    public void GameplayApply()
+    {
+        if(invertYToggle.isOn) PlayerPrefs.SetInt("masterInvertY", 1);
+        else PlayerPrefs.SetInt("masterInvertY", 0);
+
+        PlayerPrefs.SetFloat("masterSen", mainControllerSen);
     }
 }
