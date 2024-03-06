@@ -19,6 +19,14 @@ public class MenuController : MonoBehaviour
     [Header("Toggle settings")]
     [SerializeField] Toggle invertYToggle = null;
 
+    [Header("Graphics Settings")]
+    [SerializeField] Slider brightnessSlider = null;
+    [SerializeField] float defaultBrightness = 1.0f;
+
+    private int _qualityLevel;
+    private bool _isFullScreen;
+    private float _brightnessLevel;
+
     public void NewGameDialogsYes()
     {
 #if UNITY_EDITOR
@@ -62,5 +70,32 @@ public class MenuController : MonoBehaviour
         else PlayerPrefs.SetInt("masterInvertY", 0);
 
         PlayerPrefs.SetFloat("masterSen", mainControllerSen);
+    }
+
+    public void SetBrightness(float value)
+    {
+        _brightnessLevel = value;
+
+    }
+
+    public void SetFullScreen(bool value)
+    {
+        _isFullScreen = value;
+    }
+
+    public void SetQuality(int value)
+    {
+        _qualityLevel = value;
+    }
+
+    public void GraphicsApply()
+    {
+        PlayerPrefs.SetFloat("masterBrightness", _brightnessLevel);
+
+        PlayerPrefs.SetInt("MasterQuality", _qualityLevel);
+        QualitySettings.SetQualityLevel(_qualityLevel);
+
+        PlayerPrefs.SetInt("MasterFullScreen", (_isFullScreen ? 1 : 0));
+        Screen.fullScreen = _isFullScreen;
     }
 }
