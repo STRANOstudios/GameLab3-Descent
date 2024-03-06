@@ -6,12 +6,16 @@ public class MenuController : MonoBehaviour
 {
     [Header("Levels To Load")]
     public string _newGameLevel;
-    public string levelToLoad;
+    private string levelToLoad;
     [SerializeField] GameObject noSaveGameDialog = null;
 
     public void NewGameDialogsYes()
     {
+#if UNITY_EDITOR
         SceneManager.LoadScene(_newGameLevel);
+#else
+        SceneManager.LoadScene(2);
+#endif
     }
 
     public void LoadGameDialogsYes()
@@ -29,6 +33,10 @@ public class MenuController : MonoBehaviour
 
     public void ExitButton()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }
