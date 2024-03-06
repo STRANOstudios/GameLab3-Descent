@@ -2,69 +2,63 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 10f; // Player movement speed
-    [SerializeField] private float rotationSpeed = 3f; // Player rotation speed
-    [SerializeField] private float acceleration = 5f; // Player acceleration
-    [SerializeField] private float deceleration = 0.5f; // Player deceleration
+    [Header("Movement Speed")]
+    [SerializeField] float Speed = 3.0f;
+    [SerializeField] float multiplier = 2.0f;
 
-    void Update()
+    [SerializeField] bool sprint = false;
+
+    [Header("Camera Settings")]
+    [SerializeField] bool invertYAxis = false;
+
+    [Header("Look Sensitivity")]
+    [SerializeField] float mouseSensitivity = 2.0f;
+    [SerializeField] float upDownEange = 80.0f;
+
+    private CharacterController characterController;
+    private Camera mainCamera;
+    private PlayerInputHadler inputHadler;
+    private Vector3 currentMovement;
+    private float verticalRotation;
+
+    private void Awake()
     {
-        // Forward/backward movement
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 moveDirection = transform.forward * verticalInput;
-
-        // Sideways movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        moveDirection += transform.right * horizontalInput;
-
-        // Applying acceleration/deceleration
-        if (verticalInput != 0)
-        {
-            moveSpeed += acceleration * Time.deltaTime * Mathf.Sign(verticalInput);
-        }
-        else
-        {
-            // Deceleration when W or S is not pressed
-            moveSpeed -= deceleration * Time.deltaTime;
-        }
-
-        // Clamp speed to minimum and maximum
-        moveSpeed = Mathf.Clamp(moveSpeed, 0f, 20f);
-
-        // Applying movement
-        transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime, Space.World);
-
-        // Rotation based on mouse input
-        float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(Vector3.up * mouseX * rotationSpeed);
-
-        // Rotation based on mouse input
-        float mouseY = Input.GetAxis("Mouse Y");
-        transform.Rotate(Vector3.right * mouseY * rotationSpeed);
-
-        // Input for primary and secondary fire
-        if (Input.GetMouseButtonDown(0))
-        {
-            PrimaryFire();
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            SecondaryFire();
-        }
+        characterController = GetComponent<CharacterController>();
+        mainCamera = Camera.main;
+        inputHadler = PlayerInputHadler.Instance;
     }
 
-    void PrimaryFire()
+    private void Update()
     {
-        // Implementation of primary fire
-        // Add your desired logic here
-        Debug.Log("Primary Fire");
+        HadlerMovement();
+        HadlerRotation();
     }
 
-    void SecondaryFire()
+    void HadlerMovement()
     {
-        // Implementation of secondary fire
-        // Add your desired logic here
-        Debug.Log("Secondary Fire");
+        float speed = Speed * (sprint ? multiplier : 1f);
+
+        Vector3 inputDirection = new(inputHadler.MoveInput.x, 0f, inputHadler.MoveInput.y);
+        Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        worldDirection.Normalize();
+
+        currentMovement.x = worldDirection.x * speed;
+        currentMovement.y = worldDirection.y * speed;
+        currentMovement.z = worldDirection.z * speed;
+
+        characterController.Move(currentMovement * Time.deltaTime);
+    }
+
+    void HadlerRotation()
+    {
+        float mouseYInput = invertYAxis ? -inputHadler.LookInput.y : inputHadler.LookInput.y;
+
+        float mouseXRotation = inputHadler.LookInput.x * mouseSensitivity;
+        transform.Rotate(0, mouseXRotation, 0);
+
+        verticalRotation -= mouseYInput * mouseSensitivity;
+        //verticalRotation -= inputHadler.LookInput.y * mouseSensitivity;
+        verticalRotation = Mathf.Clamp(verticalRotation, -upDownEange, upDownEange);
+        mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 }
