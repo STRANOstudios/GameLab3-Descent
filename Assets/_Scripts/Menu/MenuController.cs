@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class MenuController : MonoBehaviour
 {
@@ -16,16 +17,50 @@ public class MenuController : MonoBehaviour
     [SerializeField] int defaultSen = 4;
     public int mainControllerSen = 4;
 
-    [Header("Toggle settings")]
     [SerializeField] Toggle invertYToggle = null;
 
     [Header("Graphics Settings")]
     [SerializeField] Slider brightnessSlider = null;
     [SerializeField] float defaultBrightness = 1.0f;
 
+    [Header("Resolution Dropdown")]
+    public TMP_Dropdown ResolutionDropdown;
+    private Resolution[] resolutions;
+
     private int _qualityLevel;
     private bool _isFullScreen;
     private float _brightnessLevel;
+
+    private void Start()
+    {
+        resolutions = Screen.resolutions;
+        ResolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        ResolutionDropdown.AddOptions(options);
+        ResolutionDropdown.value = currentResolutionIndex;
+        ResolutionDropdown.RefreshShownValue();
+    }
+
+    public void SetResolution(int value)
+    {
+        Resolution resolution = resolutions[value];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
 
     public void NewGameDialogsYes()
     {
@@ -60,13 +95,13 @@ public class MenuController : MonoBehaviour
 
     public void SetControllerSen(float value)
     {
-        mainControllerSen=Mathf.RoundToInt(value);
+        mainControllerSen = Mathf.RoundToInt(value);
         controllerSenTextValue.text = value.ToString("0");
     }
 
     public void GameplayApply()
     {
-        if(invertYToggle.isOn) PlayerPrefs.SetInt("masterInvertY", 1);
+        if (invertYToggle.isOn) PlayerPrefs.SetInt("masterInvertY", 1);
         else PlayerPrefs.SetInt("masterInvertY", 0);
 
         PlayerPrefs.SetFloat("masterSen", mainControllerSen);
@@ -97,5 +132,15 @@ public class MenuController : MonoBehaviour
 
         PlayerPrefs.SetInt("MasterFullScreen", (_isFullScreen ? 1 : 0));
         Screen.fullScreen = _isFullScreen;
+    }
+
+    public void SetAudio(Slider value)
+    {
+        PlayerPrefs.SetInt($"{value.name}", (int)value.value);
+    }
+
+    public void SetDynamicRange(int value)
+    {
+        PlayerPrefs.SetInt("dynamicRange", value);
     }
 }
