@@ -107,17 +107,6 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "b6c9ce41-39aa-4f4a-9e9a-47b0d63915ad",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone(min=0.2)",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "2D Vector",
                     "id": "c32c0aaf-01b5-4277-812b-c0fb959f4ed7",
                     "path": "2DVector",
@@ -174,17 +163,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bdd650e0-d918-4e1a-8ddf-81665592597a",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone(min=0.14)",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d5c6e4cf-bfc2-4d45-be16-262be18b692e",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -193,39 +171,6 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis [Gamepad]",
-                    "id": "3c3c2014-0c10-46a4-9d2f-e03c0ea2c907",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fly",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "6c984cd0-85ba-45d7-9eea-c91f2473e153",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fly",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "ec9aa550-9908-47c9-9fdb-3314e697604d",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fly",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "1D Axis",
@@ -306,34 +251,12 @@
                 },
                 {
                     "name": "",
-                    "id": "d5e2600d-5bf5-4399-aad1-ab0d03ffc99f",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "96f3ea3b-5bcb-4ef9-ba13-411662298a42",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Secondary Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1a603434-5cab-4918-aa61-52b8f74e107c",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Primary Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -350,34 +273,12 @@
                 },
                 {
                     "name": "",
-                    "id": "699e5542-f3e0-4951-a32c-f8c10837b666",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Bomb",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3f61b917-a000-4a29-844a-dd4b258f11b8",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Bomb",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ba05deac-2070-48a5-b28c-6de5e4131570",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Flare",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -394,34 +295,12 @@
                 },
                 {
                     "name": "",
-                    "id": "d1bb7f3a-9317-4e6e-8ca2-f7b6b0c3b0ec",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Map",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ba9e5754-622d-48c1-9f96-5ed7fc3f942b",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Map",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b105ec4c-ffda-49eb-9c51-b715d8af22cb",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rear View",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

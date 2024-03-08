@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13450.374, g: 15986.014, b: 18886.47, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 253611723}
   - component: {fileID: 253611722}
   - component: {fileID: 253611721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 544331031}
   - component: {fileID: 544331032}
   - component: {fileID: 544331033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1412,7 +1412,7 @@ Transform:
   m_GameObject: {fileID: 544331030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -5}
+  m_LocalPosition: {x: 0, y: 2, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1460,10 +1460,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   multiplier: 2
+  flySpeed: 1
+  smoothFactor: 0.3
   sprint: 0
+  floatingOscillationAmount: 0.1
+  floatingOscillationSpeed: 1
+  bankingSpeed: 50
+  smoothness: 10
   invertYAxis: 0
+  oscillationAmount: 60
+  oscillationSpeed: 1
+  acceleration: 1
   mouseSensitivity: 2
   upDownEange: 80
+  IsBankable: 0
 --- !u!1 &808079989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &808079990
 Transform:
   m_ObjectHideFlags: 0
@@ -1660,7 +1670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973463127}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2376,7 @@ GameObject:
   - component: {fileID: 1439228006}
   - component: {fileID: 1439228009}
   - component: {fileID: 1439228008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2661,7 +2671,7 @@ GameObject:
   - component: {fileID: 1697537996}
   - component: {fileID: 1697537999}
   - component: {fileID: 1697537998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
