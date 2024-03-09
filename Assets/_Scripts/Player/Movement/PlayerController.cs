@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -48,28 +49,26 @@ public class PlayerController : MonoBehaviour
     {
         HandlerMovement();
         HandlerRotation();
-        HandlerBanking();
-        HandlerFly();
+        //HandlerBanking();
 
         ApplyFloatingOscillation();
     }
 
-    private void HandlerFly()
-    {
-        Vector3 flyMovement = flySpeed * inputHandler.FlyValue * transform.up;
-        characterController.Move(flyMovement * Time.deltaTime);
-    }
-
     private void HandlerBanking()
     {
-        if (inputHandler.bankIsActiveTrigger) IsBankable = !IsBankable;
+        if (inputHandler.bankIsActiveTrigger)
+        {
+            IsBankable = !IsBankable;
+        }
         if (!IsBankable) return;
 
         float targetBankAngle = -inputHandler.bankValue * 1f * bankingSpeed;
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetBankAngle);
 
+        //continua a bloccare la rotazione sull'asse delle y
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * smoothness);
 
+        //devo creare il blocco sulla rotazione
     }
 
     void HandlerMovement()
@@ -78,7 +77,7 @@ public class PlayerController : MonoBehaviour
         float speed = Speed * speedMultiplier;
 
         Vector2 moveInput = inputHandler.MoveInput;
-        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
+        Vector3 inputDirection = new Vector3(moveInput.x, inputHandler.FlyValue, moveInput.y).normalized;
 
         Vector3 worldDirection = transform.TransformDirection(inputDirection);
         Vector3 targetMovement = worldDirection * speed;
@@ -94,6 +93,8 @@ public class PlayerController : MonoBehaviour
         float mouseXRotation = inputHandler.LookInput.x * mouseSensitivity;
         transform.Rotate(0, mouseXRotation, 0);
 
+
+        //view vfx
         verticalRotation -= mouseYInput * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownEange, upDownEange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
     void ApplyFloatingOscillation()
     {
+        //vfx
         Transform mainCameraTransform = mainCamera.transform;
         float floatingOscillation = Mathf.Sin(Time.time * floatingOscillationSpeed) * floatingOscillationAmount;
         mainCameraTransform.localPosition = new Vector3(mainCameraTransform.localPosition.x, floatingOscillation, mainCameraTransform.localPosition.z);
