@@ -1350,21 +1350,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  multiplier: 2
-  flySpeed: 1
-  smoothFactor: 0.3
+  sprintMultiplier: 2
+  movementSmoothFactor: 0.3
   sprint: 0
-  floatingOscillationAmount: 0.1
-  floatingOscillationSpeed: 1
-  bankingSpeed: 50
-  smoothness: 10
-  invertYAxis: 0
-  oscillationAmount: 60
-  oscillationSpeed: 1
   acceleration: 1
+  viewSmoothFactor: 2
+  invertYAxis: 0
   mouseSensitivity: 2
   upDownEange: 80
-  IsBankable: 1
+  rotationSmoothFactor: 0.3
+  oscillationAmount: 60
+  oscillationSpeed: 1
+  floatingOscillationAmount: 0.1
+  floatingOscillationSpeed: 1
 --- !u!114 &544331034
 MonoBehaviour:
   m_ObjectHideFlags: 0
