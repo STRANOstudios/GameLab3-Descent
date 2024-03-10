@@ -1,11 +1,5 @@
-using System;
 using System.Collections;
-using System.Runtime.ConstrainedExecution;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-using UnityEngine.Windows;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerController : MonoBehaviour
 {
