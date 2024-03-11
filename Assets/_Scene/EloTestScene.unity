@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55274ef7e4c4f5c429bb794cfbe12084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 1378055687}
   startWaitTime: 4
   timeToRotate: 2
   speedWalk: 6
@@ -931,7 +931,8 @@ MonoBehaviour:
   meshResolution: 1
   edgeIteration: 4
   edgeDistance: 0.5
-  wayPoints: []
+  wayPoints:
+  - {fileID: 1828953694}
 --- !u!1 &1828953690
 GameObject:
   m_ObjectHideFlags: 0
