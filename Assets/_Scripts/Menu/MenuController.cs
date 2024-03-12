@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     [Header("Levels To Load")]
     public string _newGameLevel;
     private string levelToLoad;
+    [SerializeField] GameObject saveGameDialog = null;
     [SerializeField] GameObject noSaveGameDialog = null;
 
     [Header("Gameplay Settings")]
@@ -80,6 +81,7 @@ public class MenuController : MonoBehaviour
         }
         else
         {
+            saveGameDialog.SetActive(false);
             noSaveGameDialog.SetActive(true);
         }
     }
