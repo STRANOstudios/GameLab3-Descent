@@ -68,7 +68,7 @@ public class MenuController : MonoBehaviour
 #if UNITY_EDITOR
         SceneManager.LoadScene(_newGameLevel);
 #else
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1); //2
 #endif
     }
 
@@ -112,7 +112,6 @@ public class MenuController : MonoBehaviour
     public void SetBrightness(float value)
     {
         _brightnessLevel = value;
-
     }
 
     public void SetFullScreen(bool value)

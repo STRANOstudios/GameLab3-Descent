@@ -31,7 +31,7 @@ public class LoadPrefs : MonoBehaviour
     {
         if (canUse)
         {
-            PrintAllPlayerPrefsKeys();
+            //PrintAllPlayerPrefsKeys();
 
             //if (PlayerPrefs.HasKey("masterVolume"))
             //{
