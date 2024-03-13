@@ -45,4 +45,6 @@ public class Projectile : MonoBehaviour
     }
 
     public float GetDamage => damage;
+
+    public float GetRange => range;
 }

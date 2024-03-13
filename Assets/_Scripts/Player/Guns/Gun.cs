@@ -1,6 +1,11 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Gun : MonoBehaviour
 {
@@ -29,11 +34,8 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
-        if (muzzleVelocity == 0)
-        {
-            //circlecast to be implement
-        }
-        else { objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize); }
+        if (muzzleVelocity != 0)
+            objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -60,24 +62,60 @@ public class Gun : MonoBehaviour
 
     public void shoot()
     {
-        if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
+        if (muzzleVelocity != 0)
         {
-            Projectile bulletObject = objectPool.Get();
+            if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
+            {
+                Projectile bulletObject = objectPool.Get();
 
-            if (bulletObject == null) return;
+                if (bulletObject == null) return;
 
-            bulletObject.transform.position = muzzlePosition[0].transform.position;
+                bulletObject.transform.position = muzzlePosition[0].transform.position;
 
-            Vector3 cameraForward = Camera.main.transform.forward;
-            bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
+                Vector3 cameraForward = Camera.main.transform.forward;
+                bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
 
-            bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
-            bulletObject.Deactivate();
+                bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
+                bulletObject.Deactivate();
 
-            nextTimeToShoot = Time.time + cooldownWindow;
+                nextTimeToShoot = Time.time + cooldownWindow;
 
-            bulletMagazine--;
+                bulletMagazine--;
+            }
         }
+        else
+        {
+            if (Time.time > nextTimeToShoot && bulletMagazine > 0)
+            {
+                StartCoroutine(ShootSphereCast());
+            }
+        }
+    }
+
+    IEnumerator ShootSphereCast()
+    {
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward;
+        float radius = 0.5f;
+        RaycastHit hit;
+
+        if (Physics.SphereCast(origin, radius, direction, out hit, muzzleVelocity))
+        {
+            int hitLayer = hit.transform.gameObject.layer; // Recupera il layer dell'oggetto colpito
+
+            switch (hitLayer)
+            {
+                case 0:
+                    break;
+                case 12:
+                    break;
+                default:
+                    StopCoroutine(ShootSphereCast());
+                    break;
+            }
+        }
+
+        yield return new WaitForSeconds(projectilePrefab.GetRange);
     }
 
     public int BulletCharging
