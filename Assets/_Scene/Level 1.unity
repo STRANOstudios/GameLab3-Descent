@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -850,6 +850,8 @@ MonoBehaviour:
   flare: Flare
   map: Map
   rearView: Rear View
+  list1: Primary List
+  list2: Secondary List
 --- !u!1 &373846948
 GameObject:
   m_ObjectHideFlags: 19
@@ -1681,6 +1683,7 @@ MonoBehaviour:
   mouseSensitivity: 1
   upDownEange: 80
   rotationSmoothFactor: 1
+  mainCamera: {fileID: 1447159899}
   oscillationAmount: 60
   oscillationSpeed: 1
   floatingOscillationAmount: 0.1
@@ -1855,6 +1858,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 20
   maxSize: 100
+  bulletMagazine: 0
 --- !u!1 &912196726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,7 +3222,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 16311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
