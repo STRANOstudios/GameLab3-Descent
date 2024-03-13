@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,9 @@ public class ShootingManager : MonoBehaviour
 
         Bomb();
         Flare();
+
+        changeGunPrimary();
+        changeGunSecondary();
     }
 
     void Primary()
@@ -69,8 +73,46 @@ public class ShootingManager : MonoBehaviour
         }
     }
 
-    void changeGun()
+    void changeGunPrimary()
     {
-        //to be implemented (?)
+        if (primaryGuns.Count <= 1) return;
+        if (inputHandler.list1Value != 0)
+        {
+            primaryGunEnable = primaryGunEnable++ >= primaryGuns.Count ? primaryGunEnable = 0 : primaryGunEnable;
+            Debug.Log("change primary");
+        }
+        StartCoroutine(DelayButton(0.1f));
+    }
+
+    void changeGunSecondary()
+    {
+        if (secondaryGuns.Count <= 1) return;
+        if (inputHandler.list2Value != 0)
+        {
+            secondaryGunEnable = secondaryGunEnable++ >= secondaryGuns.Count ? secondaryGunEnable = 0 : secondaryGunEnable;
+            Debug.Log("change primary");
+        }
+        StartCoroutine(DelayButton(0.1f));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "BulletMagazine")
+        {
+            Takeable tmp = collision.gameObject.GetComponent<Takeable>();
+            foreach (Gun gun in primaryGuns)
+            {
+                if (gun == tmp.Gun)
+                {
+                    gun.BulletCharging = tmp.BulletMagazine;
+                    break;
+                }
+            }
+        }
+    }
+
+    IEnumerator DelayButton(float delay)
+    {
+        yield return new WaitForSeconds(delay);
     }
 }

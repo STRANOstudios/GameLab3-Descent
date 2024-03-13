@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     [Tooltip("Prefab to shoot")]
     [SerializeField] Projectile projectilePrefab;
 
-    [Tooltip("Projectile force")]
+    [Tooltip("Projectile force, if it be 0, it will be circlecast")]
     [SerializeField] float muzzleVelocity = 700f;
 
     [Tooltip("End point of gun where shots appear")]
@@ -23,11 +23,17 @@ public class Gun : MonoBehaviour
     [SerializeField] int defaultCapacity = 20;
     [SerializeField] int maxSize = 100;
 
+    [SerializeField] int bulletMagazine = 0;
+
     private float nextTimeToShoot;
 
     private void Awake()
     {
-        objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
+        if (muzzleVelocity == 0)
+        {
+            //circlecast to be implement
+        }
+        else { objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize); }
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -54,19 +60,29 @@ public class Gun : MonoBehaviour
 
     public void shoot()
     {
-        if (Time.time > nextTimeToShoot && objectPool != null)
+        if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
         {
-            Projectile bulletObejct = objectPool.Get();
+            Projectile bulletObject = objectPool.Get();
 
-            if (bulletObejct == null) return;
+            if (bulletObject == null) return;
 
-            bulletObejct.transform.position = muzzlePosition[0].transform.position;
-            bulletObejct.transform.rotation = muzzlePosition[0].transform.rotation;
+            bulletObject.transform.position = muzzlePosition[0].transform.position;
 
-            bulletObejct.GetComponent<Rigidbody>().AddForce(bulletObejct.transform.forward * muzzleVelocity, ForceMode.Acceleration);
-            bulletObejct.Deactivate();
+            Vector3 cameraForward = Camera.main.transform.forward;
+            bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
+
+            bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
+            bulletObject.Deactivate();
 
             nextTimeToShoot = Time.time + cooldownWindow;
+
+            bulletMagazine--;
         }
+    }
+
+    public int BulletCharging
+    {
+        get { return bulletMagazine; }
+        set { bulletMagazine += value; }
     }
 }
