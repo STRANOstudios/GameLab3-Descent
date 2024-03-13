@@ -85,14 +85,33 @@ public class PlayerController : MonoBehaviour
 
     void HandlerMovement()
     {
+        //float speedMultiplier = sprint ? sprintMultiplier : 1f;
+        //float speed = Speed * speedMultiplier;
+
+        //Vector2 moveInput = inputHandler.MoveInput;
+        //Vector3 inputDirection = new Vector3(moveInput.x, inputHandler.FlyValue, moveInput.y).normalized;
+
+        //Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        //Vector3 targetMovement = worldDirection * speed;
+
+        //currentMovement = Vector3.Lerp(currentMovement, targetMovement, movementSmoothFactor * Time.deltaTime);
+        //characterController.Move(currentMovement * Time.deltaTime);
+
         float speedMultiplier = sprint ? sprintMultiplier : 1f;
         float speed = Speed * speedMultiplier;
 
         Vector2 moveInput = inputHandler.MoveInput;
-        Vector3 inputDirection = new Vector3(moveInput.x, inputHandler.FlyValue, moveInput.y).normalized;
+        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized; // Ignora la componente verticale
 
-        Vector3 worldDirection = transform.TransformDirection(inputDirection);
-        Vector3 targetMovement = worldDirection * speed;
+        // Usa la rotazione del GameObject per determinare la direzione di movimento orizzontale
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+        Vector3 horizontalMovement = (cameraForward * inputDirection.z + cameraRight * inputDirection.x) * speed;
+
+        // Combina la direzione orizzontale con l'input verticale
+        Vector3 flyMovement = Vector3.up * inputHandler.FlyValue * speed;
+
+        Vector3 targetMovement = horizontalMovement + flyMovement;
 
         currentMovement = Vector3.Lerp(currentMovement, targetMovement, movementSmoothFactor * Time.deltaTime);
         characterController.Move(currentMovement * Time.deltaTime);
