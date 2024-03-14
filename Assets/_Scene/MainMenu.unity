@@ -177,9 +177,10 @@ MonoBehaviour:
   defaultSen: 4
   mainControllerSen: 4
   invertYToggle: {fileID: 0}
-  brightnessSlider: {fileID: 0}
-  defaultBrightness: 1
-  ResolutionDropdown: {fileID: 315689612}
+  brightnessSlider: {fileID: 1519935420}
+  resolutionDropdown: {fileID: 315689612}
+  fullScreenToggle: {fileID: 12833660}
+  qualityDropdown: {fileID: 919575766}
 --- !u!114 &302041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,20 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905ddc9df0456d140b4592241848fc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canUse: 1
-  menuController: {fileID: 0}
-  Master: {fileID: 0}
-  Music: {fileID: 0}
-  Fsx: {fileID: 0}
-  Dialogue: {fileID: 0}
-  brightnessSlider: {fileID: 0}
-  ResolutionDropdown: {fileID: 0}
-  fullscreen: {fileID: 0}
-  raytracing: {fileID: 0}
-  pathtracing: {fileID: 0}
-  controllerSenTextValue: {fileID: 0}
-  controllerSenSlider: {fileID: 0}
-  invertYToggle: {fileID: 0}
 --- !u!1 &1351456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,19 +2135,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 302040}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetResolution
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &315689613
 MonoBehaviour:
@@ -4415,7 +4390,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7300,19 +7275,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 302040}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetQuality
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &919575767
 MonoBehaviour:
@@ -8672,7 +8635,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9485,6 +9448,8 @@ MonoBehaviour:
   flare: Flare
   map: Map
   rearView: Rear View
+  list1: Primary List
+  list2: Secondary List
 --- !u!1 &1165730253
 GameObject:
   m_ObjectHideFlags: 0
@@ -12006,19 +11971,7 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 302040}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetAudio
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1519935420}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1519935421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12523,7 +12476,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -16158,7 +16111,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
