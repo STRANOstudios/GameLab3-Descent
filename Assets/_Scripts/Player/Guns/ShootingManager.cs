@@ -102,19 +102,41 @@ public class ShootingManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("BulletMagazine"))
+        switch (other.gameObject.tag)
         {
-            Takeable tmp = other.gameObject.GetComponent<Takeable>();
-            foreach (Gun gun in primaryGuns)
-            {
-                if (gun.name == tmp.Gun.name)
-                {
-                    gun.BulletCharging = tmp.BulletMagazine;
-                    break;
-                }
-            }
-            other.gameObject.SetActive(false);
+            case "BulletMagazine":
+                GetBullets(other.gameObject);
+                break;
+            case "Gun":
+                GetGun(other.gameObject);
+                break;
+            default:
+                break;
         }
+    }
+
+    void GetBullets(GameObject other)
+    {
+        Takeable tmp = other.GetComponent<Takeable>();
+        foreach (Gun gun in tmp.PrimaryOrSecondary ? primaryGuns : secondaryGuns)
+        {
+            if (gun.name == tmp.Gun.name)
+            {
+                gun.BulletCharging = tmp.BulletMagazine;
+                break;
+            }
+        }
+        other.SetActive(false);
+    }
+
+    void GetGun(GameObject other)
+    {
+        Takeable tmp = other.GetComponent<Takeable>();
+        if (tmp.PrimaryOrSecondary) primaryGuns.Add(tmp.Gun.GetComponent<Gun>());
+        if (!tmp.PrimaryOrSecondary) secondaryGuns.Add(tmp.Gun.GetComponent<Gun>());
+        Transform gunParent = primaryGuns.Count > 0 ? primaryGuns[0].transform : secondaryGuns[0].transform;
+        Instantiate(tmp.Gun, gunParent);
+        other.SetActive(false);
     }
 
     IEnumerator DelayButton(float delay)

@@ -97,7 +97,7 @@ public class Gun : MonoBehaviour
 
         if (Physics.SphereCast(origin, radius, direction, out hit, muzzleVelocity))
         {
-            int hitLayer = hit.transform.gameObject.layer; // Recupera il layer dell'oggetto colpito
+            int hitLayer = hit.transform.gameObject.layer; 
 
             switch (hitLayer)
             {
