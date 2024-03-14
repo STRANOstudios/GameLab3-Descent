@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShootingManager : MonoBehaviour
@@ -78,7 +79,9 @@ public class ShootingManager : MonoBehaviour
         if (primaryGuns.Count <= 1) return;
         if (inputHandler.list1Value != 0)
         {
-            primaryGunEnable = primaryGunEnable++ >= primaryGuns.Count ? primaryGunEnable = 0 : primaryGunEnable;
+            primaryGunEnable += (int)inputHandler.list1Value;
+            primaryGunEnable = primaryGunEnable >= primaryGuns.Count ? primaryGunEnable = 0 : primaryGunEnable;
+            primaryGunEnable = primaryGunEnable < 0 ? primaryGuns.Count - 1 : primaryGunEnable;
             Debug.Log("change primary");
         }
         StartCoroutine(DelayButton(0.1f));
@@ -89,25 +92,28 @@ public class ShootingManager : MonoBehaviour
         if (secondaryGuns.Count <= 1) return;
         if (inputHandler.list2Value != 0)
         {
-            secondaryGunEnable = secondaryGunEnable++ >= secondaryGuns.Count ? secondaryGunEnable = 0 : secondaryGunEnable;
+            secondaryGunEnable += (int)inputHandler.list2Value;
+            secondaryGunEnable = secondaryGunEnable >= secondaryGuns.Count ? secondaryGunEnable = 0 : secondaryGunEnable;
+            secondaryGunEnable = secondaryGunEnable < 0 ? secondaryGuns.Count - 1 : secondaryGunEnable;
             Debug.Log("change primary");
         }
         StartCoroutine(DelayButton(0.1f));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "BulletMagazine")
+        if (other.gameObject.CompareTag("BulletMagazine"))
         {
-            Takeable tmp = collision.gameObject.GetComponent<Takeable>();
+            Takeable tmp = other.gameObject.GetComponent<Takeable>();
             foreach (Gun gun in primaryGuns)
             {
-                if (gun == tmp.Gun)
+                if (gun.name == tmp.Gun.name)
                 {
                     gun.BulletCharging = tmp.BulletMagazine;
                     break;
                 }
             }
+            other.gameObject.SetActive(false);
         }
     }
 
