@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShootingManager : MonoBehaviour
 {
     [Header("Shooting Manager")]
+    [SerializeField] GameObject inventary;
+
     [SerializeField] List<Gun> primaryGuns;
     [SerializeField] List<Gun> secondaryGuns;
 
@@ -118,6 +119,9 @@ public class ShootingManager : MonoBehaviour
     void GetBullets(GameObject other)
     {
         Takeable tmp = other.GetComponent<Takeable>();
+
+        if (tmp.PrimaryOrSecondary ? primaryGuns.Count <= 0 : secondaryGuns.Count <= 0) return;
+
         foreach (Gun gun in tmp.PrimaryOrSecondary ? primaryGuns : secondaryGuns)
         {
             if (gun.name == tmp.Gun.name)
@@ -132,10 +136,11 @@ public class ShootingManager : MonoBehaviour
     void GetGun(GameObject other)
     {
         Takeable tmp = other.GetComponent<Takeable>();
-        if (tmp.PrimaryOrSecondary) primaryGuns.Add(tmp.Gun.GetComponent<Gun>());
-        if (!tmp.PrimaryOrSecondary) secondaryGuns.Add(tmp.Gun.GetComponent<Gun>());
-        Transform gunParent = primaryGuns.Count > 0 ? primaryGuns[0].transform : secondaryGuns[0].transform;
-        Instantiate(tmp.Gun, gunParent);
+
+        GameObject gun = Instantiate(tmp.Gun, inventary.transform);
+
+        if (tmp.PrimaryOrSecondary) primaryGuns.Add(gun.GetComponent<Gun>());
+        if (!tmp.PrimaryOrSecondary) secondaryGuns.Add(gun.GetComponent<Gun>());
         other.SetActive(false);
     }
 

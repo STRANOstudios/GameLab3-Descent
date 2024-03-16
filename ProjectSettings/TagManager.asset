@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - BulletTest
   - BulletMagazine
+  - Gun
   layers:
   - Default
   - TransparentFX
