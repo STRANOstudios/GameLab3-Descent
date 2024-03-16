@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 337478826}
   - component: {fileID: 337478827}
   - component: {fileID: 337478828}
+  - component: {fileID: 337478829}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -810,7 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8db5baab1e75cf43835044a5c0f2dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  language: {fileID: 0}
+  inputHandler: {fileID: 0}
 --- !u!114 &337478827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +853,21 @@ MonoBehaviour:
   rearView: Rear View
   list1: Primary List
   list2: Secondary List
+  pause: Pause
+--- !u!114 &337478829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337478823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e8153ee7e269348a01bf4787763605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactor: {fileID: 0}
+  Hostages: []
 --- !u!1 &373846948
 GameObject:
   m_ObjectHideFlags: 19
@@ -3590,6 +3606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 3705684412800202086, guid: 680f0d76947a6444ab62d02472dd82cf, type: 3}
   bulletMagazine: 50
+  primaryOrSecondary: 1
 --- !u!135 &1613582397
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3605,7 +3622,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

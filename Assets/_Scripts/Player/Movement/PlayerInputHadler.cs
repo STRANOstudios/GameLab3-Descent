@@ -23,6 +23,7 @@ public class PlayerInputHadler : MonoBehaviour
     [SerializeField] private string rearView = "Rear View";
     [SerializeField] private string list1 = "Primary List";
     [SerializeField] private string list2 = "Secondary List";
+    [SerializeField] private string pause = "Pause";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -44,6 +45,8 @@ public class PlayerInputHadler : MonoBehaviour
 
     private InputAction rearViewAction;
 
+    private InputAction pauseAction;
+
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public float FlyValue { get; private set; }
@@ -57,6 +60,7 @@ public class PlayerInputHadler : MonoBehaviour
     public bool flareTrigger { get; private set; }
     public bool mapTrigger { get; private set; }
     public bool rearViewTrigger { get; private set; }
+    public bool pauseTrigger { get; private set; }
 
     public static PlayerInputHadler Instance { get; private set; }
 
@@ -92,6 +96,8 @@ public class PlayerInputHadler : MonoBehaviour
 
         mapAction = playerControls.FindActionMap(actionMapName).FindAction(map);
         rearViewAction = playerControls.FindActionMap(actionMapName).FindAction(rearView);
+
+        pauseAction = playerControls.FindActionMap(actionMapName).FindAction(pause);
 
         RegisterInputActions();
 
@@ -146,6 +152,9 @@ public class PlayerInputHadler : MonoBehaviour
 
         rearViewAction.performed += context => rearViewTrigger = true;
         rearViewAction.canceled += context => rearViewTrigger = false;
+
+        pauseAction.performed += context => pauseTrigger = true;
+        pauseAction.canceled += context => pauseTrigger = false;
     }
 
     private void OnEnable()
@@ -163,6 +172,7 @@ public class PlayerInputHadler : MonoBehaviour
         flareAction.Enable();
         mapAction.Enable();
         rearViewAction.Enable();
+        pauseAction.Enable();
 
         InputSystem.onDeviceChange += OnDeviceChange;
     }
@@ -182,6 +192,7 @@ public class PlayerInputHadler : MonoBehaviour
         flareAction.Disable();
         mapAction.Disable();
         rearViewAction.Disable();
+        pauseAction.Disable();
 
         InputSystem.onDeviceChange -= OnDeviceChange;
     }

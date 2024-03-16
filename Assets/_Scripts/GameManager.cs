@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] Language language;
+    [SerializeField] PlayerInputHadler inputHandler;
 
     private void Awake()
     {
@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(transform.root.gameObject);
 
         #endregion
+
+        inputHandler = PlayerInputHadler.Instance;
     }
 
     private void OnEnable()
@@ -40,4 +42,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0); //1
 #endif
     }
+
+    public PlayerInputHadler GetInputHandler => inputHandler;
 }
