@@ -124,7 +124,7 @@ public class ShootingManager : MonoBehaviour
 
         foreach (Gun gun in tmp.PrimaryOrSecondary ? primaryGuns : secondaryGuns)
         {
-            if (gun.name == tmp.Gun.name)
+            if (gun.name == tmp.Gun.name + "(Clone)")
             {
                 gun.BulletCharging = tmp.BulletMagazine;
                 break;
