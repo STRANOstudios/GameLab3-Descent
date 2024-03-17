@@ -21,6 +21,9 @@ public class PlayerInputHadler : MonoBehaviour
     [SerializeField] private string flare = "Flare";
     [SerializeField] private string map = "Map";
     [SerializeField] private string rearView = "Rear View";
+    [SerializeField] private string list1 = "Primary List";
+    [SerializeField] private string list2 = "Secondary List";
+    [SerializeField] private string pause = "Pause";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -32,12 +35,17 @@ public class PlayerInputHadler : MonoBehaviour
     private InputAction fire1Action;
     private InputAction fire2Action;
 
+    private InputAction list1Action;
+    private InputAction list2Action;
+
     private InputAction bombAction;
     private InputAction flareAction;
 
     private InputAction mapAction;
 
     private InputAction rearViewAction;
+
+    private InputAction pauseAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
@@ -46,10 +54,13 @@ public class PlayerInputHadler : MonoBehaviour
     public float bankValue { get; private set; }
     public bool fire1Trigger { get; private set; }
     public bool fire2Trigger { get; private set; }
+    public float list1Value { get; private set; }
+    public float list2Value { get; private set; }
     public bool bombTrigger { get; private set; }
     public bool flareTrigger { get; private set; }
     public bool mapTrigger { get; private set; }
     public bool rearViewTrigger { get; private set; }
+    public bool pauseTrigger { get; private set; }
 
     public static PlayerInputHadler Instance { get; private set; }
 
@@ -77,11 +88,16 @@ public class PlayerInputHadler : MonoBehaviour
         fire1Action = playerControls.FindActionMap(actionMapName).FindAction(fire1);
         fire2Action = playerControls.FindActionMap(actionMapName).FindAction(fire2);
 
+        list1Action = playerControls.FindActionMap(actionMapName).FindAction(list1);
+        list2Action = playerControls.FindActionMap(actionMapName).FindAction(list2);
+
         bombAction = playerControls.FindActionMap(actionMapName).FindAction(bomb);
         flareAction = playerControls.FindActionMap(actionMapName).FindAction(flare);
 
         mapAction = playerControls.FindActionMap(actionMapName).FindAction(map);
         rearViewAction = playerControls.FindActionMap(actionMapName).FindAction(rearView);
+
+        pauseAction = playerControls.FindActionMap(actionMapName).FindAction(pause);
 
         RegisterInputActions();
 
@@ -113,6 +129,12 @@ public class PlayerInputHadler : MonoBehaviour
         bankAction.performed += context => bankValue = context.ReadValue<float>();
         bankAction.canceled += context => bankValue = 0f;
 
+        list1Action.performed += context => list1Value = context.ReadValue<float>();
+        list1Action.canceled += context => list1Value = 0f;
+
+        list2Action.performed += context => list2Value = context.ReadValue<float>();
+        list2Action.canceled += context => list2Value = 0f;
+
         fire1Action.performed += context => fire1Trigger = true;
         fire1Action.canceled += context => fire1Trigger = false;
 
@@ -130,6 +152,9 @@ public class PlayerInputHadler : MonoBehaviour
 
         rearViewAction.performed += context => rearViewTrigger = true;
         rearViewAction.canceled += context => rearViewTrigger = false;
+
+        pauseAction.performed += context => pauseTrigger = true;
+        pauseAction.canceled += context => pauseTrigger = false;
     }
 
     private void OnEnable()
@@ -141,10 +166,13 @@ public class PlayerInputHadler : MonoBehaviour
         bankAction.Enable();
         fire1Action.Enable();
         fire2Action.Enable();
+        list1Action.Enable();
+        list2Action.Enable();
         bombAction.Enable();
         flareAction.Enable();
         mapAction.Enable();
         rearViewAction.Enable();
+        pauseAction.Enable();
 
         InputSystem.onDeviceChange += OnDeviceChange;
     }
@@ -158,10 +186,13 @@ public class PlayerInputHadler : MonoBehaviour
         bankAction.Disable();
         fire1Action.Disable();
         fire2Action.Disable();
+        list1Action.Disable();
+        list2Action.Disable();
         bombAction.Disable();
         flareAction.Disable();
         mapAction.Disable();
         rearViewAction.Disable();
+        pauseAction.Disable();
 
         InputSystem.onDeviceChange -= OnDeviceChange;
     }

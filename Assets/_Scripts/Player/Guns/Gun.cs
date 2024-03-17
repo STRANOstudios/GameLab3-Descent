@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -6,16 +8,15 @@ public class Gun : MonoBehaviour
     [Tooltip("Prefab to shoot")]
     [SerializeField] Projectile projectilePrefab;
 
-    [Tooltip("Projectile force")]
+    [Tooltip("Projectile force, if it be 0, it will be circlecast")]
     [SerializeField] float muzzleVelocity = 700f;
 
     [Tooltip("End point of gun where shots appear")]
-    [SerializeField] Transform muzzlePosition;
+    [SerializeField] List<Transform> muzzlePosition;
 
     [Tooltip("Time between shots / smaller = higher rate of fire")]
     [SerializeField] float cooldownWindow = 0.1f;
 
-    private PlayerInputHadler inputHandler;
     private IObjectPool<Projectile> objectPool;
 
     [SerializeField] bool collectionCheck = true;
@@ -23,13 +24,14 @@ public class Gun : MonoBehaviour
     [SerializeField] int defaultCapacity = 20;
     [SerializeField] int maxSize = 100;
 
+    [SerializeField] int bulletMagazine = 0;
+
     private float nextTimeToShoot;
 
     private void Awake()
     {
-        inputHandler = PlayerInputHadler.Instance;
-
-        objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
+        if (muzzleVelocity != 0)
+            objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -54,29 +56,67 @@ public class Gun : MonoBehaviour
         return projectileInstance;
     }
 
-    private void FixedUpdate()
+    public void shoot()
     {
-        Primary();
-        Secondary();
-    }
-
-    void Primary()
-    {
-        if (inputHandler.fire1Trigger && Time.time > nextTimeToShoot && objectPool != null)
+        if (muzzleVelocity != 0)
         {
-            Projectile bulletObejct = objectPool.Get();
+            if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
+            {
+                Projectile bulletObject = objectPool.Get();
 
-            if (bulletObejct == null) return;
+                if (bulletObject == null) return;
 
-            bulletObejct.GetComponent<Rigidbody>().AddForce(bulletObejct.transform.forward * muzzleVelocity, ForceMode.Acceleration);
-            bulletObejct.Deactivate();
+                bulletObject.transform.position = muzzlePosition[0].transform.position;
 
-            nextTimeToShoot = Time.time + cooldownWindow;
+                Vector3 cameraForward = Camera.main.transform.forward;
+                bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
+
+                bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
+                bulletObject.Deactivate();
+
+                nextTimeToShoot = Time.time + cooldownWindow;
+
+                bulletMagazine--;
+            }
+        }
+        else
+        {
+            if (Time.time > nextTimeToShoot && bulletMagazine > 0)
+            {
+                StartCoroutine(ShootSphereCast());
+            }
         }
     }
 
-    void Secondary()
+    IEnumerator ShootSphereCast()
     {
-        if (inputHandler.fire2Trigger) { }
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward;
+        float radius = 0.5f;
+        RaycastHit hit;
+
+        if (Physics.SphereCast(origin, radius, direction, out hit, muzzleVelocity))
+        {
+            int hitLayer = hit.transform.gameObject.layer; 
+
+            switch (hitLayer)
+            {
+                case 0:
+                    break;
+                case 12:
+                    break;
+                default:
+                    StopCoroutine(ShootSphereCast());
+                    break;
+            }
+        }
+
+        yield return new WaitForSeconds(projectilePrefab.GetRange);
+    }
+
+    public int BulletCharging
+    {
+        get { return bulletMagazine; }
+        set { bulletMagazine += value; }
     }
 }
