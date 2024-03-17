@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Scripting.APIUpdating;
 
-public class Enemy : MonoBehaviour
+public class qwq : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
 
