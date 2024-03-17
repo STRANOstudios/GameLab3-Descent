@@ -4,7 +4,12 @@ using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float timeoutDelay = 3f;
+    [Header("Projectile Settings")]
+    [Tooltip("The amount of damage dealt to the target.")]
+    [SerializeField] float damage;
+
+    [Tooltip("The range of the projectile.")]
+    [SerializeField] float range;
 
     private IObjectPool<Projectile> objectPool;
 
@@ -12,17 +17,34 @@ public class Projectile : MonoBehaviour
 
     public void Deactivate()
     {
-        StartCoroutine(DeactivateRoutine(timeoutDelay));
+        StartCoroutine(DeactivateRoutine(range));
     }
 
     IEnumerator DeactivateRoutine(float delay)
     {
         yield return new WaitForSeconds(delay);
 
+        Reset();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        StopAllCoroutines();
+        Reset();
+
+        Debug.Log(collision.gameObject.name + " has been hit.");
+    }
+
+    private void Reset()
+    {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
         objectPool.Release(this);
     }
+
+    public float GetDamage => damage;
+
+    public float GetRange => range;
 }

@@ -22,13 +22,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotationSmoothFactor = 0.1f;
 
     [Header("VFX")]
+    [SerializeField] Transform mainCamera;
+    [Space]
     [SerializeField] float oscillationAmount = 1f;
     [SerializeField] float oscillationSpeed = 1f;
     [SerializeField] float floatingOscillationAmount = 0.5f;
     [SerializeField] float floatingOscillationSpeed = 1f;
 
     private CharacterController characterController;
-    private Camera mainCamera;
     private PlayerInputHadler inputHandler;
     private Vector3 currentMovement;
     private float verticalRotation;
@@ -42,7 +43,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        mainCamera = Camera.main;
         inputHandler = PlayerInputHadler.Instance;
     }
 
@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
         HandlerMovement();
         HandlerRotation();
         HandlerBanking();
+
+        RearView();
 
         ApplyFloatingOscillation();
     }
@@ -89,10 +91,15 @@ public class PlayerController : MonoBehaviour
         float speed = Speed * speedMultiplier;
 
         Vector2 moveInput = inputHandler.MoveInput;
-        Vector3 inputDirection = new Vector3(moveInput.x, inputHandler.FlyValue, moveInput.y).normalized;
+        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized; 
 
-        Vector3 worldDirection = transform.TransformDirection(inputDirection);
-        Vector3 targetMovement = worldDirection * speed;
+        Vector3 cameraForward = mainCamera.forward;
+        Vector3 cameraRight = mainCamera.right;
+        Vector3 horizontalMovement = (cameraForward * inputDirection.z + cameraRight * inputDirection.x) * speed;
+
+        Vector3 flyMovement = Vector3.up * inputHandler.FlyValue * speed;
+
+        Vector3 targetMovement = horizontalMovement + flyMovement;
 
         currentMovement = Vector3.Lerp(currentMovement, targetMovement, movementSmoothFactor * Time.deltaTime);
         characterController.Move(currentMovement * Time.deltaTime);
@@ -108,21 +115,29 @@ public class PlayerController : MonoBehaviour
         //view vfx
         verticalRotation -= mouseYInput * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownEange, upDownEange);
-        mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        mainCamera.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
         float horizontalRotation = Mathf.Abs(inputHandler.LookInput.x);
         float targetOscillation = Mathf.Sin(Time.time * oscillationSpeed) * oscillationAmount * horizontalRotation;
 
         currentOscillation = Mathf.SmoothDamp(currentOscillation, targetOscillation, ref currentOscillationVelocity, acceleration);
 
-        mainCamera.transform.Rotate(0, 0, currentOscillation);
+        mainCamera.Rotate(0, 0, currentOscillation);
     }
 
+    void RearView()
+    {
+        if (inputHandler.rearViewTrigger)
+        {
+            mainCamera.rotation = Quaternion.Euler(-mainCamera.rotation.eulerAngles.x, (mainCamera.rotation.eulerAngles.y + 180f + 360f) % 360f, mainCamera.rotation.eulerAngles.z);
+        }
+    }
+
+    //vfx
     void ApplyFloatingOscillation()
     {
-        //vfx
-        Transform mainCameraTransform = mainCamera.transform;
         float floatingOscillation = Mathf.Sin(Time.time * floatingOscillationSpeed) * floatingOscillationAmount;
-        mainCameraTransform.localPosition = new Vector3(mainCameraTransform.localPosition.x, floatingOscillation, mainCameraTransform.localPosition.z);
+
+        mainCamera.localPosition = new Vector3(mainCamera.localPosition.x, floatingOscillation, mainCamera.localPosition.z);
     }
 }
