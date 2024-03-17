@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] Transform mainCamera;
+    [SerializeField] GameObject UI_FrontView;
+    [SerializeField] GameObject UI_RearView;
     [Space]
     [SerializeField] float oscillationAmount = 1f;
     [SerializeField] float oscillationSpeed = 1f;
@@ -130,6 +132,16 @@ public class PlayerController : MonoBehaviour
         if (inputHandler.rearViewTrigger)
         {
             mainCamera.rotation = Quaternion.Euler(-mainCamera.rotation.eulerAngles.x, (mainCamera.rotation.eulerAngles.y + 180f + 360f) % 360f, mainCamera.rotation.eulerAngles.z);
+
+            //UI
+            UI_FrontView.SetActive(false);
+            UI_RearView.SetActive(true);
+        }
+        else
+        {
+            //UI
+            UI_FrontView.SetActive(true);
+            UI_RearView.SetActive(false);
         }
     }
 

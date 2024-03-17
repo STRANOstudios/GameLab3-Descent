@@ -40,8 +40,7 @@ public class ShootingManager : MonoBehaviour
         if (primaryGuns.Count <= 0) return;
         if (inputHandler.fire1Trigger)
         {
-            primaryGuns[primaryGunEnable].shoot();
-            Debug.Log("shoot primary");
+            primaryGuns[primaryGunEnable].Shoot();
         }
     }
 
@@ -50,8 +49,7 @@ public class ShootingManager : MonoBehaviour
         if (secondaryGuns.Count <= 0) return;
         if (inputHandler.fire2Trigger)
         {
-            secondaryGuns[secondaryGunEnable].shoot();
-            Debug.Log("shoot secondary");
+            secondaryGuns[secondaryGunEnable].Shoot();
         }
     }
 
@@ -60,8 +58,7 @@ public class ShootingManager : MonoBehaviour
         if (bomb == null) return;
         if (inputHandler.bombTrigger)
         {
-            bomb.shoot();
-            Debug.Log("shoot bomb");
+            bomb.Shoot();
         }
     }
 
@@ -70,8 +67,7 @@ public class ShootingManager : MonoBehaviour
         if (flare == null) return;
         if (inputHandler.flareTrigger)
         {
-            flare.shoot();
-            Debug.Log("shoot flare");
+            flare.Shoot();
         }
     }
 
@@ -124,7 +120,7 @@ public class ShootingManager : MonoBehaviour
 
         foreach (Gun gun in tmp.PrimaryOrSecondary ? primaryGuns : secondaryGuns)
         {
-            if (gun.name == tmp.Gun.name + "(Clone)")
+            if (gun.name == tmp.Gun.name + "(Clone)") //edit
             {
                 gun.BulletCharging = tmp.BulletMagazine;
                 break;

@@ -8,8 +8,10 @@ public class Gun : MonoBehaviour
     [Tooltip("Prefab to shoot")]
     [SerializeField] Projectile projectilePrefab;
 
-    [Tooltip("Projectile force, if it be 0, it will be circlecast")]
+    [Tooltip("Projectile force")]
     [SerializeField] float muzzleVelocity = 700f;
+    [Tooltip("Use spherecast to shoot")]
+    [SerializeField] bool spherecast = false;
 
     [Tooltip("End point of gun where shots appear")]
     [SerializeField] List<Transform> muzzlePosition;
@@ -28,9 +30,12 @@ public class Gun : MonoBehaviour
 
     private float nextTimeToShoot;
 
+    public delegate void Laser(int value);
+    public static event Laser shoot = null;
+
     private void Awake()
     {
-        if (muzzleVelocity != 0)
+        if (spherecast)
             objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
     }
 
@@ -56,9 +61,9 @@ public class Gun : MonoBehaviour
         return projectileInstance;
     }
 
-    public void shoot()
+    public void Shoot()
     {
-        if (muzzleVelocity != 0)
+        if (spherecast)
         {
             if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
             {
@@ -86,6 +91,8 @@ public class Gun : MonoBehaviour
                 StartCoroutine(ShootSphereCast());
             }
         }
+
+        if (this.name == "Laser(Clone)") shoot?.Invoke(bulletMagazine);
     }
 
     IEnumerator ShootSphereCast()
