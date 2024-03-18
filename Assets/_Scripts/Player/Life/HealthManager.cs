@@ -4,6 +4,10 @@ public class HealthManager : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField, Min(0.0f)] float health;
+    [SerializeField, Min(0.0f)] float maxHealth = 200f;
+
+    [Header("Boosts")]
+    [SerializeField, Min(0.0f)] float boostshield = 50f;
 
     public delegate void Healt(int value);
     public static event Healt healt = null;
@@ -14,6 +18,20 @@ public class HealthManager : MonoBehaviour
     private void Start()
     {
         healt?.Invoke((int)health);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.gameObject.layer)
+        {
+            case 11:
+                health=Mathf.Clamp(health + boostshield, 0.0f, maxHealth);
+                healt?.Invoke((int)health);
+                other.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
     }
 
     public void Damage(float damage)

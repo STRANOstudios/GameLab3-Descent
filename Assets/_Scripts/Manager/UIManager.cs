@@ -59,6 +59,7 @@ public class UIManager : MonoBehaviour
         LevelManager.pause += Pause;
         PlayerController.map += MiniMap;
         ShootingManager.Gun += GunsMonitors;
+        HealthManager.healt += Shield;
     }
     private void OnDisable()
     {
@@ -68,6 +69,7 @@ public class UIManager : MonoBehaviour
         LevelManager.pause -= Pause;
         PlayerController.map -= MiniMap;
         ShootingManager.Gun -= GunsMonitors;
+        HealthManager.healt -= Shield;
     }
 
     private void Energy(int value)
