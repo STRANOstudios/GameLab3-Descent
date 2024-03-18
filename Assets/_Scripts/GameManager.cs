@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        HealthManager.Death += ReturnToMenu;
+        HealthManager.dead += ReturnToMenu;
     }
 
     private void OnDisable()
     {
-        HealthManager.Death -= ReturnToMenu;
+        HealthManager.dead -= ReturnToMenu;
     }
 
     public void ReturnToMenu()
