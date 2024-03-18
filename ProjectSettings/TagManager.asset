@@ -16,12 +16,12 @@ TagManager:
   - UI
   - Player
   - Obstacle
-  - 
-  - 
-  - 
+  - Enemy
+  - Wall
+  - Gate
+  - PowerUp
+  - Takeable
   - Bullet
-  - 
-  - 
   - 
   - 
   - 
