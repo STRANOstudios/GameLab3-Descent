@@ -1,6 +1,9 @@
+using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static LevelManager;
 
 public class UIManager : MonoBehaviour
 {
@@ -40,15 +43,26 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text gunNameRigth;
     [SerializeField] TMP_Text gunMagazineRigth;
 
+    [Header("Center Monitor Elements")]
+    [SerializeField] GameObject monitor;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject miniMap;
+
     private void OnEnable()
     {
         Gun.shoot += Energy;
         HealthManager.healt += Shield;
+
+        LevelManager.pause += Pause;
+        PlayerController.map += MiniMap;
     }
     private void OnDisable()
     {
         Gun.shoot -= Energy;
         HealthManager.healt -= Shield;
+
+        LevelManager.pause -= Pause;
+        PlayerController.map -= MiniMap;
     }
 
     private void Energy(int value)
@@ -63,5 +77,24 @@ public class UIManager : MonoBehaviour
     {
         string formattedValue = value.ToString("D3");
         shield.text = formattedValue;
+    }
+
+    private void Pause(bool value)
+    {
+        pauseMenu.SetActive(value);
+
+        MonitorAnimation(value);
+    }
+
+    private void MiniMap(bool value)
+    {
+        miniMap.SetActive(value);
+
+        MonitorAnimation(value);
+    }
+
+    private void MonitorAnimation(bool value)
+    {
+        monitor.SetActive(value);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -39,8 +40,13 @@ public class PlayerController : MonoBehaviour
     private float currentOscillation = 0f;
     private float currentOscillationVelocity = 0f;
     private bool bankIsActive = true;
+    private bool mapIsActive = true;
+    private bool mapOpened = false;
     private float originalRotationZ = 0f;
     private float rotationAmount = -300f;
+
+    public delegate void Map(bool value);
+    public static event Map map = null;
 
     private void Awake()
     {
@@ -55,6 +61,7 @@ public class PlayerController : MonoBehaviour
         HandlerBanking();
 
         RearView();
+        MiniMap();
 
         ApplyFloatingOscillation();
     }
@@ -93,7 +100,7 @@ public class PlayerController : MonoBehaviour
         float speed = Speed * speedMultiplier;
 
         Vector2 moveInput = inputHandler.MoveInput;
-        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized; 
+        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
         Vector3 cameraForward = mainCamera.forward;
         Vector3 cameraRight = mainCamera.right;
@@ -151,5 +158,22 @@ public class PlayerController : MonoBehaviour
         float floatingOscillation = Mathf.Sin(Time.time * floatingOscillationSpeed) * floatingOscillationAmount;
 
         mainCamera.localPosition = new Vector3(mainCamera.localPosition.x, floatingOscillation, mainCamera.localPosition.z);
+    }
+
+    void MiniMap()
+    {
+        if (inputHandler.mapTrigger && mapIsActive)
+        {
+            mapOpened = !mapOpened;
+            map?.Invoke(mapOpened);
+            StartCoroutine(DelayedMiniMap(0.3f));
+        }
+    }
+
+    private IEnumerator DelayedMiniMap(float value = 1f)
+    {
+        mapIsActive = false;
+        yield return new WaitForSeconds(value);
+        mapIsActive = true;
     }
 }
