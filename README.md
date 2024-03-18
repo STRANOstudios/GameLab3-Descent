@@ -57,7 +57,7 @@ These steps should allow you to copy a Unity project from GitHub, set it up in U
 ## Contributors classmates
 
 ### Designers:
-- Battaglia
+- Savi
 - D'Amato
 - Governale
 - Monfredoni
