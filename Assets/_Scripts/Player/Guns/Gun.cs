@@ -76,6 +76,8 @@ public class Gun : MonoBehaviour
         {
             if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
             {
+                //multiple nuzzles to implemented in future
+
                 Projectile bulletObject = objectPool.Get();
 
                 if (bulletObject == null) return;

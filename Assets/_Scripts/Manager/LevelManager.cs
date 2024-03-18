@@ -78,6 +78,7 @@ public class LevelManager : MonoBehaviour
     private void Resume()
     {
         isGamePaused = false;
+        pause?.Invoke(isGamePaused);
         Time.timeScale = 1;
     }
 

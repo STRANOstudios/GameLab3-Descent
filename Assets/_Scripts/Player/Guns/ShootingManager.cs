@@ -144,6 +144,8 @@ public class ShootingManager : MonoBehaviour
     {
         Takeable tmp = other.GetComponent<Takeable>();
 
+        bool check = false;
+
         if (tmp.PrimaryOrSecondary ? primaryGuns.Count <= 0 : secondaryGuns.Count <= 0) return;
 
         foreach (Gun gun in tmp.PrimaryOrSecondary ? primaryGuns : secondaryGuns)
@@ -151,10 +153,11 @@ public class ShootingManager : MonoBehaviour
             if (gun.name == tmp.Gun.name)
             {
                 gun.BulletCharging = tmp.BulletMagazine;
+                check = true;
                 break;
             }
         }
-        other.SetActive(false);
+        if (check) other.SetActive(false);
     }
 
     void GetGun(GameObject other)

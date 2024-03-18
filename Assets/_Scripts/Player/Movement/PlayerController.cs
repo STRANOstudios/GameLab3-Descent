@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private float originalRotationZ = 0f;
     private float rotationAmount = -300f;
 
+    private bool pause = false;
+
     public delegate void Map(bool value);
     public static event Map map = null;
 
@@ -57,8 +59,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandlerMovement();
-        HandlerRotation();
-        HandlerBanking();
+        if (!pause) HandlerRotation();
+        if (!pause) HandlerBanking();
 
         RearView();
         MiniMap();
@@ -66,21 +68,38 @@ public class PlayerController : MonoBehaviour
         ApplyFloatingOscillation();
     }
 
+    private void OnEnable()
+    {
+        LevelManager.pause += Pause;
+    }
+
+    private void OnDisable()
+    {
+        LevelManager.pause -= Pause;
+    }
+
+    private void Pause(bool value)
+    {
+        pause = value;
+    }
+
     private void HandlerBanking()
     {
         if (inputHandler.bankIsActiveTrigger && bankIsActive)
         {
             IsBankable = !IsBankable;
-            StartCoroutine(DelayedBankingToggle(0.1f));
+            StartCoroutine(DelayedBankingToggle(0.3f));
         }
-        if (!IsBankable) return;
 
         float targetBankAngle = transform.eulerAngles.z - inputHandler.bankValue * rotationAmount;
+
+        if (!IsBankable) targetBankAngle = transform.eulerAngles.z;
+
         targetBankAngle = targetBankAngle < 0 ? 360 + targetBankAngle : targetBankAngle;
 
         Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, targetBankAngle);
 
-        if (inputHandler.bankValue == 0f) targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, originalRotationZ);
+        if (inputHandler.bankValue == 0f || !IsBankable) targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, originalRotationZ);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSmoothFactor);
 
