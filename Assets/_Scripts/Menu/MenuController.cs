@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MenuController : MonoBehaviour
 {
@@ -36,9 +37,8 @@ public class MenuController : MonoBehaviour
     {
         //resolution dropdown values settings
         resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
+        List<string> options = new();
 
         int currentResolutionIndex = 0;
 
@@ -53,6 +53,7 @@ public class MenuController : MonoBehaviour
             }
         }
 
+        resolutionDropdown.ClearOptions();
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
@@ -64,16 +65,20 @@ public class MenuController : MonoBehaviour
         #endregion
 
         #region Graphics Settings addlisteners
-        brightnessSlider.onValueChanged.AddListener(delegate {
+        brightnessSlider.onValueChanged.AddListener(delegate
+        {
             SetBrightness(brightnessSlider.value);
         });
-        resolutionDropdown.onValueChanged.AddListener(delegate {
+        resolutionDropdown.onValueChanged.AddListener(delegate
+        {
             SetResolution(resolutionDropdown.value);
         });
-        fullScreenToggle.onValueChanged.AddListener(delegate {
+        fullScreenToggle.onValueChanged.AddListener(delegate
+        {
             SetFullScreen(fullScreenToggle.isOn);
         });
-        qualityDropdown.onValueChanged.AddListener(delegate {
+        qualityDropdown.onValueChanged.AddListener(delegate
+        {
             SetQuality(qualityDropdown.value);
         });
         #endregion
@@ -88,16 +93,20 @@ public class MenuController : MonoBehaviour
         #endregion
 
         #region Graphics Settings removelisteners
-        brightnessSlider.onValueChanged.RemoveListener(delegate {
+        brightnessSlider.onValueChanged.RemoveListener(delegate
+        {
             SetBrightness(brightnessSlider.value);
         });
-        resolutionDropdown.onValueChanged.RemoveListener(delegate {
+        resolutionDropdown.onValueChanged.RemoveListener(delegate
+        {
             SetResolution(resolutionDropdown.value);
         });
-        fullScreenToggle.onValueChanged.RemoveListener(delegate {
+        fullScreenToggle.onValueChanged.RemoveListener(delegate
+        {
             SetFullScreen(fullScreenToggle.isOn);
         });
-        qualityDropdown.onValueChanged.RemoveListener(delegate {
+        qualityDropdown.onValueChanged.RemoveListener(delegate
+        {
             SetQuality(qualityDropdown.value);
         });
         #endregion
