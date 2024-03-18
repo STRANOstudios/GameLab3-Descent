@@ -56,12 +56,12 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //to be implemented delegate from reactor door
+        UIManager.resume += Resume;
     }
 
     private void OnDisable()
     {
-        //to be implemented delegate from reactor door
+        UIManager.resume -= Resume;
     }
 
     private void PauseState()
@@ -73,6 +73,12 @@ public class LevelManager : MonoBehaviour
             pause?.Invoke(isGamePaused);
             Time.timeScale = isGamePaused ? 0 : 1;
         }
+    }
+
+    private void Resume()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1;
     }
 
     public void OpenReactor()

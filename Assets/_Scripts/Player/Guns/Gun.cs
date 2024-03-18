@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
 {
     [Tooltip("Prefab to shoot")]
     [SerializeField] Projectile projectilePrefab;
+    [SerializeField] Sprite sprite;
 
     [Tooltip("Projectile force")]
     [SerializeField] float muzzleVelocity = 700f;
@@ -41,7 +42,10 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+        if (this.name == "Laser")
+        {
+            shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+        }
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -86,7 +90,7 @@ public class Gun : MonoBehaviour
 
                 nextTimeToShoot = Time.time + cooldownWindow;
 
-                if (this.name == "Laser(Clone)")
+                if (this.name == "Laser")
                 {
                     bulletMagazine -= 0.25f;
                     shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
@@ -140,4 +144,8 @@ public class Gun : MonoBehaviour
         get { return (int)bulletMagazine; }
         set { bulletMagazine += value; }
     }
+
+    public Sprite GetSprite => sprite;
+
+    public int MagazineBullet => (int)bulletMagazine;
 }

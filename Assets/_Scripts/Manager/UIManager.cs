@@ -48,6 +48,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject miniMap;
 
+    public delegate void Resum();
+    public static event Resum resume = null;
+
     private void OnEnable()
     {
         Gun.shoot += Energy;
@@ -55,6 +58,7 @@ public class UIManager : MonoBehaviour
 
         LevelManager.pause += Pause;
         PlayerController.map += MiniMap;
+        ShootingManager.Gun += GunsMonitors;
     }
     private void OnDisable()
     {
@@ -63,6 +67,7 @@ public class UIManager : MonoBehaviour
 
         LevelManager.pause -= Pause;
         PlayerController.map -= MiniMap;
+        ShootingManager.Gun -= GunsMonitors;
     }
 
     private void Energy(int value)
@@ -96,5 +101,28 @@ public class UIManager : MonoBehaviour
     private void MonitorAnimation(bool value)
     {
         monitor.SetActive(value);
+    }
+
+    private void GunsMonitors(bool isPrimary, Sprite sprite, string name, int bulletMagazine)
+    {
+        Image image = isPrimary ? gunBannerLeft : gunBannerRigth;
+        image.gameObject.SetActive(true);
+        image.sprite = sprite;
+        image.preserveAspect = true;
+
+        TMP_Text text = isPrimary ? gunNameLeft : gunNameRigth;
+        text.gameObject.SetActive(true);
+        text.text = name;
+
+        TMP_Text magazine = isPrimary ? gunMagazineLeft : gunMagazineRigth;
+        magazine.gameObject.SetActive(true);
+        magazine.text = bulletMagazine.ToString("D3");
+
+        if (name == "Laser") gunMagazineLeft.gameObject.SetActive(false);
+    }
+
+    public void Resume()
+    {
+        resume?.Invoke();
     }
 }
