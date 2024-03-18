@@ -11,6 +11,11 @@ public class HealthManager : MonoBehaviour
     public delegate void Death();
     public static event Death dead = null;
 
+    private void Start()
+    {
+        healt?.Invoke((int)health);
+    }
+
     public void Damage(float damage)
     {
         health -= damage;

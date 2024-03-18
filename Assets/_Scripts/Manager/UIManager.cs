@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,13 +53,15 @@ public class UIManager : MonoBehaviour
 
     private void Energy(int value)
     {
-        energy.text = value.ToString();
+        string formattedValue = value.ToString("D3");
+        energy.text = formattedValue;
         energySliderLeft.value = value;
         energySliderRight.value = value;
     }
 
     private void Shield(int value)
     {
-        shield.text = value.ToString();
+        string formattedValue = value.ToString("D3");
+        shield.text = formattedValue;
     }
 }

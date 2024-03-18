@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     [SerializeField] int defaultCapacity = 20;
     [SerializeField] int maxSize = 100;
 
-    [SerializeField] int bulletMagazine = 0;
+    [SerializeField] float bulletMagazine = 0;
 
     private float nextTimeToShoot;
 
@@ -35,8 +35,13 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
-        if (spherecast)
+        if (!spherecast)
             objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
+    }
+
+    private void Start()
+    {
+        shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -63,7 +68,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (spherecast)
+        if (!spherecast)
         {
             if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
             {
@@ -81,18 +86,27 @@ public class Gun : MonoBehaviour
 
                 nextTimeToShoot = Time.time + cooldownWindow;
 
-                bulletMagazine--;
+                if (this.name == "Laser(Clone)")
+                {
+                    bulletMagazine -= 0.25f;
+                    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+                }
+                else
+                {
+                    bulletMagazine--;
+                }
             }
         }
         else
         {
             if (Time.time > nextTimeToShoot && bulletMagazine > 0)
             {
+                nextTimeToShoot = Time.time + cooldownWindow;
+                bulletMagazine--;
+
                 StartCoroutine(ShootSphereCast());
             }
         }
-
-        if (this.name == "Laser(Clone)") shoot?.Invoke(bulletMagazine);
     }
 
     IEnumerator ShootSphereCast()
@@ -104,7 +118,7 @@ public class Gun : MonoBehaviour
 
         if (Physics.SphereCast(origin, radius, direction, out hit, muzzleVelocity))
         {
-            int hitLayer = hit.transform.gameObject.layer; 
+            int hitLayer = hit.transform.gameObject.layer;
 
             switch (hitLayer)
             {
@@ -123,7 +137,7 @@ public class Gun : MonoBehaviour
 
     public int BulletCharging
     {
-        get { return bulletMagazine; }
+        get { return (int)bulletMagazine; }
         set { bulletMagazine += value; }
     }
 }
