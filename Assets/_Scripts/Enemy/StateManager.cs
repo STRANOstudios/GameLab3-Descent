@@ -5,12 +5,9 @@ using UnityEngine;
 public class StateManager : HP
 {
     public EnemyBaseState currentState; //reference dello stato attivo nella state machine 
-    public PatrollingState patrollingState = new PatrollingState();
-    public ChasingState chasingState = new ChasingState();
-    public AttackingState attackingState = new AttackingState();
 
     [Header("Movement Settings")]
-    [SerializeField, Range(1, 20)] public float Speed;
+    [SerializeField, Range(1, 500)] public float speed;
 
     [SerializeField, Range(1, 20)] public float ChaseDistance;
     [SerializeField, Range(1, 20)] public float AttackDistance;
@@ -19,6 +16,9 @@ public class StateManager : HP
     [SerializeField, Range(1, 20)] public float AttackRate;
     [SerializeField] public Transform firePointSX;
     [SerializeField] public Transform firePointDX;
+    [SerializeField] public float fireRate;
+    [SerializeField] public float spawnTime;
+
 
 
     [Header("Waypoints")]
@@ -34,6 +34,11 @@ public class StateManager : HP
 
     [HideInInspector] public Vector3 dir;
 
+    [HideInInspector] public Projectile damageDealtToEnemy;
+
+    [HideInInspector] public Rigidbody rb;
+
+
     public void ChangeState(EnemyBaseState state)
     {
         currentState = state;
@@ -41,8 +46,12 @@ public class StateManager : HP
     }
     void Start()
     {
-        currentState = patrollingState; 
+        currentState = new PatrollingState(); 
         currentState.EnterState(this);
+        damageDealtToEnemy = FindAnyObjectByType<Projectile>();
+        rb = GetComponent<Rigidbody>();
+        
+       
     }
 
     void Update()
@@ -52,9 +61,11 @@ public class StateManager : HP
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 11)
+        if (collision.gameObject.layer == 13)
         {
-            myHP -= 1;
+            damageDealtToEnemy = collision.transform.GetComponent<Projectile>();
+
+            myHP -= damageDealtToEnemy.GetDamage;
             
             if (myHP <= 0)
             {
@@ -77,9 +88,5 @@ public class StateManager : HP
         Gizmos.DrawWireSphere(transform.position, AttackDistance);
 
         Gizmos.color = Color.blue;
-        //foreach (var direction in AvailableDirections)
-        //{
-        //    Gizmos.DrawLine(transform.position, transform.position + (Vector3)direction.normalized * ChaseDistance);
-        //}
     }
 }

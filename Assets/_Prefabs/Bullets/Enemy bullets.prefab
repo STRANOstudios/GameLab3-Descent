@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 831014507837788863}
   - component: {fileID: 1106940730494132288}
   - component: {fileID: 943752135946617191}
-  m_Layer: 11
+  - component: {fileID: 3097475276367053317}
+  m_Layer: 13
   m_Name: Enemy bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,9 +100,23 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3097475276367053317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8640978056799765439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d297cb58790f34e9c5892b55e10795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  damage: 1

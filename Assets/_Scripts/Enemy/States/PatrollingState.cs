@@ -20,7 +20,7 @@ public class PatrollingState : EnemyBaseState
 
         enemy.transform.LookAt(enemy.waypoints[currentWaypointIndex]);
 
-        enemy.transform.position +=(direction.normalized * enemy.Speed * Time.deltaTime);
+        enemy.rb.velocity = (direction.normalized * enemy.speed * Time.deltaTime);
 
 
         if (currentWaypointIndex == enemy.waypoints.Length - 1)
@@ -52,7 +52,7 @@ public class PatrollingState : EnemyBaseState
 
     public override void OnExit(StateManager enemy)
     {
-        enemy.ChangeState(enemy.chasingState);
+        enemy.ChangeState(new ChasingState());
     }
 }
 
