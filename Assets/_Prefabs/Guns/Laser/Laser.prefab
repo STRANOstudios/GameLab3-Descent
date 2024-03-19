@@ -47,7 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4123247207829198094, guid: fdb4ad737cfec614da1ba4fe5408efca,
     type: 3}
-  muzzleVelocity: 100
+  sprite: {fileID: 0}
+  muzzleVelocity: 700
+  spherecast: 0
   muzzlePosition:
   - {fileID: 5073640603056089124}
   cooldownWindow: 0.1

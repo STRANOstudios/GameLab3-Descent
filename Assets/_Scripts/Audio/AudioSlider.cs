@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace epoHless
+namespace Audio
 {
     [RequireComponent(typeof(Slider))]
     public class AudioSlider : MonoBehaviour

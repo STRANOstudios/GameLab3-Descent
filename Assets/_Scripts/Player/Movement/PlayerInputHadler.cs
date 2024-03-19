@@ -70,11 +70,11 @@ public class PlayerInputHadler : MonoBehaviour
 
         if (Instance != null)
         {
-            Destroy(transform.root.gameObject);
+            Destroy(gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(transform.root.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         #endregion
 
@@ -174,7 +174,7 @@ public class PlayerInputHadler : MonoBehaviour
         rearViewAction.Enable();
         pauseAction.Enable();
 
-        InputSystem.onDeviceChange += OnDeviceChange;
+        //InputSystem.onDeviceChange += OnDeviceChange;
     }
 
     private void OnDisable()
@@ -194,7 +194,7 @@ public class PlayerInputHadler : MonoBehaviour
         rearViewAction.Disable();
         pauseAction.Disable();
 
-        InputSystem.onDeviceChange -= OnDeviceChange;
+        //InputSystem.onDeviceChange -= OnDeviceChange;
     }
 
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
