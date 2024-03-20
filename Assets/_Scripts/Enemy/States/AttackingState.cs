@@ -7,6 +7,7 @@ public class AttackingState : EnemyBaseState
     public override void EnterState(StateManager enemy)
     {
         Debug.Log("entering attacking mode");
+        enemy.rb.velocity = Vector3.zero;
 
     }
 
@@ -17,18 +18,29 @@ public class AttackingState : EnemyBaseState
         if (distanceFromTarget > enemy.ChaseDistance)
         {
             enemy.ChangeState(new PatrollingState());
+            return;
         }
 
-        //andre qui!! :DD
+        enemy.spawnTime += Time.deltaTime;
+        if (enemy.spawnTime >= enemy.fireRate)
+        {
+            MonoBehaviour.Instantiate(enemy.bulletPrefab, enemy.firePointSX.position, enemy.transform.rotation);
+            MonoBehaviour.Instantiate(enemy.bulletPrefab, enemy.firePointDX.position, enemy.transform.rotation);
+            enemy.spawnTime = 0;
+        }
 
         if (distanceFromTarget > enemy.AttackDistance)
         {
             OnExit(enemy);
         }
+
+       
     }
 
     public override void OnExit(StateManager enemy)
-    {
-        enemy.ChangeState(enemy.chasingState);
+    { 
+        Debug.Log("sus");
+        enemy.ChangeState(new ChasingState());
+       
     }
 }
