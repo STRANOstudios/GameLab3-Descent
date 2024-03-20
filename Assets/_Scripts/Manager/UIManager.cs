@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -28,6 +29,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Slider energySliderRight;
 
     [Header("Shield Elements")]
+    [SerializeField] Image shieldBar;
+    [SerializeField] List<Sprite> shields = new();
     [SerializeField] TMP_Text shield;
 
     //monitor left
@@ -84,6 +87,11 @@ public class UIManager : MonoBehaviour
     {
         string formattedValue = value.ToString("D3");
         shield.text = formattedValue;
+
+        float percentage = (value / 200f) * 100f;
+        int index = Mathf.RoundToInt(percentage / (100f / (shields.Count - 1)));
+        index = Mathf.Clamp(index, 0, shields.Count - 1);
+        shieldBar.sprite = shields[index];
     }
 
     private void Pause(bool value)

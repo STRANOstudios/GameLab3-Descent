@@ -70,11 +70,11 @@ public class PlayerInputHadler : MonoBehaviour
 
         if (Instance != null)
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.root.gameObject);
 
         #endregion
 

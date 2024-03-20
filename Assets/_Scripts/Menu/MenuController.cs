@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        //resolution dropdown values settings
+        #region resolution dropdown values settings
         resolutions = Screen.resolutions;
 
         List<string> options = new();
@@ -56,6 +56,7 @@ public class MenuController : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        #endregion
     }
 
     void OnEnable()
@@ -81,9 +82,6 @@ public class MenuController : MonoBehaviour
             SetQuality(qualityDropdown.value);
         });
         #endregion
-
-        #region Aduio Settings addlisteners
-        #endregion
     }
 
     void OnDisable()
@@ -108,9 +106,6 @@ public class MenuController : MonoBehaviour
         {
             SetQuality(qualityDropdown.value);
         });
-        #endregion
-
-        #region Audio Settings removelisteners
         #endregion
     }
 
@@ -203,15 +198,6 @@ public class MenuController : MonoBehaviour
         Debug.Log(value);
         QualitySettings.SetQualityLevel(_qualityLevel);
         PlayerPrefs.SetInt("Quality", _qualityLevel);
-    }
-
-    #endregion
-
-    #region Audio
-
-    public void SetAudio(Slider value)
-    {
-        PlayerPrefs.SetInt($"{value.name}", (int)value.value);
     }
 
     #endregion
