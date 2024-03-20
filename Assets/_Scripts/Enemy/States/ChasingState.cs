@@ -13,7 +13,7 @@ public class ChasingState : EnemyBaseState
         enemy.dir = enemy.playerPrefab.position - enemy.transform.position;
         
         enemy.transform.LookAt(enemy.playerPrefab);
-        enemy.transform.position += (enemy.dir.normalized * enemy.Speed * Time.deltaTime);
+        enemy.rb.velocity = (enemy.dir.normalized * enemy.speed * Time.deltaTime);
 
         distanceFromTarget = Vector3.Distance(enemy.transform.position, enemy.playerPrefab.position);
 
@@ -31,6 +31,6 @@ public class ChasingState : EnemyBaseState
 
     public override void OnExit(StateManager enemy)
     {
-        enemy.ChangeState(enemy.attackingState);
+        enemy.ChangeState(new AttackingState());
     }
 }

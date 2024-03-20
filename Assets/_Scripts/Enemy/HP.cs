@@ -8,6 +8,6 @@ public class HP : MonoBehaviour
 
     public virtual void Death()
     {
-
+        Debug.Log("died");
     }
 }
