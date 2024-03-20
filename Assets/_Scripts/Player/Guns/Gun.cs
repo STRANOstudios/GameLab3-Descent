@@ -7,9 +7,12 @@ public class Gun : MonoBehaviour
 {
     [Tooltip("Prefab to shoot")]
     [SerializeField] Projectile projectilePrefab;
+    [SerializeField] Sprite sprite;
 
-    [Tooltip("Projectile force, if it be 0, it will be circlecast")]
+    [Tooltip("Projectile force")]
     [SerializeField] float muzzleVelocity = 700f;
+    [Tooltip("Use spherecast to shoot")]
+    [SerializeField] bool spherecast = false;
 
     [Tooltip("End point of gun where shots appear")]
     [SerializeField] List<Transform> muzzlePosition;
@@ -24,14 +27,25 @@ public class Gun : MonoBehaviour
     [SerializeField] int defaultCapacity = 20;
     [SerializeField] int maxSize = 100;
 
-    [SerializeField] int bulletMagazine = 0;
+    [SerializeField] float bulletMagazine = 0;
 
     private float nextTimeToShoot;
 
+    public delegate void Laser(int value);
+    public static event Laser shoot = null;
+
     private void Awake()
     {
-        if (muzzleVelocity != 0)
+        if (!spherecast)
             objectPool = new ObjectPool<Projectile>(CreateProjectile, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
+    }
+
+    private void Start()
+    {
+        if (this.name == "Laser")
+        {
+            shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+        }
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -56,12 +70,14 @@ public class Gun : MonoBehaviour
         return projectileInstance;
     }
 
-    public void shoot()
+    public void Shoot()
     {
-        if (muzzleVelocity != 0)
+        if (!spherecast)
         {
             if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
             {
+                //multiple nuzzles to implemented in future
+
                 Projectile bulletObject = objectPool.Get();
 
                 if (bulletObject == null) return;
@@ -76,13 +92,24 @@ public class Gun : MonoBehaviour
 
                 nextTimeToShoot = Time.time + cooldownWindow;
 
-                bulletMagazine--;
+                if (this.name == "Laser")
+                {
+                    bulletMagazine -= 0.25f;
+                    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+                }
+                else
+                {
+                    bulletMagazine--;
+                }
             }
         }
         else
         {
             if (Time.time > nextTimeToShoot && bulletMagazine > 0)
             {
+                nextTimeToShoot = Time.time + cooldownWindow;
+                bulletMagazine--;
+
                 StartCoroutine(ShootSphereCast());
             }
         }
@@ -97,7 +124,7 @@ public class Gun : MonoBehaviour
 
         if (Physics.SphereCast(origin, radius, direction, out hit, muzzleVelocity))
         {
-            int hitLayer = hit.transform.gameObject.layer; 
+            int hitLayer = hit.transform.gameObject.layer;
 
             switch (hitLayer)
             {
@@ -116,7 +143,11 @@ public class Gun : MonoBehaviour
 
     public int BulletCharging
     {
-        get { return bulletMagazine; }
+        get { return (int)bulletMagazine; }
         set { bulletMagazine += value; }
     }
+
+    public Sprite GetSprite => sprite;
+
+    public int MagazineBullet => (int)bulletMagazine;
 }

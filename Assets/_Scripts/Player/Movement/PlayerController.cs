@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] Transform mainCamera;
+    [SerializeField] GameObject UI_FrontView;
+    [SerializeField] GameObject UI_RearView;
     [Space]
     [SerializeField] float oscillationAmount = 1f;
     [SerializeField] float oscillationSpeed = 1f;
@@ -37,8 +39,15 @@ public class PlayerController : MonoBehaviour
     private float currentOscillation = 0f;
     private float currentOscillationVelocity = 0f;
     private bool bankIsActive = true;
+    private bool mapIsActive = true;
+    private bool mapOpened = false;
     private float originalRotationZ = 0f;
     private float rotationAmount = -300f;
+
+    private bool pause = false;
+
+    public delegate void Map(bool value);
+    public static event Map map = null;
 
     private void Awake()
     {
@@ -49,12 +58,28 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandlerMovement();
-        HandlerRotation();
-        HandlerBanking();
+        if (!pause) HandlerRotation();
+        if (!pause) HandlerBanking();
 
         RearView();
+        MiniMap();
 
         ApplyFloatingOscillation();
+    }
+
+    private void OnEnable()
+    {
+        LevelManager.pause += Pause;
+    }
+
+    private void OnDisable()
+    {
+        LevelManager.pause -= Pause;
+    }
+
+    private void Pause(bool value)
+    {
+        pause = value;
     }
 
     private void HandlerBanking()
@@ -62,16 +87,18 @@ public class PlayerController : MonoBehaviour
         if (inputHandler.bankIsActiveTrigger && bankIsActive)
         {
             IsBankable = !IsBankable;
-            StartCoroutine(DelayedBankingToggle(0.1f));
+            StartCoroutine(DelayedBankingToggle(0.3f));
         }
-        if (!IsBankable) return;
 
         float targetBankAngle = transform.eulerAngles.z - inputHandler.bankValue * rotationAmount;
+
+        if (!IsBankable) targetBankAngle = transform.eulerAngles.z;
+
         targetBankAngle = targetBankAngle < 0 ? 360 + targetBankAngle : targetBankAngle;
 
         Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, targetBankAngle);
 
-        if (inputHandler.bankValue == 0f) targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, originalRotationZ);
+        if (inputHandler.bankValue == 0f || !IsBankable) targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, originalRotationZ);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSmoothFactor);
 
@@ -91,7 +118,7 @@ public class PlayerController : MonoBehaviour
         float speed = Speed * speedMultiplier;
 
         Vector2 moveInput = inputHandler.MoveInput;
-        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized; 
+        Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
         Vector3 cameraForward = mainCamera.forward;
         Vector3 cameraRight = mainCamera.right;
@@ -130,6 +157,16 @@ public class PlayerController : MonoBehaviour
         if (inputHandler.rearViewTrigger)
         {
             mainCamera.rotation = Quaternion.Euler(-mainCamera.rotation.eulerAngles.x, (mainCamera.rotation.eulerAngles.y + 180f + 360f) % 360f, mainCamera.rotation.eulerAngles.z);
+
+            //UI
+            UI_FrontView.SetActive(false);
+            UI_RearView.SetActive(true);
+        }
+        else
+        {
+            //UI
+            UI_FrontView.SetActive(true);
+            UI_RearView.SetActive(false);
         }
     }
 
@@ -139,5 +176,22 @@ public class PlayerController : MonoBehaviour
         float floatingOscillation = Mathf.Sin(Time.time * floatingOscillationSpeed) * floatingOscillationAmount;
 
         mainCamera.localPosition = new Vector3(mainCamera.localPosition.x, floatingOscillation, mainCamera.localPosition.z);
+    }
+
+    void MiniMap()
+    {
+        if (inputHandler.mapTrigger && mapIsActive)
+        {
+            mapOpened = !mapOpened;
+            map?.Invoke(mapOpened);
+            StartCoroutine(DelayedMiniMap(0.3f));
+        }
+    }
+
+    private IEnumerator DelayedMiniMap(float value = 1f)
+    {
+        mapIsActive = false;
+        yield return new WaitForSeconds(value);
+        mapIsActive = true;
     }
 }

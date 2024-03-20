@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
 
     private bool pauseIsActive = true;
 
+    public delegate void Pause(bool value);
+    public static event Pause pause = null;
+
     private void Start()
     {
         inputHandler = PlayerInputHadler.Instance;
@@ -53,24 +56,30 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //to be implemented delegate from reactor door
+        UIManager.resume += Resume;
     }
 
     private void OnDisable()
     {
-        //to be implemented delegate from reactor door
+        UIManager.resume -= Resume;
     }
 
     private void PauseState()
     {
         if (inputHandler.pauseTrigger && pauseIsActive)
         {
-            Debug.Log("pause");
-
-            StartCoroutine(Delay(pauseIsActive));
+            StartCoroutine(Delay(0.3f));
             isGamePaused = !isGamePaused;
+            pause?.Invoke(isGamePaused);
             Time.timeScale = isGamePaused ? 0 : 1;
         }
+    }
+
+    private void Resume()
+    {
+        isGamePaused = false;
+        pause?.Invoke(isGamePaused);
+        Time.timeScale = 1;
     }
 
     public void OpenReactor()
@@ -78,10 +87,10 @@ public class LevelManager : MonoBehaviour
         isReactorOpened = true;
     }
 
-    private IEnumerator Delay(bool var, float value = 1f)
+    private IEnumerator Delay(float value = 1f)
     {
-        var = false;
-        yield return new WaitForSeconds(value);
-        var = true;
+        pauseIsActive = false;
+        yield return new WaitForSecondsRealtime(value);
+        pauseIsActive = true;
     }
 }

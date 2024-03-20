@@ -21,21 +21,22 @@ public class GameManager : MonoBehaviour
 
         #endregion
 
-        inputHandler = PlayerInputHadler.Instance;
+        //inputHandler = PlayerInputHadler.Instance;
     }
 
     private void OnEnable()
     {
-        HealthManager.Death += ReturnToMenu;
+        HealthManager.dead += ReturnToMenu;
     }
 
     private void OnDisable()
     {
-        HealthManager.Death -= ReturnToMenu;
+        HealthManager.dead -= ReturnToMenu;
     }
 
     public void ReturnToMenu()
     {
+        Time.timeScale = 1f;
 #if UNITY_EDITOR
         SceneManager.LoadScene("MainMenu");
 #else

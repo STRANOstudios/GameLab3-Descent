@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-namespace epoHless
+namespace Audio
 {
     /// <summary>
     /// Add as many audio types as you want
