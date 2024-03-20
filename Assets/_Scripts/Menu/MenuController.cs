@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using System;
 
 public class MenuController : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        SetGraphics();
+
         #region resolution dropdown values settings
         resolutions = Screen.resolutions;
 
@@ -173,12 +176,12 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("Brightness", _brightnessLevel);
 
         //to be implemented
+        //volume exposure
     }
 
     public void SetResolution(int value)
     {
         Resolution resolution = resolutions[value];
-        Debug.Log(resolutions[value]);
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         PlayerPrefs.SetFloat("Resolution_width", resolution.width);
         PlayerPrefs.SetFloat("Resolution_height", resolution.height);
@@ -187,7 +190,6 @@ public class MenuController : MonoBehaviour
     public void SetFullScreen(bool value)
     {
         _isFullScreen = value;
-        Debug.Log(_isFullScreen);
         Screen.fullScreen = _isFullScreen;
         PlayerPrefs.SetInt("FullScreen", (_isFullScreen ? 1 : 0));
     }
@@ -195,10 +197,30 @@ public class MenuController : MonoBehaviour
     public void SetQuality(int value)
     {
         _qualityLevel = value;
-        Debug.Log(value);
         QualitySettings.SetQualityLevel(_qualityLevel);
         PlayerPrefs.SetInt("Quality", _qualityLevel);
     }
 
+    public void SetGraphics()
+    {
+        brightnessSlider.value = GetSavedFloat("Brightness");
+        bool _isFullScreen = GetSavedInt("FullScreen") == 1 ? true : false;
+        Screen.SetResolution((int)GetSavedFloat("Resolution_width"), (int)GetSavedFloat("Resolution_height"), _isFullScreen);
+        fullScreenToggle.isOn = _isFullScreen;
+        qualityDropdown.SetValueWithoutNotify((int)GetSavedInt("Quality"));
+    }
+
     #endregion
+
+    float GetSavedFloat(string key)
+    {
+        if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetFloat(key);
+        return 0f;
+    }
+
+    float GetSavedInt(string key)
+    {
+        if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetInt(key);
+        return 0;
+    }
 }
