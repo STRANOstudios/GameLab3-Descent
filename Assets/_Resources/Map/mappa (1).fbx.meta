@@ -3,7 +3,87 @@ guid: 02678893b5f32e74bb13a9ce91dfcace
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boss_roof
+    second: {fileID: 2100000, guid: e19d660e7660c5c4297b188039230d99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boss_room1
+    second: {fileID: 2100000, guid: 14b9a7c6c335ed34284e129f4bafcd9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boss_wall
+    second: {fileID: 2100000, guid: cad4abb738e36b045ae7c11ae0953f8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: divider_trapezio
+    second: {fileID: 2100000, guid: 89fdd7aa4b9cf3c4283ffbbdcd82e708, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: escape_wall
+    second: {fileID: 2100000, guid: 336e8860fd66c5f4b82d8076a1190e2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: general_divider
+    second: {fileID: 2100000, guid: 6f43db0bc56824045925a5bfedbd3b6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: general_floor
+    second: {fileID: 2100000, guid: 739cf31c06088124da7d11945fe171e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: general_roof
+    second: {fileID: 2100000, guid: fc6c86dddb88e414b805905b5e9c87cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: general_wall
+    second: {fileID: 2100000, guid: 8415266f7e7ed8a478472bf83ecaed59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hostage_roof
+    second: {fileID: 2100000, guid: e9186f3f2224591408c6a296e84b3958, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hostage_room_floor
+    second: {fileID: 2100000, guid: 5fc22a83ad813804594cd9d13e149cf5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hostage_wall
+    second: {fileID: 2100000, guid: 8786e1b612db12c4883a08853cf4902b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lava_wall
+    second: {fileID: 2100000, guid: b0890ff295cc0ef4c85bb77be7d3e121, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parete_lava
+    second: {fileID: 2100000, guid: 253a0e312a6373b45956b67fe6625345, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: preboss_roof
+    second: {fileID: 2100000, guid: cb4f559fbeb29d9418692b6521d734e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stanzetta_tetto_pavimento
+    second: {fileID: 2100000, guid: 45f8b26da6ebc5442921b7dfa9f0e650, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
