@@ -164,9 +164,6 @@ public class PlayerController : MonoBehaviour
         float maxX = 0.7f;
 
         float xRotation = mainCamera.localRotation.x;
-
-        Debug.Log(xRotation);
-
         return xRotation < minX || xRotation > maxX;
     }
 
