@@ -89,11 +89,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandlerBanking()
     {
-        if (inputHandler.bankIsActiveTrigger && bankIsActive)
-        {
-            IsBankable = !IsBankable;
-            StartCoroutine(DelayedBankingToggle(0.3f));
-        }
+        //if (inputHandler.bankIsActiveTrigger && bankIsActive)
+        //{
+        //    IsBankable = !IsBankable;
+        //    StartCoroutine(DelayedBankingToggle(0.3f));
+        //}
 
         float targetBankAngle = transform.eulerAngles.z - inputHandler.bankValue * rotationAmount;
 
