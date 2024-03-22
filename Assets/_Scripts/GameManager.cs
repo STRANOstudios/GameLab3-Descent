@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Volume volumeBrightness;
     [SerializeField] PlayerController playerController;
 
+    private bool invertYAxis;
+    private float mouseSensitivity;
+
     private void Awake()
     {
         #region Singleton
@@ -30,11 +33,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         HealthManager.dead += ReturnToMenu;
+        GameplaySettings.settings += SetGameplay;
     }
 
     private void OnDisable()
     {
         HealthManager.dead -= ReturnToMenu;
+        GameplaySettings.settings += SetGameplay;
     }
 
     public void ReturnToMenu()
@@ -47,7 +52,16 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
+    public void SetGameplay(float controllerSen, bool invertY)
+    {
+        invertYAxis = invertY;
+        mouseSensitivity = controllerSen;
+    }
+
     public PlayerInputHadler InputHandler => inputHandler;
     public Volume VolumeBrightness => volumeBrightness;
     public PlayerController PlayerController => playerController;
+
+    public bool InvertY => invertYAxis;
+    public float MouseSensitivity => mouseSensitivity;
 }

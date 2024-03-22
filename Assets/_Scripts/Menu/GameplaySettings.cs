@@ -1,23 +1,20 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static HealthManager;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameplaySettings : MonoBehaviour
 {
     [Header("Gameplay Settings")]
-    [SerializeField] TMP_Text controllerSenTextValue = null;
     [SerializeField] Slider controllerSenSlider = null;
-    [SerializeField] int defaultSen = 4;
-    public int mainControllerSen = 4;
-
     [SerializeField] Toggle invertYToggle = null;
 
-    PlayerController playerController = null;
+    public delegate void GameplaySet(float controllerSen, bool invertY);
+    public static event GameplaySet settings = null;
 
     void Start()
     {
-        playerController = GameManager.Instance.PlayerController;
-
         SetGameplay();
     }
 
@@ -47,19 +44,22 @@ public class GameplaySettings : MonoBehaviour
 
     void SetControllerSen(float value)
     {
-        mainControllerSen = Mathf.RoundToInt(value);
-        controllerSenTextValue.text = value.ToString("D1");
+        settings?.Invoke(value, invertYToggle.isOn);
+        PlayerPrefs.SetFloat("ControllerSen", value);
     }
 
     void SetY(bool value)
     {
-        playerController.InvertY = value;
-        PlayerPrefs.SetInt("FullScreen", (value ? 1 : 0));
+        settings?.Invoke(controllerSenSlider.value, value);
+        PlayerPrefs.SetInt("InvertY", (value ? 1 : 0));
     }
 
     void SetGameplay()
     {
+        controllerSenSlider.value = GetSavedFloat("ControllerSen");
+        invertYToggle.isOn = GetSavedInt("InvertY") == 1;
 
+        settings?.Invoke(controllerSenSlider.value, invertYToggle.isOn);
     }
 
     float GetSavedFloat(string key)

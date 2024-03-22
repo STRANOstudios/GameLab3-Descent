@@ -214,11 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9aad82185788a479cedb2a54eebbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerSenTextValue: {fileID: 0}
-  controllerSenSlider: {fileID: 0}
-  defaultSen: 4
-  mainControllerSen: 4
-  invertYToggle: {fileID: 0}
+  controllerSenSlider: {fileID: 525668781}
+  invertYToggle: {fileID: 1890909947}
 --- !u!1 &1351456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4873,7 +4870,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 525668780}
-  - component: {fileID: 525668782}
   - component: {fileID: 525668781}
   m_Layer: 5
   m_Name: BrightnessSenSlider
@@ -4948,37 +4944,13 @@ MonoBehaviour:
   m_FillRect: {fileID: 1961667272}
   m_HandleRect: {fileID: 1322961668}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -10
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetAudio
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 525668781}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &525668782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525668779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43fe5e2d37a3428c9c547b397f9ccba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!1 &601906119
 GameObject:
   m_ObjectHideFlags: 0
@@ -10721,7 +10693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1322961668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12962,6 +12934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 1162290097}
   volumeBrightness: {fileID: 1713731747}
+  playerController: {fileID: 0}
 --- !u!82 &1653224987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14368,7 +14341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1809132129
 RectTransform:
   m_ObjectHideFlags: 0
