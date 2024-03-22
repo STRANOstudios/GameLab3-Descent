@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
-using System;
 
 public class MenuController : MonoBehaviour
 {
@@ -204,7 +203,7 @@ public class MenuController : MonoBehaviour
     public void SetGraphics()
     {
         brightnessSlider.value = GetSavedFloat("Brightness");
-        bool _isFullScreen = GetSavedInt("FullScreen") == 1 ? true : false;
+        bool _isFullScreen = GetSavedInt("FullScreen") == 1;
         Screen.SetResolution((int)GetSavedFloat("Resolution_width"), (int)GetSavedFloat("Resolution_height"), _isFullScreen);
         fullScreenToggle.isOn = _isFullScreen;
         qualityDropdown.SetValueWithoutNotify((int)GetSavedInt("Quality"));

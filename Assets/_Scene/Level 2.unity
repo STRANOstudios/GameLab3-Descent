@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13450.374, g: 15986.021, b: 18886.47, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1320,6 +1320,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72687527}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &80827043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5073640603056089124, guid: d0d2deb9846509e499f96a514221c6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1737052121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &84914159
 GameObject:
   m_ObjectHideFlags: 0
@@ -15503,6 +15509,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489246515}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1489658283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3705684412800202086, guid: d0d2deb9846509e499f96a514221c6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1737052121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493302974
 GameObject:
   m_ObjectHideFlags: 0
@@ -18590,10 +18602,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 161043180035138959, guid: d0d2deb9846509e499f96a514221c6b6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3705684412800202086, guid: d0d2deb9846509e499f96a514221c6b6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1737052123}
   m_SourcePrefab: {fileID: 100100000, guid: d0d2deb9846509e499f96a514221c6b6, type: 3}
 --- !u!4 &1737052122 stripped
 Transform:
@@ -18601,18 +18618,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1737052121}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1737052123 stripped
+--- !u!114 &1737052123
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 161043180035138959, guid: d0d2deb9846509e499f96a514221c6b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1737052121}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1489658283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ac7625b02d8d914eb3bdfd3e741f3be, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d5b8fd497ea34e4db8877a0d62968ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4123247207829198094, guid: 33ae34b7417d3fa4989e60d789ca1f11,
+    type: 3}
+  sprite: {fileID: 27551023, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
+  muzzleVelocity: 700
+  spherecast: 0
+  muzzlePosition:
+  - {fileID: 80827043}
+  cooldownWindow: 0.1
+  collectionCheck: 1
+  defaultCapacity: 20
+  maxSize: 100
+  bulletMagazine: 50
 --- !u!64 &1738451232
 MeshCollider:
   m_ObjectHideFlags: 0
