@@ -87,7 +87,6 @@ public class ShootingManager : MonoBehaviour
             primaryGunEnable += (int)inputHandler.list1Value;
             primaryGunEnable = primaryGunEnable >= primaryGuns.Count ? primaryGunEnable = 0 : primaryGunEnable;
             primaryGunEnable = primaryGunEnable < 0 ? primaryGuns.Count - 1 : primaryGunEnable;
-            Debug.Log("change primary");
         }
         UpdateMonitors();
         StartCoroutine(DelayButton(0.1f));
@@ -109,7 +108,6 @@ public class ShootingManager : MonoBehaviour
             secondaryGunEnable += (int)inputHandler.list2Value;
             secondaryGunEnable = secondaryGunEnable >= secondaryGuns.Count ? secondaryGunEnable = 0 : secondaryGunEnable;
             secondaryGunEnable = secondaryGunEnable < 0 ? secondaryGuns.Count - 1 : secondaryGunEnable;
-            Debug.Log("change primary");
         }
         UpdateMonitors();
     }
@@ -146,18 +144,28 @@ public class ShootingManager : MonoBehaviour
         if (tmp.PrimaryOrSecondary ? primaryGuns.Count <= 0 : secondaryGuns.Count <= 0) return;
 
         bool laser = false;
+        bool full = false;
 
         foreach (Gun gun in tmp.PrimaryOrSecondary ? primaryGuns : secondaryGuns)
         {
             if (gun.name == tmp.Gun.name)
             {
-                gun.BulletCharging = tmp.BulletMagazine;
-                if (gun.name == "Laser") laser = true;
+                if (gun.name == "Laser")
+                {
+                    laser = true;
+                    int tp = Mathf.Clamp(Mathf.CeilToInt(gun.BulletMagazine + tmp.BulletMagazine), 0, 200);
+                    if (gun.BulletMagazine + tmp.BulletMagazine - 200 >= 0) full = true;
+                    gun.BulletMagazine = tp;
+                }
+                else
+                {
+                    gun.BulletMagazine += tmp.BulletMagazine;
+                }
                 check = true;
                 break;
             }
         }
-        if (check) other.SetActive(false);
+        if (check && !full) other.SetActive(false);
 
         if (laser) primaryGuns[0].UpdateMonitor();
     }

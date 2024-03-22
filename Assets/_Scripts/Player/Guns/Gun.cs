@@ -146,10 +146,10 @@ public class Gun : MonoBehaviour
         shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
     }
 
-    public int BulletCharging
+    public int BulletMagazine
     {
         get { return (int)bulletMagazine; }
-        set { bulletMagazine += value; }
+        set { bulletMagazine = value; }
     }
 
     public Sprite GetSprite => sprite;

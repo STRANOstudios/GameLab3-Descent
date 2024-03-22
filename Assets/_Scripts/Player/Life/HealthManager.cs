@@ -25,7 +25,8 @@ public class HealthManager : MonoBehaviour
         switch (other.gameObject.layer)
         {
             case 11:
-                health=Mathf.Clamp(health + boostshield, 0.0f, maxHealth);
+                if (health > maxHealth) return;
+                health = Mathf.Clamp(health + boostshield, 0.0f, maxHealth);
                 healt?.Invoke((int)health);
                 other.gameObject.SetActive(false);
                 break;
