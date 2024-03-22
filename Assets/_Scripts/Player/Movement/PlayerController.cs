@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         inputHandler = PlayerInputHadler.Instance;
+
+        invertYAxis = GameManager.Instance.InvertY;
+        mouseSensitivity = GameManager.Instance.MouseSensitivity;
     }
 
     private void Update()
@@ -70,11 +73,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         LevelManager.pause += Pause;
+        GameplaySettings.settings += SetGameplay;
     }
 
     private void OnDisable()
     {
         LevelManager.pause -= Pause;
+        GameplaySettings.settings -= SetGameplay;
     }
 
     private void Pause(bool value)
@@ -208,5 +213,11 @@ public class PlayerController : MonoBehaviour
         mapIsActive = false;
         yield return new WaitForSeconds(value);
         mapIsActive = true;
+    }
+
+    void SetGameplay(float controllerSen, bool invertY)
+    {
+        invertYAxis = invertY;
+        mouseSensitivity = controllerSen;
     }
 }

@@ -27,31 +27,31 @@ public class LevelManager : MonoBehaviour
     {
         PauseState();
 
-        //if (isReactorOpened)
-        //{
-        //    if (!reactor.activeSelf)
-        //    {
+        if (isReactorOpened)
+        {
+            if (!reactor.activeSelf)
+            {
 
-        //        //timer activated n.sec to escape from base
+                //timer activated n.sec to escape from base
 
-        //        //if you can escape ...
-        //            if (Hostages.Count == 0)
-        //            {
-        //                //good ending
-        //                Debug.Log("good ending");
-        //            }
-        //            else
-        //            {
-        //                //bad ending
-        //                Debug.Log("bad ending");
-        //            }
-        //            //next level
+                //if you can escape ...
+                if (Hostages.Count == 0)
+                {
+                    //good ending
+                    Debug.Log("good ending");
+                }
+                else
+                {
+                    //bad ending
+                    Debug.Log("bad ending");
+                }
+                //next level
 
-        //        //else you died
-        //            //return to main menu
+                //else you died
+                //return to main menu
 
-        //    }
-        //}
+            }
+        }
     }
 
     private void OnEnable()
