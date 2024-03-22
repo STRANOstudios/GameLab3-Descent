@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     public delegate void Map(bool value);
     public static event Map map = null;
 
-    private void Awake()
+    private void Start()
     {
         characterController = GetComponent<CharacterController>();
         inputHandler = PlayerInputHadler.Instance;

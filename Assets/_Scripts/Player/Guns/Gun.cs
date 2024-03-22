@@ -141,6 +141,11 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(projectilePrefab.GetRange);
     }
 
+    public void UpdateMonitor()
+    {
+        shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+    }
+
     public int BulletCharging
     {
         get { return (int)bulletMagazine; }
