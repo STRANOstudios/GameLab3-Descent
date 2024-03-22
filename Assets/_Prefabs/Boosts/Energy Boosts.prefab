@@ -118,6 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368e59c5a4ad9f843953c2cdd1ebf9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 3705684412800202086, guid: d0d2deb9846509e499f96a514221c6b6, type: 3}
+  gun: {fileID: 935624821663889665, guid: d0d2deb9846509e499f96a514221c6b6, type: 3}
   bulletMagazine: 50
   primaryOrSecondary: 1
