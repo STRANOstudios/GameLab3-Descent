@@ -2226,7 +2226,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 158543331}
-  - component: {fileID: 158543333}
   - component: {fileID: 158543332}
   m_Layer: 5
   m_Name: BrightnessSenSlider
@@ -2302,24 +2301,12 @@ MonoBehaviour:
   m_HandleRect: {fileID: 392494096}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.5
+  m_MaxValue: 255
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &158543333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158543330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43fe5e2d37a3428c9c547b397f9ccba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &158947331
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,6 +4000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 0}
+  volumeBrightness: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &337478828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11858,7 +11847,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120816658}
-  - component: {fileID: 1120816660}
   - component: {fileID: 1120816659}
   m_Layer: 5
   m_Name: BrightnessSenSlider
@@ -11939,31 +11927,7 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetAudio
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1120816659}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1120816660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120816657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43fe5e2d37a3428c9c547b397f9ccba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!1 &1124507943 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5709801962566931060, guid: b9f0e6907f178a14da1fca2292fd6f95,
@@ -21645,6 +21609,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2106052843}
   - component: {fileID: 2106052844}
+  - component: {fileID: 2106052846}
+  - component: {fileID: 2106052845}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -21705,6 +21671,36 @@ MonoBehaviour:
   monitor: {fileID: 1814896697}
   pauseMenu: {fileID: 2108035908}
   miniMap: {fileID: 1389041929}
+--- !u!114 &2106052845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106052842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2c57193d34f8042ab06db24d975b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brightnessSlider: {fileID: 158543332}
+  resolutionDropdown: {fileID: 1826878892}
+  fullScreenToggle: {fileID: 1842066473}
+  qualityDropdown: {fileID: 19013152}
+--- !u!114 &2106052846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106052842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9aad82185788a479cedb2a54eebbf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerSenSlider: {fileID: 1120816659}
+  invertYToggle: {fileID: 20074832}
 --- !u!1 &2108035908
 GameObject:
   m_ObjectHideFlags: 0
