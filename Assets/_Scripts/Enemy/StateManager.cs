@@ -9,8 +9,8 @@ public class StateManager : HP
     [Header("Movement Settings")]
     [SerializeField, Range(1, 500)] public float speed;
 
-    [SerializeField, Range(1, 20)] public float ChaseDistance;
-    [SerializeField, Range(1, 20)] public float AttackDistance;
+    [SerializeField, Range(1, 200)] public float ChaseDistance;
+    [SerializeField, Range(1, 200)] public float AttackDistance;
 
     [Header("Attack Settings")]
     [SerializeField, Range(1, 20)] public float AttackRate;
