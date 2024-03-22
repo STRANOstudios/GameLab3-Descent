@@ -51,7 +51,7 @@ MonoBehaviour:
   muzzleVelocity: 700
   spherecast: 0
   muzzlePosition:
-  - {fileID: 0}
+  - {fileID: 4329171618499768353}
   cooldownWindow: 0.1
   collectionCheck: 1
   defaultCapacity: 20
