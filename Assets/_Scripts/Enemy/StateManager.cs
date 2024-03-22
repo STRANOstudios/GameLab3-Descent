@@ -13,7 +13,7 @@ public class StateManager : HP
     [SerializeField, Range(1, 20)] public float AttackDistance;
 
     [Header("Attack Settings")]
-    [SerializeField, Range(1, 20)] public float AttackRate;
+    //[SerializeField, Range(1, 20)] public float AttackRate;
     [SerializeField] public Transform firePointSX;
     [SerializeField] public Transform firePointDX;
     [SerializeField] public float fireRate;
@@ -61,8 +61,10 @@ public class StateManager : HP
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("hi");
         if (collision.gameObject.layer == 13)
         {
+            Debug.Log("si");
             damageDealtToEnemy = collision.transform.GetComponent<Projectile>();
 
             myHP -= damageDealtToEnemy.GetDamage;
