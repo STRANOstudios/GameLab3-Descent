@@ -181,7 +181,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1153,7 +1153,7 @@ PrefabInstance:
     - target: {fileID: 189040231922070513, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: m_IncludeLayers.m_Bits
-      value: 8192
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
