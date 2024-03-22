@@ -209,4 +209,16 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(value);
         mapIsActive = true;
     }
+
+    public bool InvertY
+    {
+        get
+        {
+            return invertYAxis;
+        }
+        set
+        {
+            invertYAxis = value;
+        }
+    }
 }

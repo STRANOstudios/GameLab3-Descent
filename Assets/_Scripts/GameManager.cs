@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] PlayerInputHadler inputHandler;
+    [SerializeField] Volume volumeBrightness;
+    [SerializeField] PlayerController playerController;
 
     private void Awake()
     {
@@ -44,5 +47,7 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
-    public PlayerInputHadler GetInputHandler => inputHandler;
+    public PlayerInputHadler InputHandler => inputHandler;
+    public Volume VolumeBrightness => volumeBrightness;
+    public PlayerController PlayerController => playerController;
 }
