@@ -65,7 +65,7 @@ public class GameplaySettings : MonoBehaviour
     float GetSavedFloat(string key)
     {
         if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetFloat(key);
-        return 0f;
+        return 0.6f;
     }
 
     float GetSavedInt(string key)
