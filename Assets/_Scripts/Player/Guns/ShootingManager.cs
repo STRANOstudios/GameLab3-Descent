@@ -130,6 +130,7 @@ public class ShootingManager : MonoBehaviour
                 break;
             case "Gun":
                 GetGun(other.gameObject);
+                GetBullets(other.gameObject);
                 break;
             default:
                 break;
@@ -171,8 +172,6 @@ public class ShootingManager : MonoBehaviour
         if (!tmp.PrimaryOrSecondary) secondaryGuns.Add(gun.GetComponent<Gun>());
 
         gun.name = tmp.Gun.name;
-
-        other.SetActive(false);
     }
 
     IEnumerator DelayButton(float delay)
