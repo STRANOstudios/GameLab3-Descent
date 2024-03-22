@@ -160,11 +160,12 @@ public class PlayerController : MonoBehaviour
 
     bool IsWithinXRange()
     {
-        // Define the range on the x-axis where you want to invert input
-        float minX = -90f;
-        float maxX = 90f;
+        float minX = -0.7f;
+        float maxX = 0.7f;
 
-        float xRotation = mainCamera.eulerAngles.x;
+        float xRotation = mainCamera.localRotation.x;
+
+        Debug.Log(xRotation);
 
         return xRotation < minX || xRotation > maxX;
     }
