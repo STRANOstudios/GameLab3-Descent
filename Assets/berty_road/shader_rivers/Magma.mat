@@ -109,14 +109,14 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _emissionpower: 128429
+    - _emissionpower: 60000
     - _flowspeed: 3.21
     - _foamdesnity: 25
     - _foamspeed: 5
-    - _foamthickness: 6.6
+    - _foamthickness: 4.4
     - _maxwaveheight: 1
     - _waveheight: 0.2
-    - _wavespread: 20
+    - _wavespread: 0
     m_Colors:
     - _Color: {r: 1, g: 0.2750727, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
