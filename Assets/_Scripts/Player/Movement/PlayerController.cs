@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Look Sensitivity")]
     [SerializeField] float mouseSensitivity = 2.0f;
-    [SerializeField] float upDownEange = 80.0f;
+    //[SerializeField] float upDownEange = 80.0f;
 
     [Header("Rotation Settings")]
     [SerializeField] float rotationSmoothFactor = 0.1f;
@@ -137,11 +137,17 @@ public class PlayerController : MonoBehaviour
         float mouseYInput = invertYAxis ? -inputHandler.LookInput.y : inputHandler.LookInput.y;
 
         float mouseXRotation = inputHandler.LookInput.x * mouseSensitivity * viewSmoothFactor;
+
+        if (IsWithinXRange())
+        {
+            // Invert the direction of mouse X movement
+            mouseXRotation *= -1f;
+        }
+
         transform.Rotate(0, mouseXRotation, 0);
 
-        //view vfx
         verticalRotation -= mouseYInput * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation, -upDownEange, upDownEange);
+
         mainCamera.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
         float horizontalRotation = Mathf.Abs(inputHandler.LookInput.x);
@@ -150,6 +156,17 @@ public class PlayerController : MonoBehaviour
         currentOscillation = Mathf.SmoothDamp(currentOscillation, targetOscillation, ref currentOscillationVelocity, acceleration);
 
         mainCamera.Rotate(0, 0, currentOscillation);
+    }
+
+    bool IsWithinXRange()
+    {
+        // Define the range on the x-axis where you want to invert input
+        float minX = -90f;
+        float maxX = 90f;
+
+        float xRotation = mainCamera.eulerAngles.x;
+
+        return xRotation < minX || xRotation > maxX;
     }
 
     void RearView()
