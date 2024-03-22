@@ -4194,6 +4194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 0}
+  volumeBrightness: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &337478828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10989,12 +10991,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07f619a745a000a42b69f38b10414e37, type: 3}
---- !u!4 &999410616 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
-    type: 3}
-  m_PrefabInstance: {fileID: 999410615}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1016455251
 GameObject:
   m_ObjectHideFlags: 0
@@ -13166,7 +13162,6 @@ Transform:
   m_Children:
   - {fileID: 990140468}
   - {fileID: 472721505}
-  - {fileID: 999410616}
   m_Father: {fileID: 1895277654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1220507352
@@ -22939,3 +22934,4 @@ SceneRoots:
   - {fileID: 1892755429}
   - {fileID: 373846950}
   - {fileID: 567255117}
+  - {fileID: 999410615}
