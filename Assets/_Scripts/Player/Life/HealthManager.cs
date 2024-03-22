@@ -9,6 +9,9 @@ public class HealthManager : MonoBehaviour
     [Header("Boosts")]
     [SerializeField, Min(0.0f)] float boostshield = 50f;
 
+    [Header("Core Damage")]
+    [SerializeField] float damage = 10.0f;
+
     public delegate void Healt(int value);
     public static event Healt healt = null;
 
@@ -33,6 +36,11 @@ public class HealthManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        Damage(damage);
     }
 
     public void Damage(float damage)
