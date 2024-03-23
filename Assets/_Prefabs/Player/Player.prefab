@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 7159281264619835593}
   - component: {fileID: 1261839760391201130}
   - component: {fileID: 3276733598999975590}
+  - component: {fileID: 4851561862630736597}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -530,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508b3e3197c6e8b4eb58d254dc91b008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 80
+  Speed: 6
   sprintMultiplier: 2
   movementSmoothFactor: 0.8
   sprint: 0
@@ -579,6 +580,7 @@ MonoBehaviour:
   health: 50
   maxHealth: 200
   boostshield: 50
+  damage: 10
 --- !u!135 &3276733598999975590
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -600,6 +602,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4851561862630736597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220118013458370093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e58b66b228d7744d829c798d7ecc8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyIDs: []
 --- !u!1001 &4394408584177356610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,6 +627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329171618499768353, guid: d0d2deb9846509e499f96a514221c6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5552565168691556162, guid: d0d2deb9846509e499f96a514221c6b6,
         type: 3}
