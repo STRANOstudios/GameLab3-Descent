@@ -1,7 +1,7 @@
+using DevionGames;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static LevelManager;
@@ -51,6 +51,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject miniMap;
 
+    private int scoreValue = 0;
+
     public delegate void Resum();
     public static event Resum resume = null;
 
@@ -63,6 +65,8 @@ public class UIManager : MonoBehaviour
         PlayerController.map += MiniMap;
         ShootingManager.Gun += GunsMonitors;
         HealthManager.healt += Shield;
+
+        Score.OnObjectDeactivated += ScoreSet;
     }
     private void OnDisable()
     {
@@ -73,6 +77,14 @@ public class UIManager : MonoBehaviour
         PlayerController.map -= MiniMap;
         ShootingManager.Gun -= GunsMonitors;
         HealthManager.healt -= Shield;
+
+        Score.OnObjectDeactivated -= ScoreSet;
+    }
+
+    private void ScoreSet(int value)
+    {
+        scoreValue += value;
+        score.text = scoreValue.ToString("D5");
     }
 
     private void Energy(int value)

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1328675869034649510}
   - component: {fileID: 1271712976391214273}
   - component: {fileID: 6328853155228026124}
+  - component: {fileID: -1907465871194696011}
   m_Layer: 12
   m_Name: Energy Boosts
   m_TagString: BulletMagazine
@@ -94,6 +95,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chance: 100
   powerup: {fileID: 4910112848308568303}
+--- !u!114 &-1907465871194696011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392173798811960427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80043a61c846ee4f84207aa759811a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 50
 --- !u!1001 &3592804378959400959
 PrefabInstance:
   m_ObjectHideFlags: 0
