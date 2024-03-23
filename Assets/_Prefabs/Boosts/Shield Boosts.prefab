@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3574186651294796748}
   - component: {fileID: 1934994267707391744}
   - component: {fileID: 191406376087538175}
+  - component: {fileID: 1121481413902907897}
   m_Layer: 11
   m_Name: Shield Boosts
   m_TagString: Untagged
@@ -63,6 +64,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1121481413902907897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267089809814850456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80043a61c846ee4f84207aa759811a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 100
 --- !u!1001 &6806114287331963918
 PrefabInstance:
   m_ObjectHideFlags: 0
