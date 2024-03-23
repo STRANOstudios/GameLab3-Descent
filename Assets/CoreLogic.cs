@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CoreLogic : MonoBehaviour
@@ -8,11 +9,14 @@ public class CoreLogic : MonoBehaviour
     [SerializeField] float health = 100f;
 
     [Header("Fire")]
-    [SerializeField] List<ParticleSystem> nozzles =new();
+    [SerializeField] List<ParticleSystem> nozzles = new();
     [SerializeField] float fireRatio = 1f;
 
     [Header("VFX")]
     [SerializeField] float rotationSpeed = 1f;
+
+    public delegate void Core();
+    public static event Core death = null;
 
     private void Update()
     {
@@ -26,12 +30,12 @@ public class CoreLogic : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 13)
         {
             Damage(collision.transform.GetComponent<Projectile>().GetDamage);
         }
@@ -40,7 +44,11 @@ public class CoreLogic : MonoBehaviour
     void Damage(float value)
     {
         health -= value;
-        if (health <= 0) gameObject.SetActive(false);
+        if (health <= 0)
+        {
+            death?.Invoke();
+            gameObject.SetActive(false);
+        }
     }
 
     void Fire()
