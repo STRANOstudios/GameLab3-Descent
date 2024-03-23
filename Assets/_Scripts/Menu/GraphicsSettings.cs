@@ -122,6 +122,7 @@ public class GraphicsSettings : MonoBehaviour
     void SetQuality(int value)
     {
         _qualityLevel = value;
+        GameManager.Instance.volume(value == 3);
         QualitySettings.SetQualityLevel(_qualityLevel);
         PlayerPrefs.SetInt("Quality", _qualityLevel);
     }
