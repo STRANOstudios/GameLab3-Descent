@@ -17,10 +17,12 @@ public class UIManager : MonoBehaviour
     //key
     [Header("Key Elements")]
     [SerializeField] GameObject redLight;
-    [SerializeField] GameObject greenLight;
+    [SerializeField] GameObject yellowLight;
     [SerializeField] GameObject blueLight;
     [Space]
-    [SerializeField] Material materialLight;
+    [SerializeField] Material materialRed;
+    [SerializeField] Material materialYellow;
+    [SerializeField] Material materialBlue;
 
     //bottom
     [Header("Energy Elements")]
@@ -67,6 +69,7 @@ public class UIManager : MonoBehaviour
         HealthManager.healt += Shield;
 
         Score.OnObjectDeactivated += ScoreSet;
+        //addkey
     }
     private void OnDisable()
     {
@@ -104,6 +107,24 @@ public class UIManager : MonoBehaviour
         int index = Mathf.RoundToInt(percentage / (100f / (shields.Count - 1)));
         index = Mathf.Clamp(index, 0, shields.Count - 1);
         shieldBar.sprite = shields[index];
+    }
+
+    void AddKey(float value)
+    {
+        switch (value)
+        {
+            case 1:
+                redLight.GetComponent<MeshRenderer>().material = materialRed;
+                break;
+            case 2:
+                yellowLight.GetComponent<MeshRenderer>().material = materialYellow;
+                break;
+            case 3:
+                blueLight.GetComponent<MeshRenderer>().material = materialBlue;
+                break;
+            default:
+                break;
+        }
     }
 
     private void Pause(bool value)

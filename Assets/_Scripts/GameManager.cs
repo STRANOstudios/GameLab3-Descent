@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] PlayerInputHadler inputHandler;
     [SerializeField] Volume volumeBrightness;
+    [SerializeField] Volume volumeHD;
+    [SerializeField] Volume volumeRayTracing;
     [SerializeField] PlayerController playerController;
 
     private bool invertYAxis;
@@ -64,4 +66,18 @@ public class GameManager : MonoBehaviour
 
     public bool InvertY => invertYAxis;
     public float MouseSensitivity => mouseSensitivity;
+
+    public void volume(bool value)
+    {
+        if (value)
+        {
+            volumeHD.enabled = false;
+            volumeRayTracing.enabled = true;
+        }
+        else
+        {
+            volumeHD.enabled = true;
+            volumeRayTracing.enabled = false;
+        }
+    }
 }
