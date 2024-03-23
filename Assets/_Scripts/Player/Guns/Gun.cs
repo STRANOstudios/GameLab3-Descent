@@ -76,19 +76,21 @@ public class Gun : MonoBehaviour
         {
             if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
             {
-                //multiple nuzzles to implemented in future
-
-                Projectile bulletObject = objectPool.Get();
-
-                if (bulletObject == null) return;
-
-                bulletObject.transform.position = muzzlePosition[0].transform.position;
-
                 Vector3 cameraForward = Camera.main.transform.forward;
-                bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
 
-                bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
-                bulletObject.Deactivate();
+                for (int i = 0; i < muzzlePosition.Count; i++)
+                {
+                    Projectile bulletObject = objectPool.Get();
+
+                    if (bulletObject == null) return;
+
+                    bulletObject.transform.position = muzzlePosition[0].transform.position;
+
+                    bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
+
+                    bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
+                    bulletObject.Deactivate();
+                }
 
                 nextTimeToShoot = Time.time + cooldownWindow;
 
