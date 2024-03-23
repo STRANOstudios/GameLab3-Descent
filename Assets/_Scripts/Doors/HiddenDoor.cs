@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HiddenDoor : HP
@@ -13,17 +11,19 @@ public class HiddenDoor : HP
         anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.layer == 13)
+        if (collision.gameObject.layer == 13)
         {
-            damageTaken = other.GetComponent<Projectile>().GetDamage;
-            myHP -= damageTaken; 
+            Debug.Log("si");
+            damageTaken = collision.gameObject.GetComponent<Projectile>().GetDamage;
+            myHP -= damageTaken;
 
-            if(myHP <= 0 )
+            if (myHP <= 0)
             {
                 myHP = 0;
                 Death();
+                gameObject.GetComponent<Collider>().enabled = false;
             }
         }
     }
