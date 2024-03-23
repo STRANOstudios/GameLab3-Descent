@@ -129,11 +129,12 @@ public class GraphicsSettings : MonoBehaviour
 
     void SetGraphics()
     {
-        if (brightnessSlider != null) brightnessSlider.value = GetSavedInt("Brightness");
+        brightnessSlider.value = GetSavedInt("Brightness");
         bool _isFullScreen = GetSavedInt("FullScreen") == 1;
         Screen.SetResolution((int)GetSavedFloat("Resolution_width"), (int)GetSavedFloat("Resolution_height"), _isFullScreen);
         fullScreenToggle.isOn = _isFullScreen;
         qualityDropdown.SetValueWithoutNotify((int)GetSavedInt("Quality"));
+        GameManager.Instance.volume(qualityDropdown.value == 3);
     }
 
     float GetSavedFloat(string key)

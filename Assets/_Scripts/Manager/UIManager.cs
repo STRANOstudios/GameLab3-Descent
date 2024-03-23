@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
         HealthManager.healt += Shield;
 
         Score.OnObjectDeactivated += ScoreSet;
-        //addkey
+        PlayerKeyHolder.OnKeyPickUp += AddKey;
     }
     private void OnDisable()
     {
@@ -82,6 +82,7 @@ public class UIManager : MonoBehaviour
         HealthManager.healt -= Shield;
 
         Score.OnObjectDeactivated -= ScoreSet;
+        PlayerKeyHolder.OnKeyPickUp -= AddKey;
     }
 
     private void ScoreSet(int value)
@@ -109,18 +110,18 @@ public class UIManager : MonoBehaviour
         shieldBar.sprite = shields[index];
     }
 
-    void AddKey(float value)
+    void AddKey(int value)
     {
         switch (value)
         {
             case 1:
-                redLight.GetComponent<MeshRenderer>().material = materialRed;
+                redLight.GetComponent<Image>().material = materialRed;
                 break;
             case 2:
-                yellowLight.GetComponent<MeshRenderer>().material = materialYellow;
+                yellowLight.GetComponent<Image>().material = materialRed;
                 break;
             case 3:
-                blueLight.GetComponent<MeshRenderer>().material = materialBlue;
+                blueLight.GetComponent<Image>().material = materialBlue;
                 break;
             default:
                 break;

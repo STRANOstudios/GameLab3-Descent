@@ -1,19 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerKeyHolder : MonoBehaviour
 {
-    [HideInInspector]public List<float> keyIDs = new List<float>();
-    public delegate void KeyPickUp(float key_id);
-    public event KeyPickUp OnKeyPickUp;
+    [HideInInspector] public List<float> keyIDs = new List<float>();
 
-    private void OnCollisionEnter(Collision collision)
+    public delegate void KeyPickUp(int key_id);
+    public static event KeyPickUp OnKeyPickUp;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.TryGetComponent<Key>(out var key))
+        switch (other.gameObject.tag)
         {
-            keyIDs.Add(key.KeyID);
-            OnKeyPickUp(key.KeyID);
+            case "KeyRed":
+                Push(1, other);
+                break;
+            case "KeyYellow":
+                Push(2, other);
+                break;
+            case "KeyBlue":
+                Push(3, other);
+                break;
+            default:
+                break;
         }
+    }
+
+    void Push(int index, Collider other)
+    {
+        OnKeyPickUp?.Invoke(index);
+        other.gameObject.SetActive(false);
     }
 }
