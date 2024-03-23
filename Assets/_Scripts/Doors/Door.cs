@@ -12,8 +12,6 @@ public class Door : MonoBehaviour
 
     Animator anim;
 
-    
-
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,6 +19,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        anim.SetBool("CloseDoor", false);
         if (needsKey)
         {
             playerKeys = other.GetComponent<PlayerKeyHolder>().keyIDs;
@@ -41,7 +41,9 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+
+
+    private void OnTriggerExit(Collider other)
     {
         if (!needsKey)
         {
