@@ -56,9 +56,23 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaDstBlend: 0
+    - _BlendMode: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _DstBlend: 0
+    - _EnableFogOnTransparent: 1
+    - _StencilRefDepth: 8
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _SurfaceType: 0
+    - _TransparentCullMode: 2
+    - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
     - _clipping_value: 0
-    - _edge_thickness: 0.497
+    - _edge_thickness: 0.5
     m_Colors:
-    - _Color: {r: 1, g: 0.6341171, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.63529414, b: 0, a: 0}
   m_BuildTextureStacks: []
