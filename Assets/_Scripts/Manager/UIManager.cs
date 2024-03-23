@@ -118,7 +118,7 @@ public class UIManager : MonoBehaviour
                 redLight.GetComponent<Image>().material = materialRed;
                 break;
             case 2:
-                yellowLight.GetComponent<Image>().material = materialRed;
+                yellowLight.GetComponent<Image>().material = materialYellow;
                 break;
             case 3:
                 blueLight.GetComponent<Image>().material = materialBlue;
