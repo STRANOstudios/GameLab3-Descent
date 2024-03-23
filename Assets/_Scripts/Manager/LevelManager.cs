@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,11 +10,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject reactor;
     [SerializeField] List<GameObject> Hostages;
     [Space]
-    [SerializeField] float timeToEscape = 30f;
+    [SerializeField] float timeToEscape = 50f;
+
+    [Header("UI")]
+    [SerializeField] TMP_Text countDown;
 
     private PlayerInputHadler inputHandler;
     private bool isGamePaused = false;
-    private bool isReactorOpened = false;
+    public bool isReactorOpened = false;
     private bool pauseIsActive = true;
     private bool successfulEscape = false;
 
@@ -28,24 +32,18 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         PauseState();
-
-        if (isReactorOpened)
-        {
-            if (!reactor.activeSelf)
-            {
-                Wait(timeToEscape);
-            }
-        }
     }
 
     private void OnEnable()
     {
         UIManager.resume += Resume;
+        CoreLogic.death += CountDown;
     }
 
     private void OnDisable()
     {
         UIManager.resume -= Resume;
+        CoreLogic.death -= CountDown;
     }
 
     private void PauseState()
@@ -98,6 +96,12 @@ public class LevelManager : MonoBehaviour
         return true;
     }
 
+    void CountDown()
+    {
+        countDown.gameObject.SetActive(true);
+        StartCoroutine(StartCountdown());
+    }
+
     private IEnumerator Delay(float value = 1f)
     {
         pauseIsActive = false;
@@ -105,9 +109,20 @@ public class LevelManager : MonoBehaviour
         pauseIsActive = true;
     }
 
-    private IEnumerator Wait(float value = 1f)
+    IEnumerator StartCountdown()
     {
-        yield return new WaitForSecondsRealtime(value);
+        
+        float timeRemaining = timeToEscape;
+
+        while (timeRemaining > 0f)
+        {
+            countDown.text = timeRemaining.ToString("00");
+
+            yield return new WaitForSeconds(1f);
+
+            timeRemaining -= 1f;
+        }
+        countDown.text = "00";
         if (!successfulEscape)
         {
             Debug.Log("you died");
