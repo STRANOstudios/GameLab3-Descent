@@ -9,6 +9,9 @@ public class Key : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.layer == 6)
+        {
+            Destroy(gameObject);
+        }
     }
 }
