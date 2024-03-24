@@ -75,12 +75,21 @@ public class PlayerController : MonoBehaviour
     {
         LevelManager.pause += Pause;
         GameplaySettings.settings += SetGameplay;
+
+        Escaped.escaped += Disable;
     }
 
     private void OnDisable()
     {
         LevelManager.pause -= Pause;
         GameplaySettings.settings -= SetGameplay;
+
+        Escaped.escaped -= Disable;
+    }
+
+    private void Disable()
+    {
+        this.enabled = false;
     }
 
     private void Pause(bool value)
