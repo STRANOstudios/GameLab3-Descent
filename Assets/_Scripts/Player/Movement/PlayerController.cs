@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         float targetBankAngle = transform.eulerAngles.z - inputHandler.bankValue * rotationAmount;
 
-        if (!IsBankable) targetBankAngle = transform.eulerAngles.z;
+        //if (!IsBankable) targetBankAngle = transform.eulerAngles.z;
 
         targetBankAngle = targetBankAngle < 0 ? 360 + targetBankAngle : targetBankAngle;
 
