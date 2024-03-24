@@ -304,8 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHP: 50
   speed: 160
-  ChaseDistance: 5
-  AttackDistance: 3.5
+  ChaseDistance: 5.5
+  AttackDistance: 4
   firePointSX: {fileID: 3759944776038442956}
   firePointDX: {fileID: 2082082074217422828}
   fireRate: 0.45
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47bdceddf3b32114baf245fcaa4d6fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chance: 10
+  chance: 50
   powerup: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656, type: 3}
 --- !u!1001 &2874214607391234396
 PrefabInstance:
