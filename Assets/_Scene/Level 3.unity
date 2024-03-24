@@ -23826,29 +23826,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 99532014}
-    - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: ChaseDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: AttackDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: waypoints.Array.size
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -23901,21 +23881,6 @@ PrefabInstance:
       objectReference: {fileID: 1921183953}
     - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 188.05
       objectReference: {fileID: 0}
@@ -23963,11 +23928,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8610203136196801484, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
