@@ -1,18 +1,17 @@
 using DevionGames;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static LevelManager;
+using static UnityEngine.Rendering.ReloadAttribute;
 
 public class UIManager : MonoBehaviour
 {
     [Header("UI Elements")]
     //top
     [Header("Top Elements")]
-    [SerializeField] TMP_Text score;
-    [SerializeField] TMP_Text mission;
+    [SerializeField] CurvyText score;
+    [SerializeField] CurvyText mission;
 
     //key
     [Header("Key Elements")]
@@ -54,6 +53,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject miniMap;
 
     private int scoreValue = 0;
+    private int packages = 0;
+
+    private string mainMission = "Destroy the reactor";
+    private string optionable = $"Retrieve packages 0/5";
 
     public delegate void Resum();
     public static event Resum resume = null;
@@ -70,6 +73,10 @@ public class UIManager : MonoBehaviour
 
         Score.OnObjectDeactivated += ScoreSet;
         PlayerKeyHolder.OnKeyPickUp += AddKey;
+
+        AmazonVan.delivered += Box;
+
+        CoreLogic.death -= Core;
     }
     private void OnDisable()
     {
@@ -83,12 +90,36 @@ public class UIManager : MonoBehaviour
 
         Score.OnObjectDeactivated -= ScoreSet;
         PlayerKeyHolder.OnKeyPickUp -= AddKey;
+
+        AmazonVan.delivered -= Box;
+
+        CoreLogic.death -= Core;
+    }
+
+    private void Box()
+    {
+        packages++;
+        optionable = $"Retrieve packages {packages}/5";
+
+        UpdateMessage();
+    }
+
+    private void Core()
+    {
+        mainMission = "Escape from base";
+
+        UpdateMessage();
+    }
+
+    private void UpdateMessage()
+    {
+        mission.text = "Main mission: " + mainMission + "\n" + "Optional: " + optionable;
     }
 
     private void ScoreSet(int value)
     {
         scoreValue += value;
-        score.text = scoreValue.ToString("D5");
+        score.text = scoreValue.ToString("D5") + " ";
     }
 
     private void Energy(int value)
