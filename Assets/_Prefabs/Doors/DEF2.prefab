@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 808493066128062928}
   - component: {fileID: 4192505282632166414}
-  - component: {fileID: 1545617151633865809}
   m_Layer: 0
   m_Name: DEF2
   m_TagString: Untagged
@@ -58,27 +57,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &1545617151633865809
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60916350456603953}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 16640
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.045, y: 0.045, z: 0.04}
-  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1 &3714839095369309857
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +151,7 @@ GameObject:
   - component: {fileID: 2084608667884591187}
   - component: {fileID: 7876573374867577097}
   - component: {fileID: 4967060020375201419}
+  - component: {fileID: 614461508194098815}
   m_Layer: 0
   m_Name: porta_sinistra
   m_TagString: Untagged
@@ -245,6 +224,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &614461508194098815
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033641860326943507}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 24832
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1848924527908158099, guid: dea555c9bc81ed242995359bd163136a, type: 3}
 --- !u!1 &7569822474793005865
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +257,7 @@ GameObject:
   - component: {fileID: 4055701094867012170}
   - component: {fileID: 6985735454292341038}
   - component: {fileID: 5382422255202767808}
+  - component: {fileID: 2419046942571533040}
   m_Layer: 0
   m_Name: polySurface59
   m_TagString: Untagged
@@ -328,6 +330,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2419046942571533040
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569822474793005865}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 24832
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8890598164268038138, guid: dea555c9bc81ed242995359bd163136a, type: 3}
 --- !u!1 &7642512855623847837
 GameObject:
   m_ObjectHideFlags: 0
