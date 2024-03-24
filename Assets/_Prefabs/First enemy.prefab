@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHP: 1
-  speed: 1
+  speed: 86
   ChaseDistance: 2
   AttackDistance: 1
   firePointSX: {fileID: 3759944776038442956}
