@@ -34,13 +34,11 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        HealthManager.dead += ReturnToMenu;
         GameplaySettings.settings += SetGameplay;
     }
 
     private void OnDisable()
     {
-        HealthManager.dead -= ReturnToMenu;
         GameplaySettings.settings += SetGameplay;
     }
 

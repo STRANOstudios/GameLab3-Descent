@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -19,6 +18,7 @@ public class LevelManager : MonoBehaviour
     [Header("Ending")]
     [SerializeField] Image endingPanel;
     [SerializeField] Sprite goodEnding;
+    [SerializeField] Sprite looseEnding;
 
     private PlayerInputHadler inputHandler;
     private bool isGamePaused = false;
@@ -48,6 +48,8 @@ public class LevelManager : MonoBehaviour
 
         Score.OnObjectDeactivated += ScoreSet;
         Escaped.escaped += Escape;
+
+        HealthManager.dead += Loose;
     }
 
     private void OnDisable()
@@ -57,6 +59,8 @@ public class LevelManager : MonoBehaviour
 
         Score.OnObjectDeactivated -= ScoreSet;
         Escaped.escaped -= Escape;
+
+        HealthManager.dead -= Loose;
     }
 
     private void PauseState()
@@ -132,7 +136,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-        
+
         float timeRemaining = timeToEscape;
 
         while (timeRemaining > 0f)
@@ -146,9 +150,15 @@ public class LevelManager : MonoBehaviour
         countDown.text = "00";
         if (!successfulEscape)
         {
-            Debug.Log("you died");
-            //return to main menu
+            Loose();
         }
+    }
+
+    private void Loose()
+    {
+        endingPanel.gameObject.SetActive(true);
+        endingPanel.sprite = looseEnding;
+        StartCoroutine(ReturnToMainMenu());
     }
 
     float GetSavedInt(string key)

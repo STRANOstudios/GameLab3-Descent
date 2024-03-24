@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         characterController = GetComponent<CharacterController>();
         inputHandler = PlayerInputHadler.Instance;
 
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         GameplaySettings.settings += SetGameplay;
 
         Escaped.escaped += Disable;
+        HealthManager.dead += Disable;
     }
 
     private void OnDisable()
@@ -85,10 +87,12 @@ public class PlayerController : MonoBehaviour
         GameplaySettings.settings -= SetGameplay;
 
         Escaped.escaped -= Disable;
+        HealthManager.dead -= Disable;
     }
 
     private void Disable()
     {
+        Time.timeScale = 0;
         this.enabled = false;
     }
 
