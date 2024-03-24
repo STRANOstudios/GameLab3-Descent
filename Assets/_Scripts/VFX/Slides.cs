@@ -1,34 +1,128 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Slides : MonoBehaviour
 {
     [Header("Slides")]
     [SerializeField] string _newGameLevel;
     [SerializeField] Image image;
-    [SerializeField] List<Sprite> sprites = new();
-    [SerializeField, Range(0f, 10f)] float delay = 1f;
+    [SerializeField] TMP_Text text;
+    [SerializeField] CanvasGroup enemyPanel;
+
+    [Header("Settings")]
+    [SerializeField, Min(0)] float delayEndWrting = 1f;
+
+    [Header("VFX")]
+    [SerializeField] Transform announcer;
+    [SerializeField] Transform target;
+
+    [Space]
+
+    [SerializeField] List<Sketch> sketch = new();
 
     private void Start()
     {
-        if (sprites.Count <= 0) return;
-        for (int i = 0; i < sprites.Count; i++)
+        if (sketch == null || sketch.Count == 0)
         {
-            image.sprite = sprites[i];
-            Delay(delay);
+            Debug.LogWarning("SketchItems list is empty. Exiting.");
+            return;
         }
+
+        StartCoroutine(ShowNextSketchItem());
+        //LoadNextScene();
+    }
+
+    private IEnumerator ShowNextSketchItem()
+    {
+        foreach (Sketch item in sketch)
+        {
+            if (item.enemy != null) StartCoroutine(EnemyVfx(item));
+
+            image.sprite = item.image;
+
+            StartCoroutine(WriteText(item));
+
+            yield return new WaitForSeconds(item.delay);
+        }
+    }
+
+    private IEnumerator EnemyVfx(Sketch item)
+    {
+        item.enemy.SetActive(true);
+
+        float duration = item.delay * 0.1f;
+        float endTime = Time.time + item.delay - duration;
+
+        Vector3 startPosition = announcer.position;
+        Vector3 endPosition = target.position;
+
+        // Animazione di comparsa e movimento
+        float startTime = Time.time;
+        while (Time.time - startTime < duration)
+        {
+            float percentageComplete = (Time.time - startTime) / duration;
+            announcer.position = Vector3.Lerp(startPosition, endPosition, percentageComplete);
+            enemyPanel.alpha += percentageComplete;
+            yield return null;
+        }
+
+        // Attendiamo fino al 75% della durata totale
+        yield return new WaitForSeconds(duration * 7.5f);
+
+        // Animazione di scomparsa e movimento inverso
+        while (Time.time < endTime)
+        {
+            float reverseStartTime = Time.time;
+            float reverseEndTime = Time.time + duration;
+
+            while (Time.time < reverseEndTime)
+            {
+                float percentageComplete = (Time.time - reverseStartTime) / duration;
+                announcer.position = Vector3.Lerp(endPosition, startPosition, percentageComplete);
+                enemyPanel.alpha -= percentageComplete;
+                yield return null;
+            }
+        }
+
+        item.enemy.SetActive(false);
+    }
+
+
+    private void LoadNextScene()
+    {
 #if UNITY_EDITOR
         SceneManager.LoadScene(_newGameLevel);
 #else
-        SceneManager.LoadScene(2); //3
+        SceneManager.LoadScene(2); // Change to the appropriate scene index in the build settings
 #endif
     }
 
-    private IEnumerator Delay(float value = 1f)
+    private IEnumerator WriteText(Sketch item)
     {
-        yield return new WaitForSeconds(delay);
+        float timePerCharacter = (item.delay - delayEndWrting) / item.text.Length;
+
+        text.text = "";
+
+        foreach (char c in item.text)
+        {
+            text.text += "" + c;
+            yield return new WaitForSeconds(timePerCharacter);
+        }
     }
+}
+
+[Serializable]
+public class Sketch
+{
+    public Sprite image;
+    public string text;
+    public float delay;
+    public GameObject enemy = null;
 }
