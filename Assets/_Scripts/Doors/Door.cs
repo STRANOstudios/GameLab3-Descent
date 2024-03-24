@@ -1,16 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] float valueID;
-
     [SerializeField] bool needsKey;
+    [SerializeField] bool isBossDoor = false;
     
     List<float> playerKeys = new List<float>();
 
     Animator anim;
+
+    public delegate void StartBossFight();
+    public static event StartBossFight bossfight;
 
     private void Start()
     {
@@ -19,6 +21,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(isBossDoor) bossfight?.Invoke();
 
         anim.SetBool("CloseDoor", false);
         if (needsKey)
@@ -41,10 +44,9 @@ public class Door : MonoBehaviour
         }
     }
 
-
-
     private void OnTriggerExit(Collider other)
     {
+        if (isBossDoor) return;
         if (!needsKey)
         {
             anim.SetBool("OpenDoor", false);

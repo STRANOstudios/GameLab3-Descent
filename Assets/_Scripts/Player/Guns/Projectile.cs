@@ -34,10 +34,8 @@ public class Projectile : MonoBehaviour
     {
         if (impactVFX != null) impactVFX.Play();
 
-        StopAllCoroutines();
+        StopCoroutine("DeactivateRoutine");
         Reset();
-
-        Debug.Log(collision.gameObject.name + " has been hit.");
     }
 
     private void Reset()
