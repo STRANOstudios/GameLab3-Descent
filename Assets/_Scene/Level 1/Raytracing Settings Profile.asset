@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Value: 2
   m_MinSmoothness:
     m_OverrideState: 1
-    m_Value: 0.01
+    m_Value: 0.152
   m_SmoothnessFadeStart:
     m_OverrideState: 1
     m_Value: 0.9

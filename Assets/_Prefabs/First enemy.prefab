@@ -303,12 +303,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHP: 50
-  speed: 120
+  speed: 160
   ChaseDistance: 5
   AttackDistance: 3.5
   firePointSX: {fileID: 3759944776038442956}
   firePointDX: {fileID: 2082082074217422828}
-  fireRate: 1
+  fireRate: 0.45
   spawnTime: 1
   waypoints:
   - {fileID: 0}
