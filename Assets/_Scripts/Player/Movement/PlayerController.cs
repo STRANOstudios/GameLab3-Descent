@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputHadler inputHandler;
     private Vector3 currentMovement;
     private float verticalRotation;
-    private bool IsBankable = false;
+    private bool IsBankable = true;
     private float currentOscillation = 0f;
     private float currentOscillationVelocity = 0f;
     private bool bankIsActive = true;
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         float targetBankAngle = transform.eulerAngles.z - inputHandler.bankValue * rotationAmount;
 
-        if (!IsBankable) targetBankAngle = transform.eulerAngles.z;
+        //if (!IsBankable) targetBankAngle = transform.eulerAngles.z;
 
         targetBankAngle = targetBankAngle < 0 ? 360 + targetBankAngle : targetBankAngle;
 

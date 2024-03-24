@@ -52621,10 +52621,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5840359619420943486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e58b66b228d7744d829c798d7ecc8ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 80ff50e6efb79cd48bedfad2f0b9ae60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyIDs: []
+  targetTag: Box
 --- !u!33 &5866927383430835945
 MeshFilter:
   m_ObjectHideFlags: 0
