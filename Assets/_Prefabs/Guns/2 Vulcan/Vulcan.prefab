@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5552565168691556162}
   - component: {fileID: 2760313691782340213}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: Vulcan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,18 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5b8fd497ea34e4db8877a0d62968ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4123247207829198094, guid: 33ae34b7417d3fa4989e60d789ca1f11,
+  projectilePrefab: {fileID: 4123247207829198094, guid: 197d95aa4c373ce42a218f1ef03de765,
     type: 3}
-  sprite: {fileID: 27551023, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
+  sprite: {fileID: 1304887979, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
   muzzleVelocity: 700
   spherecast: 0
   muzzlePosition:
   - {fileID: 4329171618499768353}
-  cooldownWindow: 0.1
+  cooldownWindow: 0.05
   collectionCheck: 1
   defaultCapacity: 20
-  maxSize: 100
-  bulletMagazine: 50
+  maxSize: 10000
+  bulletMagazine: 2500
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0
