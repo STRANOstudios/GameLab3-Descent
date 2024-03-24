@@ -35032,6 +35032,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 608808285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1253595558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3642088964906196987, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+    type: 3}
+  m_PrefabInstance: {fileID: 5840359619420943484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254009893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63891,6 +63897,11 @@ PrefabInstance:
       propertyPath: Speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2170725524972013888, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+        type: 3}
+      propertyPath: gunList
+      value: 
+      objectReference: {fileID: 1253595558}
     - target: {fileID: 2170725524972013888, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
       propertyPath: UI_RearView
