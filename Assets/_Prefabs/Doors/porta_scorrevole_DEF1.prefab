@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6121763762498106622}
   - component: {fileID: 5940612768629759622}
   - component: {fileID: 7793746948613784561}
+  - component: {fileID: 2858283372101916946}
   m_Layer: 0
   m_Name: barra3
   m_TagString: Untagged
@@ -83,6 +84,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2858283372101916946
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2975964521206073647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 24832
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2441717395696276014, guid: 2dcfda182fd993142982b0862db6a4f2, type: 3}
 --- !u!1 &5807171666268976443
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +116,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7702149258835192180}
   - component: {fileID: 1884783940981957201}
-  - component: {fileID: 2571525980481577743}
   m_Layer: 0
   m_Name: porta_scorrevole_DEF1
   m_TagString: Untagged
@@ -142,27 +164,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &2571525980481577743
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5807171666268976443}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 16640
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.045, y: 0.045, z: 0.04}
-  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1 &6214393254594090311
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ GameObject:
   - component: {fileID: 4076021653498022128}
   - component: {fileID: 1775897515797217055}
   - component: {fileID: 1565073905661825891}
+  - component: {fileID: 1369109754624902740}
   m_Layer: 0
   m_Name: barra1
   m_TagString: Untagged
@@ -246,6 +248,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1369109754624902740
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214393254594090311}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 24832
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5409458373694019694, guid: 2dcfda182fd993142982b0862db6a4f2, type: 3}
 --- !u!1 &6746118950334629354
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +281,7 @@ GameObject:
   - component: {fileID: 8369158155632974654}
   - component: {fileID: 1337628678192522463}
   - component: {fileID: 4628208686744799381}
+  - component: {fileID: 8258934845823396773}
   m_Layer: 0
   m_Name: barra4
   m_TagString: Untagged
@@ -329,6 +354,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8258934845823396773
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6746118950334629354}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 24832
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 664456749670281567, guid: 2dcfda182fd993142982b0862db6a4f2, type: 3}
 --- !u!1 &6928838661980474000
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +387,7 @@ GameObject:
   - component: {fileID: 2786125031232581001}
   - component: {fileID: 8288938390666968887}
   - component: {fileID: 4646661170239512916}
+  - component: {fileID: 3630086082915817867}
   m_Layer: 0
   m_Name: barra2
   m_TagString: Untagged
@@ -412,6 +460,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3630086082915817867
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928838661980474000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 24832
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5629209986628021312, guid: 2dcfda182fd993142982b0862db6a4f2, type: 3}
 --- !u!1 &7854138078378409252
 GameObject:
   m_ObjectHideFlags: 0
