@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,6 +14,10 @@ public class LevelManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] TMP_Text countDown;
+
+    [Header("Ending")]
+    [SerializeField] Image endingPanel;
+    [SerializeField] Sprite goodEnding;
 
     private PlayerInputHadler inputHandler;
     private bool isGamePaused = false;
@@ -38,12 +42,16 @@ public class LevelManager : MonoBehaviour
     {
         UIManager.resume += Resume;
         CoreLogic.death += CountDown;
+
+        Escaped.escaped += Escape;
     }
 
     private void OnDisable()
     {
         UIManager.resume -= Resume;
         CoreLogic.death -= CountDown;
+
+        Escaped.escaped -= Escape;
     }
 
     private void PauseState()
@@ -73,18 +81,13 @@ public class LevelManager : MonoBehaviour
     {
         successfulEscape = true;
 
+        endingPanel.gameObject.SetActive(true);
         if (FreeHostage())
         {
-            //good ending
-            Debug.Log("good ending");
-        }
-        else
-        {
-            //bad ending
-            Debug.Log("bad ending");
+            endingPanel.sprite = goodEnding;
         }
 
-        //return to main menu
+        StartCoroutine(ReturnToMainMenu());
     }
 
     bool FreeHostage()
@@ -107,6 +110,12 @@ public class LevelManager : MonoBehaviour
         pauseIsActive = false;
         yield return new WaitForSecondsRealtime(value);
         pauseIsActive = true;
+    }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        GameManager.Instance.ReturnToMenu();
     }
 
     IEnumerator StartCountdown()

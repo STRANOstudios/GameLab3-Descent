@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
-    [SerializeField] float timer;
-
     Animator anim;
     private void OnEnable()
     {
@@ -20,12 +18,6 @@ public class ExitDoor : MonoBehaviour
     private void Timer()
     {
         anim.SetBool("OpenDoor", true);
-        StartCoroutine(EndTimer());
-        
-    }
-
-    IEnumerator EndTimer()
-    {
-        yield return new WaitForSeconds(timer);
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 }
