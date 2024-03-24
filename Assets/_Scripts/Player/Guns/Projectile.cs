@@ -11,9 +11,12 @@ public class Projectile : MonoBehaviour
     [Tooltip("The range of the projectile.")]
     [SerializeField] float range;
 
+    [Header("VFX")]
+    [SerializeField] ParticleSystem impactVFX = null;
+
     private IObjectPool<Projectile> objectPool;
 
-    public IObjectPool<Projectile> ObjectPool { set =>  objectPool = value; }
+    public IObjectPool<Projectile> ObjectPool { set => objectPool = value; }
 
     public void Deactivate()
     {
@@ -29,6 +32,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (impactVFX != null) impactVFX.Play();
+
         StopAllCoroutines();
         Reset();
 
