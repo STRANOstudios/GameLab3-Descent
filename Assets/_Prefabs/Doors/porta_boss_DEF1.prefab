@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077614076467943827}
   - component: {fileID: 3302228691788951451}
+  - component: {fileID: 7008583190421501459}
   m_Layer: 0
   m_Name: porta_boss_DEF1
   m_TagString: Untagged
@@ -390,6 +391,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7008583190421501459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325666096151693542}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 16640
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.045, y: 0.045, z: 0.04}
+  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1 &8654139585671255307
 GameObject:
   m_ObjectHideFlags: 0
