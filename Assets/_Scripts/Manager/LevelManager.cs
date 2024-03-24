@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -25,6 +26,8 @@ public class LevelManager : MonoBehaviour
     private bool pauseIsActive = true;
     private bool successfulEscape = false;
 
+    private int scoreValue = 0;
+
     public delegate void Pause(bool value);
     public static event Pause pause = null;
 
@@ -43,6 +46,7 @@ public class LevelManager : MonoBehaviour
         UIManager.resume += Resume;
         CoreLogic.death += CountDown;
 
+        Score.OnObjectDeactivated += ScoreSet;
         Escaped.escaped += Escape;
     }
 
@@ -51,6 +55,7 @@ public class LevelManager : MonoBehaviour
         UIManager.resume -= Resume;
         CoreLogic.death -= CountDown;
 
+        Score.OnObjectDeactivated -= ScoreSet;
         Escaped.escaped -= Escape;
     }
 
@@ -63,6 +68,11 @@ public class LevelManager : MonoBehaviour
             pause?.Invoke(isGamePaused);
             Time.timeScale = isGamePaused ? 0 : 1;
         }
+    }
+
+    private void ScoreSet(int value)
+    {
+        scoreValue += value;
     }
 
     private void Resume()
@@ -86,6 +96,8 @@ public class LevelManager : MonoBehaviour
         {
             endingPanel.sprite = goodEnding;
         }
+
+        if (scoreValue > GetSavedInt("Score")) PlayerPrefs.SetInt("Score", scoreValue);
 
         StartCoroutine(ReturnToMainMenu());
     }
@@ -137,5 +149,11 @@ public class LevelManager : MonoBehaviour
             Debug.Log("you died");
             //return to main menu
         }
+    }
+
+    float GetSavedInt(string key)
+    {
+        if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetInt(key);
+        return 0;
     }
 }
