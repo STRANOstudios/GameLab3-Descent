@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Rotation Settings")]
     [SerializeField] float rotationSmoothFactor = 0.1f;
+    [SerializeField] Transform gunList;
 
     [Header("VFX")]
     [SerializeField] Transform mainCamera;
@@ -154,6 +155,7 @@ public class PlayerController : MonoBehaviour
         verticalRotation -= mouseYInput * mouseSensitivity;
 
         mainCamera.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        gunList.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
         float horizontalRotation = Mathf.Abs(inputHandler.LookInput.x);
         float targetOscillation = Mathf.Sin(Time.time * oscillationSpeed) * oscillationAmount * horizontalRotation;
