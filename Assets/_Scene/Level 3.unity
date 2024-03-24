@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27253,7 +27253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &808079990
 Transform:
   m_ObjectHideFlags: 0
@@ -31062,7 +31062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &998568343
 Transform:
   m_ObjectHideFlags: 0
@@ -65293,6 +65293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mouseSensitivity
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070147850547394483, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 32695
       objectReference: {fileID: 0}
     - target: {fileID: 4849802148837020762, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
