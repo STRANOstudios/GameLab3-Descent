@@ -23837,12 +23837,12 @@ PrefabInstance:
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: ChaseDistance
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: AttackDistance
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
