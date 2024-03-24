@@ -13,6 +13,7 @@ public class AttackingState : EnemyBaseState
 
     public override void UpdateState(StateManager enemy)
     {
+        enemy.transform.LookAt(enemy.playerPrefab);
         distanceFromTarget = Vector3.Distance(enemy.transform.position, enemy.playerPrefab.position);
 
         if (distanceFromTarget > enemy.ChaseDistance)
