@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -103,6 +104,8 @@ public class LevelManager : MonoBehaviour
 
         if (scoreValue > GetSavedInt("Score")) PlayerPrefs.SetInt("Score", scoreValue);
 
+        Teletraport();
+
         StartCoroutine(ReturnToMainMenu());
     }
 
@@ -156,6 +159,7 @@ public class LevelManager : MonoBehaviour
 
     private void Loose()
     {
+        Teletraport();
         endingPanel.gameObject.SetActive(true);
         endingPanel.sprite = looseEnding;
         StartCoroutine(ReturnToMainMenu());
@@ -165,5 +169,10 @@ public class LevelManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetInt(key);
         return 0;
+    }
+
+    private void Teletraport()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
     }
 }
