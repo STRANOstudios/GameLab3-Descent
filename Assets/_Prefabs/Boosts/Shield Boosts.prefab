@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1934994267707391744}
   - component: {fileID: 191406376087538175}
   - component: {fileID: 1121481413902907897}
+  - component: {fileID: 340617113999668794}
+  - component: {fileID: 2786297030829229943}
   m_Layer: 11
   m_Name: Shield Boosts
   m_TagString: Untagged
@@ -77,6 +79,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 100
+  audioSource: {fileID: 0}
+--- !u!114 &340617113999668794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267089809814850456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbf0bf82bb15b647a4fc2b834115e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+--- !u!114 &2786297030829229943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267089809814850456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bacf290ff9587847bf4dbc94caf8f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpeed: 1
+  waveAmplitude: 0.1
 --- !u!1001 &5246166501069765979
 PrefabInstance:
   m_ObjectHideFlags: 0
