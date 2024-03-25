@@ -3150,7 +3150,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &132055728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4008,36 +4008,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1219154258}
     m_Modifications:
-    - target: {fileID: 715659635405506133, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225643221315764280, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285362648364895612, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4088,85 +4058,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454732495294352077, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2823404089556588188, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518192710460191967, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4210488627259619519, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447800369975894282, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384075835570462810, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8950678767130028934, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 9069477450339153373, guid: 07f619a745a000a42b69f38b10414e37,
         type: 3}
       propertyPath: m_Name
       value: porta_rombo_DEF2 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 9069477450339153373, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9069477450339153373, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 162190575}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07f619a745a000a42b69f38b10414e37, type: 3}
---- !u!1 &162190574 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9069477450339153373, guid: 07f619a745a000a42b69f38b10414e37,
-    type: 3}
-  m_PrefabInstance: {fileID: 162190573}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &162190575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162190574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ede294874e0794ea61ad76d9f1b0da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myHP: 5
-  audioSource: {fileID: 0}
 --- !u!4 &162190581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
@@ -12670,7 +12571,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!4 &337166672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 808493066128062928, guid: fc2c9bdadb91f2848b9c2fb6cdfd2d3e,
@@ -25927,7 +25828,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &653526092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29656,7 +29557,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &851165528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30432,7 +30333,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &893409813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33074,6 +32975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1a264c3d64ee6488862466aa42cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!65 &990140473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45941,7 +45843,7 @@ MonoBehaviour:
   valueID: 2
   needsKey: 1
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &1419675616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62072,7 +61974,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &1929599195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64351,7 +64253,7 @@ MonoBehaviour:
   valueID: 3
   needsKey: 1
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &2078650058
 BoxCollider:
   m_ObjectHideFlags: 0
