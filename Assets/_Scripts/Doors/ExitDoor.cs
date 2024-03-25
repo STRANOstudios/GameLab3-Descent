@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExitDoor : MonoBehaviour
 {
     Animator anim;
+    bool canOpen;
     private void OnEnable()
     {
         CoreLogic.death += Timer;
@@ -17,7 +18,14 @@ public class ExitDoor : MonoBehaviour
     }
     private void Timer()
     {
-        anim.SetBool("OpenDoor", true);
-        gameObject.GetComponent<Collider>().enabled = false;
+        canOpen = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (canOpen)
+        {
+            anim.SetBool("OpenDoor", true);
+        }
     }
 }

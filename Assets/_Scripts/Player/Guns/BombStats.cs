@@ -56,6 +56,11 @@ public class BombStats : MonoBehaviour
             {
                 manager.Damage(damage);
             }
+
+            else if (c.TryGetComponent<CoreLogic>(out CoreLogic core ))
+            {
+                core.Damage(damage);
+            }
         }
     }
 
