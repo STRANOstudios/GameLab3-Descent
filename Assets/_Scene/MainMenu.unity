@@ -13096,7 +13096,7 @@ MonoBehaviour:
   volumeHD: {fileID: 43821064}
   volumeRayTracing: {fileID: 1961962726}
   playerController: {fileID: 0}
-  music: {fileID: 0}
+  music: {fileID: 8300000, guid: dafa26bf6fec8cc49ac7f3d2e01da9ab, type: 3}
 --- !u!82 &1653224987
 AudioSource:
   m_ObjectHideFlags: 0

@@ -50,6 +50,7 @@ public class Door : MonoBehaviour
 
     void Open()
     {
+        anim.SetBool("CloseDoor", false);
         anim.SetBool("OpenDoor", true);
         if(audioSource) audioSource.Play();
     }

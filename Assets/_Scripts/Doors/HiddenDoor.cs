@@ -2,35 +2,34 @@ using UnityEngine;
 
 public class HiddenDoor : HP
 {
-    float damageTaken;
+    [Header("Audio source")]
+    [SerializeField] AudioSource audioSource;
 
-    Animator anim;
+    private Animator anim;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision);
+
         if (collision.gameObject.layer == 13)
         {
-            Debug.Log("si");
-            damageTaken = collision.gameObject.GetComponent<Projectile>().GetDamage;
-            myHP -= damageTaken;
+            myHP -= collision.gameObject.GetComponent<Projectile>().GetDamage;
 
-            if (myHP <= 0)
-            {
-                myHP = 0;
-                Death();
-                gameObject.GetComponent<Collider>().enabled = false;
-            }
+            if (myHP <= 0) Death();
         }
     }
 
     public override void Death()
     {
+        if (audioSource) audioSource.Play();
         anim.SetBool("OpenDoor", true);
+        GetComponent<BoxCollider>().enabled = false;
         //Destroy(gameobject);  maybe???????
     }
 }
