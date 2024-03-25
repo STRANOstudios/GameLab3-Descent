@@ -9,11 +9,12 @@ public class Door : MonoBehaviour
     [SerializeField] bool isBossDoor = false;
 
     [Header("Audio source")]
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
     
     List<float> playerKeys = new List<float>();
 
     Animator anim;
+    private AudioSource audioSource;
 
     public delegate void StartBossFight();
     public static event StartBossFight bossfight;
@@ -21,6 +22,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,7 +54,7 @@ public class Door : MonoBehaviour
     {
         anim.SetBool("CloseDoor", false);
         anim.SetBool("OpenDoor", true);
-        if(audioSource) audioSource.Play();
+        SetClip();
     }
 
     private void OnTriggerExit(Collider other)
@@ -62,6 +64,17 @@ public class Door : MonoBehaviour
         {
             anim.SetBool("OpenDoor", false);
             anim.SetBool("CloseDoor", true);
+            SetClip();
+        }
+    }
+
+    void SetClip()
+    {
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = sound;
+            audioSource.Play();
         }
     }
 }

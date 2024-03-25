@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
+    [Header("Audio source")]
+    public AudioSource audioSource;
+
     Animator anim;
     bool canOpen;
+
     private void OnEnable()
     {
         CoreLogic.death += Timer;
@@ -25,6 +29,7 @@ public class ExitDoor : MonoBehaviour
     {
         if (canOpen)
         {
+            if (audioSource) audioSource.Play();
             anim.SetBool("OpenDoor", true);
         }
     }

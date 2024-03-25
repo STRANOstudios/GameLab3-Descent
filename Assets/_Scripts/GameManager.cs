@@ -48,9 +48,12 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        audioSource.Stop();
-        audioSource.clip = music;
-        audioSource.Play();
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = music;
+            audioSource.Play();
+        }
 
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
