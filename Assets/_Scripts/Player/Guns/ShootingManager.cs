@@ -13,7 +13,7 @@ public class ShootingManager : MonoBehaviour
     [SerializeField] GameObject bomb;
     [SerializeField, Min(0)] float bombMagazine;
     [SerializeField] Transform bombNozzle;
-    [SerializeField, Min(0f)] float fireRate = 0.1f;
+    [SerializeField, Min(0f)] float fireRate = 1f;
 
     /*[SerializeField]*/
     Gun flare;
@@ -74,8 +74,8 @@ public class ShootingManager : MonoBehaviour
             if (bombMagazine <= 0) return;
             Instantiate(bomb, bombNozzle.position, bombNozzle.rotation);
             bombMagazine--;
+            StartCoroutine(DelayBomb(fireRate));
         }
-        StartCoroutine(DelayBomb(0.1f));
     }
 
     IEnumerator DelayBomb(float delay = 0.3f)
