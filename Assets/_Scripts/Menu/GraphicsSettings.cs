@@ -102,8 +102,6 @@ public class GraphicsSettings : MonoBehaviour
 
         Color newColor = new(_brightnessLevel / 255f, _brightnessLevel / 255f, _brightnessLevel / 255f, 1);
         colorAdjustments.colorFilter.Override(newColor);
-
-        Debug.Log(newColor);
     }
 
     void SetResolution(int value)

@@ -207,7 +207,7 @@ MonoBehaviour:
     m_Value: 20
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 11
   m_Denoise:
     m_OverrideState: 1
     m_Value: 1

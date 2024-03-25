@@ -34,7 +34,6 @@ public class Slides : MonoBehaviour
         }
 
         StartCoroutine(ShowNextSketchItem());
-        //LoadNextScene();
     }
 
     private IEnumerator ShowNextSketchItem()
@@ -49,6 +48,7 @@ public class Slides : MonoBehaviour
 
             yield return new WaitForSeconds(item.delay);
         }
+        LoadNextScene();
     }
 
     private IEnumerator EnemyVfx(Sketch item)
@@ -71,10 +71,8 @@ public class Slides : MonoBehaviour
             yield return null;
         }
 
-        // Attendiamo fino al 75% della durata totale
         yield return new WaitForSeconds(duration * 7.5f);
 
-        // Animazione di scomparsa e movimento inverso
         while (Time.time < endTime)
         {
             float reverseStartTime = Time.time;
