@@ -35,6 +35,9 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         inputHandler = PlayerInputHadler.Instance;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -72,6 +75,9 @@ public class LevelManager : MonoBehaviour
             isGamePaused = !isGamePaused;
             pause?.Invoke(isGamePaused);
             Time.timeScale = isGamePaused ? 0 : 1;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -85,6 +91,9 @@ public class LevelManager : MonoBehaviour
         isGamePaused = false;
         pause?.Invoke(isGamePaused);
         Time.timeScale = 1;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void OpenReactor()
