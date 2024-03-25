@@ -536,7 +536,7 @@ MonoBehaviour:
   movementSmoothFactor: 0.8
   sprint: 0
   acceleration: 1
-  viewSmoothFactor: 2
+  viewSmoothFactor: 0.5
   invertYAxis: 0
   mouseSensitivity: 0.4
   rotationSmoothFactor: 1
