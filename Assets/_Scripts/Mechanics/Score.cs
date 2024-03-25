@@ -6,19 +6,21 @@ public class Score : MonoBehaviour
     [SerializeField] int score = 0;
 
     [Header("Audio source")]
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clip;
+
+    private AudioSource AudioSource;
 
     public delegate void ObjectDeactivated(int value);
     public static event ObjectDeactivated OnObjectDeactivated;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     void OnDisable()
     {
         OnObjectDeactivated?.Invoke(score);
-        if (audioSource != null) audioSource.Play();
+        if (clip && AudioSource) AudioSource.PlayOneShot(clip);
     }
 }
