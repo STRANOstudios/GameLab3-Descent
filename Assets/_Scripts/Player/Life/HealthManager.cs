@@ -33,6 +33,9 @@ public class HealthManager : MonoBehaviour
                 healt?.Invoke((int)health);
                 other.gameObject.SetActive(false);
                 break;
+            case 14:
+                Damage(other.gameObject.GetComponent<Bullet>().Damage);
+                break;
             default:
                 break;
         }

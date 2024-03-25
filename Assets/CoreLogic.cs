@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class CoreLogic : MonoBehaviour
@@ -25,12 +24,12 @@ public class CoreLogic : MonoBehaviour
 
     private void OnEnable()
     {
-        //open door start Fire();
+        Door.bossfight += Fire;
     }
 
     private void OnDisable()
     {
-
+        Door.bossfight -= Fire;
     }
 
     private void OnCollisionEnter(Collision collision)

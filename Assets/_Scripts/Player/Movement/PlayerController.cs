@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool mapOpened = false;
     private float originalRotationZ = 0f;
     private float rotationAmount = -300f;
-
+    private bool rear = false;
     private bool pause = false;
 
     public delegate void Map(bool value);
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         characterController = GetComponent<CharacterController>();
         inputHandler = PlayerInputHadler.Instance;
 
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         GameplaySettings.settings += SetGameplay;
 
         Escaped.escaped += Disable;
+        HealthManager.dead += Disable;
     }
 
     private void OnDisable()
@@ -85,10 +87,12 @@ public class PlayerController : MonoBehaviour
         GameplaySettings.settings -= SetGameplay;
 
         Escaped.escaped -= Disable;
+        HealthManager.dead -= Disable;
     }
 
     private void Disable()
     {
+        Time.timeScale = 0;
         this.enabled = false;
     }
 
@@ -135,8 +139,8 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = inputHandler.MoveInput;
         Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
-        Vector3 cameraForward = mainCamera.forward;
-        Vector3 cameraRight = mainCamera.right;
+        Vector3 cameraForward = rear ? -mainCamera.forward : mainCamera.forward;
+        Vector3 cameraRight = rear ? -mainCamera.right : mainCamera.right;
         Vector3 horizontalMovement = (cameraForward * inputDirection.z + cameraRight * inputDirection.x) * speed;
 
         Vector3 flyMovement = Vector3.up * inputHandler.FlyValue * speed;
@@ -189,12 +193,16 @@ public class PlayerController : MonoBehaviour
         {
             mainCamera.rotation = Quaternion.Euler(-mainCamera.rotation.eulerAngles.x, (mainCamera.rotation.eulerAngles.y + 180f + 360f) % 360f, mainCamera.rotation.eulerAngles.z);
 
+            rear = true;
+
             //UI
             UI_FrontView.SetActive(false);
             UI_RearView.SetActive(true);
         }
         else
         {
+            rear = false;
+
             //UI
             UI_FrontView.SetActive(true);
             UI_RearView.SetActive(false);
