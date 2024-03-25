@@ -162,19 +162,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
   sprite: {fileID: 0}
-  muzzleVelocity: 700
+  muzzleVelocity: 0
   spherecast: 0
   muzzlePosition: []
   cooldownWindow: 0.1
   audioSource: {fileID: 0}
   collectionCheck: 1
-  defaultCapacity: 20
-  maxSize: 100
-  bulletMagazine: 50
-  timerToExplode: 0
+  defaultCapacity: 10
+  maxSize: 10
+  bulletMagazine: 0
+  timerToExplode: 10
   explodeParticles: {fileID: 0}
-  damage: 0
-  radiusExplosion: 0
+  damage: 50
+  radiusExplosion: 2
   layersHitByExplosion:
     serializedVersion: 2
     m_Bits: 0
