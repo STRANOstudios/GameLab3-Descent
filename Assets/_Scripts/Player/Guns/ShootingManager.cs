@@ -10,7 +10,9 @@ public class ShootingManager : MonoBehaviour
     [SerializeField] List<Gun> primaryGuns;
     [SerializeField] List<Gun> secondaryGuns;
 
-    [SerializeField] Gun bomb;
+    [SerializeField] GameObject bomb;
+    [SerializeField, Min(0)] float bombMagazine;
+    [SerializeField] Transform bombNozzle;
     [SerializeField] Gun flare;
 
     private PlayerInputHadler inputHandler;
@@ -65,7 +67,9 @@ public class ShootingManager : MonoBehaviour
         if (bomb == null) return;
         if (inputHandler.bombTrigger)
         {
-            bomb.Shoot();
+            if (bombMagazine <= 0) return;
+            Instantiate(bomb, bombNozzle.position, bombNozzle.rotation);
+            bombMagazine--;
         }
     }
 
@@ -130,6 +134,9 @@ public class ShootingManager : MonoBehaviour
             case "Gun":
                 GetGun(other.gameObject);
                 GetBullets(other.gameObject);
+                break;
+            case "BombMagazine":
+                bombMagazine += 2;
                 break;
             default:
                 break;

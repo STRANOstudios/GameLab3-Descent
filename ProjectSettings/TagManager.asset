@@ -12,6 +12,7 @@ TagManager:
   - KeyYellow
   - KeyBlue
   - Box
+  - BombMagazine
   layers:
   - Default
   - TransparentFX

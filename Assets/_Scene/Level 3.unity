@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 13.135131, g: 15.611341, b: 18.443819, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9873,7 +9873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 500
-  audioSource: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1 &232477682
 GameObject:
   m_ObjectHideFlags: 0
@@ -61461,7 +61461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 2000
-  audioSource: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1 &1892755428
 GameObject:
   m_ObjectHideFlags: 0
@@ -69816,8 +69816,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bomb
       value: 
-      objectReference: {fileID: 2760313691782340213, guid: fe70ab9335cfc7e49b90a4b499e12ad8,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7159281264619835593, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
       propertyPath: secondaryGuns.Array.size
@@ -69853,7 +69852,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8635838847049631401, guid: 9fb71b9a3b7ac32478bc70bf5a118477, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3642088964906196987, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
