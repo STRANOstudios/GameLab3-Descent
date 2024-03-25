@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if (!pause) HandlerBanking();
 
         RearView();
-        MiniMap();
+        //MiniMap();
 
         ApplyFloatingOscillation();
     }

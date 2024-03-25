@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [Header("Door Settings")]
     [SerializeField] float valueID;
     [SerializeField] bool needsKey;
     [SerializeField] bool isBossDoor = false;
+
+    [Header("Audio source")]
+    [SerializeField] AudioSource audioSource;
     
     List<float> playerKeys = new List<float>();
 
@@ -31,7 +35,7 @@ public class Door : MonoBehaviour
             {
                 if (key == valueID)
                 {
-                    anim.SetBool("OpenDoor", true);
+                    Open();
                     return;
                 }
             }
@@ -39,9 +43,15 @@ public class Door : MonoBehaviour
 
         else
         {
-            anim.SetBool("OpenDoor", true);
+            Open();
             return;
         }
+    }
+
+    void Open()
+    {
+        anim.SetBool("OpenDoor", true);
+        if(audioSource) audioSource.Play();
     }
 
     private void OnTriggerExit(Collider other)

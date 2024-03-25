@@ -15,20 +15,20 @@ public class Gun : MonoBehaviour
     [SerializeField] float muzzleVelocity = 700f;
     [Tooltip("Use spherecast to shoot")]
     [SerializeField] bool spherecast = false;
-
     [Tooltip("End point of gun where shots appear")]
     [SerializeField] List<Transform> muzzlePosition;
-
     [Tooltip("Time between shots / smaller = higher rate of fire")]
     [SerializeField] float cooldownWindow = 0.1f;
 
+    [Header("Audio Source")]
+    [SerializeField] AudioSource audioSource;
+
     private IObjectPool<Projectile> objectPool;
 
+    [Header("Debug")]
     [SerializeField] bool collectionCheck = true;
-
     [SerializeField] int defaultCapacity = 20;
     [SerializeField] int maxSize = 100;
-
     [SerializeField] float bulletMagazine = 50;
 
     private float nextTimeToShoot;
@@ -111,6 +111,9 @@ public class Gun : MonoBehaviour
                     bulletMagazine--;
                 }
             }
+
+            if (audioSource != null) audioSource.Play();
+
         }
         else
         {
