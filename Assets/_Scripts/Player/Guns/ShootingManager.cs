@@ -13,7 +13,10 @@ public class ShootingManager : MonoBehaviour
     [SerializeField] GameObject bomb;
     [SerializeField, Min(0)] float bombMagazine;
     [SerializeField] Transform bombNozzle;
-    [SerializeField] Gun flare;
+    [SerializeField, Min(0f)] float fireRate = 0.1f;
+
+    /*[SerializeField]*/
+    Gun flare;
 
     private PlayerInputHadler inputHandler;
 
@@ -22,6 +25,7 @@ public class ShootingManager : MonoBehaviour
 
     private bool DelayP = true;
     private bool DelayS = true;
+    private bool DelayB = true;
 
     public delegate void GunEdit(bool isPrimary, Sprite sprite, string name, int bulletMagazine);
     public static event GunEdit Gun = null;
@@ -65,12 +69,20 @@ public class ShootingManager : MonoBehaviour
     void Bomb()
     {
         if (bomb == null) return;
-        if (inputHandler.bombTrigger)
+        if (inputHandler.bombTrigger && DelayB)
         {
             if (bombMagazine <= 0) return;
             Instantiate(bomb, bombNozzle.position, bombNozzle.rotation);
             bombMagazine--;
         }
+        StartCoroutine(DelayBomb(0.1f));
+    }
+
+    IEnumerator DelayBomb(float delay = 0.3f)
+    {
+        DelayB = false;
+        yield return new WaitForSeconds(delay);
+        DelayB = true;
     }
 
     void Flare()
