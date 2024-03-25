@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -61297,6 +61297,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1271712976391214273, guid: 739f135ba3d026046b933562a66244b4,
+        type: 3}
+      propertyPath: bulletMagazine
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 739f135ba3d026046b933562a66244b4,
         type: 3}
       propertyPath: m_LocalPosition.x
