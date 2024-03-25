@@ -45,18 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5b8fd497ea34e4db8877a0d62968ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4123247207829198094, guid: 33ae34b7417d3fa4989e60d789ca1f11,
+  projectilePrefab: {fileID: 4123247207829198094, guid: 23c4feade4624b340a4a996528eda8ab,
     type: 3}
-  sprite: {fileID: 27551023, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
+  sprite: {fileID: -1804935602, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
   muzzleVelocity: 700
   spherecast: 0
   muzzlePosition:
   - {fileID: 4329171618499768353}
-  cooldownWindow: 0.1
+  cooldownWindow: 10
   collectionCheck: 1
-  defaultCapacity: 20
-  maxSize: 100
-  bulletMagazine: 50
+  defaultCapacity: 5
+  maxSize: 10
+  bulletMagazine: 1
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0

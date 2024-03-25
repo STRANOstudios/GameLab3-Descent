@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5552565168691556162}
   - component: {fileID: 2760313691782340213}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: Goliath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4123247207829198094, guid: 33ae34b7417d3fa4989e60d789ca1f11,
     type: 3}
-  sprite: {fileID: 27551023, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
+  sprite: {fileID: 379980275, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
   muzzleVelocity: 700
   spherecast: 0
   muzzlePosition:

@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3db763cef2a9974f85c023eed211986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 100
   range: 10
   impactVFX: {fileID: 2332217274213482519, guid: 8d53221b228d56743840059acb2ee74d,
     type: 3}
