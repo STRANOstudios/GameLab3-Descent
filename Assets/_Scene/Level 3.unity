@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13.135131, g: 15.611349, b: 18.443819, a: 1}
+  m_IndirectSpecularColor: {r: 13.135131, g: 15.611341, b: 18.443819, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3907,7 +3907,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 5840359619420943485}
-  m_PlaneDistance: 0.100007
+  m_PlaneDistance: 0.10001
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
