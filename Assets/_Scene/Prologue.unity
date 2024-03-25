@@ -2158,6 +2158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1364465528}
   - component: {fileID: 1364465529}
+  - component: {fileID: 1364465530}
   m_Layer: 0
   m_Name: --- Level Design ---
   m_TagString: Untagged
@@ -2207,56 +2208,164 @@ MonoBehaviour:
       for pilots who decide to embark on sub-planetary recovery missions on our behalf.
     delay: 8
     enemy: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: d1da3afb1c5a04649bde7802da1943fd, type: 3}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: Here at Descent Inc we recover and if necessary destroy top secret content
       files and prototypes in high security installations on behalf of clients from
       all over the galaxy
     delay: 9
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: 1cf9da9424783da41a96ab2d11c72065, type: 3}
     text: Your mission will be to infiltrate a base on the planet Ateroxos and recover
       5 crates on behalf of Delta, an experimental agency that wishes to remain anonymous
     delay: 8
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: 595ca88aace5d64489415e72953ba35e, type: 3}
     text: Delta wants to get the five crates back, but the main mission is to make
       the base collapse on itself by exploding the core and thus activating the fusion
       chain reaction
     delay: 7
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: The base is guarded by extremely aggressive drones programmed to shoot
       on sight, if you can't avoid them you will have to shoot them down
     delay: 6
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'Here are some useful informations about the dangers you might encounter:'
     delay: 5
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'CLASS 1 DRONE  agile and fast, they are armed with energy weapons that
       are fragile and weak when alone but lethal in groups '
     delay: 8
     enemy: {fileID: 922724410}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'CLASS 2 DRONE resistant and armed with powerful miniguns, they are fearsome
       enemies even if they are not very agile '
     delay: 8
     enemy: {fileID: 812814235}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'SMALL HULK extremely resistant and heavily armed with plasma cannons face
       with caution '
     delay: 8
     enemy: {fileID: 765178620}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: "That\u2019s all. From this moment onwards all communications with Descent
       Inc. will be interrupted for security reasons. "
     delay: 6
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
   - image: {fileID: 21300000, guid: abc484ab1bfd7b749900768da4b92099, type: 3}
     text: Comms off.
     delay: 3
     enemy: {fileID: 0}
+    AudioClip: {fileID: 0}
+--- !u!82 &1364465530
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364465527}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3317704506919025343, guid: ac8f3e56fb44a5048a7e3d30289cdab8,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1384732724
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,8 +28,12 @@ public class Slides : MonoBehaviour
     private Vector3 anouncerStartPos;
     private int index = 0;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         anouncerStartPos = announcer.position;
 
         if (sketch == null || sketch.Count == 0)
@@ -43,33 +47,14 @@ public class Slides : MonoBehaviour
 
     private IEnumerator ShowNextSketchItem(int index = 0)
     {
-        //foreach (Sketch item in sketch)
-        //{
-        //    float duration = item.delay * 0.1f;
-        //    if (item.enemy != null)
-        //    {
-        //        //StartCoroutine(EnemyVfx(item));
-        //        item.enemy.SetActive(true);
-        //        StartCoroutine(ResetPosition(Time.time, duration, false, target.position));
-        //    }
-        //    else
-        //    {
-        //        StartCoroutine(ResetPosition(Time.time, duration, true, anouncerStartPos));
-        //    }
-
-        //    image.sprite = item.image;
-
-        //    StartCoroutine(WriteText(item));
-
-        //    yield return new WaitForSeconds(item.delay);
-        //    if (item.enemy != null) item.enemy.SetActive(false);
-        //}
         for (int i = index; i < sketch.Count; i++)
         {
+            if(audioSource) audioSource.Stop();
             Sketch item = sketch[i];
+            if (i != 0 && item.enemy != null) sketch[i - 1].enemy.SetActive(false);
             index = i;
 
-            float duration = item.delay * 0.1f;
+            float duration = 0.2f;
             if (item.enemy != null)
             {
                 item.enemy.SetActive(true);
@@ -82,10 +67,11 @@ public class Slides : MonoBehaviour
 
             image.sprite = item.image;
 
+            if (item.AudioClip && audioSource) audioSource.PlayOneShot(item.AudioClip);
+
             StartCoroutine(WriteText(item));
 
-            yield return new WaitForSeconds(item.delay);
-            if (item.enemy != null) item.enemy.SetActive(false);
+            yield return new WaitForSeconds(item.AudioClip ? item.AudioClip.length : item.delay);
         }
         LoadNextScene();
     }
@@ -139,4 +125,5 @@ public class Sketch
     public string text;
     public float delay;
     public GameObject enemy = null;
+    public AudioClip AudioClip = null;
 }
