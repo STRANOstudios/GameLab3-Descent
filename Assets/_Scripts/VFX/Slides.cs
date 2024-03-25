@@ -26,6 +26,7 @@ public class Slides : MonoBehaviour
     [SerializeField] List<Sketch> sketch = new();
 
     private Vector3 anouncerStartPos;
+    private int index = 0;
 
     private void Start()
     {
@@ -40,14 +41,37 @@ public class Slides : MonoBehaviour
         StartCoroutine(ShowNextSketchItem());
     }
 
-    private IEnumerator ShowNextSketchItem()
+    private IEnumerator ShowNextSketchItem(int index = 0)
     {
-        foreach (Sketch item in sketch)
+        //foreach (Sketch item in sketch)
+        //{
+        //    float duration = item.delay * 0.1f;
+        //    if (item.enemy != null)
+        //    {
+        //        //StartCoroutine(EnemyVfx(item));
+        //        item.enemy.SetActive(true);
+        //        StartCoroutine(ResetPosition(Time.time, duration, false, target.position));
+        //    }
+        //    else
+        //    {
+        //        StartCoroutine(ResetPosition(Time.time, duration, true, anouncerStartPos));
+        //    }
+
+        //    image.sprite = item.image;
+
+        //    StartCoroutine(WriteText(item));
+
+        //    yield return new WaitForSeconds(item.delay);
+        //    if (item.enemy != null) item.enemy.SetActive(false);
+        //}
+        for (int i = index; i < sketch.Count; i++)
         {
+            Sketch item = sketch[i];
+            index = i;
+
             float duration = item.delay * 0.1f;
             if (item.enemy != null)
             {
-                //StartCoroutine(EnemyVfx(item));
                 item.enemy.SetActive(true);
                 StartCoroutine(ResetPosition(Time.time, duration, false, target.position));
             }
@@ -64,21 +88,6 @@ public class Slides : MonoBehaviour
             if (item.enemy != null) item.enemy.SetActive(false);
         }
         LoadNextScene();
-    }
-
-    private IEnumerator EnemyVfx(Sketch item)
-    {
-        item.enemy.SetActive(true);
-
-        float duration = item.delay * 0.1f;
-
-        StartCoroutine(ResetPosition(Time.time, duration, false, target.position));
-
-        yield return new WaitForSeconds(duration * 7.5f);
-
-        StartCoroutine(ResetPosition(Time.time, duration, true, anouncerStartPos));
-
-        item.enemy.SetActive(false);
     }
 
     IEnumerator ResetPosition(float startTime, float duration, bool reverse, Vector3 endPosition)
@@ -112,6 +121,14 @@ public class Slides : MonoBehaviour
             text.text += "" + c;
             yield return new WaitForSeconds(timePerCharacter);
         }
+    }
+
+    public void Skip()
+    {
+
+        StopAllCoroutines();
+        index++;
+        StartCoroutine(ShowNextSketchItem(index));
     }
 }
 
