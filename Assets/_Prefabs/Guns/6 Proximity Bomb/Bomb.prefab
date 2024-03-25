@@ -56,7 +56,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 5
   maxSize: 10
-  bulletMagazine: 1
+  bulletMagazine: 0
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0

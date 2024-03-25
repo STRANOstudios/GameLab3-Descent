@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5b8fd497ea34e4db8877a0d62968ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4123247207829198094, guid: 33ae34b7417d3fa4989e60d789ca1f11,
+  projectilePrefab: {fileID: 4123247207829198094, guid: 638f194aa2b5bbc479b3e8a2b494b594,
     type: 3}
   sprite: {fileID: -1915709800, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
   muzzleVelocity: 700
@@ -56,7 +56,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 10
   maxSize: 20
-  bulletMagazine: 5
+  bulletMagazine: 0
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0
