@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float range;
 
     [Header("VFX")]
-    [SerializeField] GameObject impactVFX = null;
+    [SerializeField] ParticleSystem impactVFX = null;
 
     private IObjectPool<Projectile> objectPool;
 
@@ -32,12 +32,19 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (impactVFX != null)
-        {
-            Instantiate(impactVFX, transform.position, Quaternion.identity);
-        }
+        if (impactVFX != null) impactVFX.Play();
 
+        StartCoroutine(Deactivate(2.5f));
+    }
+
+    IEnumerator Deactivate(float delay)
+    {
         StopCoroutine("DeactivateRoutine");
+        this.transform.GetChild(0).gameObject.SetActive(false);
+        this.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(delay);
+        this.GetComponent <Collider>().enabled = true;
+        this.transform.GetChild(0).gameObject.SetActive(true);
         Reset();
     }
 

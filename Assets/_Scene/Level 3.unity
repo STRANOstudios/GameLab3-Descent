@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12620,7 +12620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &337478824
 Transform:
   m_ObjectHideFlags: 0
@@ -28298,7 +28298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &808079990
 Transform:
   m_ObjectHideFlags: 0
@@ -28321,7 +28321,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808079989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -32429,7 +32429,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998568342}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -44842,6 +44842,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1422090616}
+    - targetCorrespondingSourceObject: {fileID: 3267089809814850456, guid: 547434efbddbade46a46774bcaf1f122,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1422090620}
   m_SourcePrefab: {fileID: 100100000, guid: 547434efbddbade46a46774bcaf1f122, type: 3}
 --- !u!4 &1422090612 stripped
 Transform:
@@ -44862,6 +44866,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+--- !u!114 &1422090620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936763668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bacf290ff9587847bf4dbc94caf8f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpeed: 1
+  waveAmplitude: 0.1
 --- !u!1 &1422641065
 GameObject:
   m_ObjectHideFlags: 0
@@ -58452,7 +58470,7 @@ MonoBehaviour:
   countDown: {fileID: 1561938597}
   endingPanel: {fileID: 1777952526}
   goodEnding: {fileID: 21300000, guid: 5a1f5b129967ecb4995fe42da47fca55, type: 3}
-  looseEnding: {fileID: 21300000, guid: 740655ccc91adbd42a8a70d39ae44fa4, type: 3}
+  looseEnding: {fileID: 21300000, guid: bdab9b5b910fecd40ab2039ff7b7572d, type: 3}
   isReactorOpened: 0
 --- !u!1001 &1846491100
 PrefabInstance:
@@ -58975,6 +58993,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1865782621}
+    - targetCorrespondingSourceObject: {fileID: 6392173798811960427, guid: 87541f950eda1b94889a8c205445a656,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1865782627}
   m_SourcePrefab: {fileID: 100100000, guid: 87541f950eda1b94889a8c205445a656, type: 3}
 --- !u!4 &1865782615 stripped
 Transform:
@@ -58995,6 +59017,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+--- !u!114 &1865782627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862396657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bacf290ff9587847bf4dbc94caf8f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpeed: 1
+  waveAmplitude: 0.1
 --- !u!1 &1866712838
 GameObject:
   m_ObjectHideFlags: 0
@@ -59407,7 +59443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1892755429
 Transform:
   m_ObjectHideFlags: 0
