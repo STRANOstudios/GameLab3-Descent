@@ -2208,25 +2208,25 @@ MonoBehaviour:
     delay: 8
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
-    text: Here at Descent Inc. we recover top secret files and prototypes contained
-      in secret bases and if necessary destroy either one or both of them on behalf
-      of clients from all over the galaxy.
+    text: Here at Descent Inc we recover and if necessary destroy top secret content
+      files and prototypes in high security installations on behalf of clients from
+      all over the galaxy
     delay: 9
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: 1cf9da9424783da41a96ab2d11c72065, type: 3}
-    text: 'Your mission was assigned to us by Delta, an experimental agency that
-      wishes to remain anonymous: you have to infiltrate a base on the planet Ateroxos
-      and make it collapse on itself;'
+    text: Your mission will be to infiltrate a base on the planet Ateroxos and recover
+      5 crates on behalf of Delta, an experimental agency that wishes to remain anonymous
     delay: 8
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: 595ca88aace5d64489415e72953ba35e, type: 3}
-    text: Delta also wants to get five crates back, but the main mission is to make
-      the core explode thus activating the meltdown chain reaction.
+    text: Delta wants to get the five crates back, but the main mission is to make
+      the base collapse on itself by exploding the core and thus activating the fusion
+      chain reaction
     delay: 7
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
-    text: The base is filled by aggressive drones programmed to shoot you on sight,
-      you might have to shoot them down;
+    text: The base is guarded by extremely aggressive drones programmed to shoot
+      on sight, if you can't avoid them you will have to shoot them down
     delay: 6
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
@@ -2234,15 +2234,18 @@ MonoBehaviour:
     delay: 5
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
-    text: enemy 1
+    text: 'CLASS 1 DRONE  agile and fast, they are armed with energy weapons that
+      are fragile and weak when alone but lethal in groups '
     delay: 8
     enemy: {fileID: 922724410}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
-    text: enemy 2
+    text: 'CLASS 2 DRONE resistant and armed with powerful miniguns, they are fearsome
+      enemies even if they are not very agile '
     delay: 8
     enemy: {fileID: 812814235}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
-    text: enemy 3
+    text: 'SMALL HULK extremely resistant and heavily armed with plasma cannons face
+      with caution '
     delay: 8
     enemy: {fileID: 765178620}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}

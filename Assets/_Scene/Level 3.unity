@@ -69307,13 +69307,18 @@ PrefabInstance:
       objectReference: {fileID: 1179063563}
     - target: {fileID: 2170725524972013888, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
+      propertyPath: invertYAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170725524972013888, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+        type: 3}
       propertyPath: UI_FrontView
       value: 
       objectReference: {fileID: 774792330}
     - target: {fileID: 2170725524972013888, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
       propertyPath: mouseSensitivity
-      value: 0.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3276733598999975590, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
