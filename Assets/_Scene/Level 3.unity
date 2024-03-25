@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 13.135131, g: 15.611341, b: 18.443819, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3150,6 +3150,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &132055728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9867,6 +9868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 500
+  audioSource: {fileID: 0}
 --- !u!1 &232477682
 GameObject:
   m_ObjectHideFlags: 0
@@ -12669,6 +12671,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!4 &337166672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 808493066128062928, guid: fc2c9bdadb91f2848b9c2fb6cdfd2d3e,
@@ -12692,7 +12695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &337478824
 Transform:
   m_ObjectHideFlags: 0
@@ -25980,6 +25983,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &653526092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29780,6 +29784,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &851165528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30555,6 +30560,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &893409813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34335,6 +34341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040921144}
   - component: {fileID: 1040921145}
+  - component: {fileID: 1040921146}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -34369,8 +34376,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d37fadf6c97a54ba7511d7e4dba4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossBattle: {fileID: 0}
-  countdown: {fileID: 0}
+  bossBattle: {fileID: 8300000, guid: 3d366e9fd9faf37438fe100931266bfb, type: 3}
+  countdown: {fileID: 8300000, guid: 2a0cef467e580464bb54633c2b964a1c, type: 3}
+  escaped: {fileID: 8300000, guid: d1da3afb1c5a04649bde7802da1943fd, type: 3}
+  death: {fileID: 8300000, guid: 29c97d6428343594998d6ef40d017040, type: 3}
+--- !u!82 &1040921146
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040921143}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2731287339157863187, guid: ac8f3e56fb44a5048a7e3d30289cdab8,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1050258063
 GameObject:
   m_ObjectHideFlags: 0
@@ -46080,6 +46186,7 @@ MonoBehaviour:
   valueID: 2
   needsKey: 1
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &1419675616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61561,6 +61668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 2000
+  audioSource: {fileID: 0}
 --- !u!1 &1892755428
 GameObject:
   m_ObjectHideFlags: 0
@@ -61576,7 +61684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1892755429
 Transform:
   m_ObjectHideFlags: 0
@@ -61880,6 +61988,7 @@ MonoBehaviour:
   valueID: 1
   needsKey: 1
   isBossDoor: 1
+  audioSource: {fileID: 0}
 --- !u!65 &1901705027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62390,6 +62499,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &1929599195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64791,6 +64901,7 @@ MonoBehaviour:
   valueID: 3
   needsKey: 1
   isBossDoor: 1
+  audioSource: {fileID: 0}
 --- !u!65 &2078650058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65272,6 +65383,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &2110824152
 BoxCollider:
   m_ObjectHideFlags: 0

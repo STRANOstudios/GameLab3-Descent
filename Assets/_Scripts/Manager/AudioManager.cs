@@ -3,9 +3,19 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Sources")]
-    [SerializeField] AudioSource bossBattle;
-    [SerializeField] AudioSource countdown;
-    [SerializeField] AudioSource escpaed;
+    [SerializeField] AudioClip bossBattle;
+    [SerializeField] AudioClip countdown;
+    [SerializeField] AudioClip escaped;
+    [SerializeField] AudioClip death;
+
+    private AudioSource AudioSource;
+
+    private void Start()
+    {
+        AudioSource = GameManager.Instance.GetComponent<AudioSource>();
+
+        if (!AudioSource) enabled = false;
+    }
 
     private void OnEnable()
     {
@@ -25,52 +35,29 @@ public class AudioManager : MonoBehaviour
 
     private void Gameover()
     {
-        if (escpaed)
-        {
-            StopAll();
-            escpaed.Play();
-        }
+       SetClip(death);
     }
 
     private void Escape()
     {
-        if (escpaed)
-        {
-            StopAll();
-            escpaed.Play();
-        }
+        SetClip(escaped);
     }
 
     private void PlayCountdown()
     {
-        if (bossBattle && countdown)
-        {
-            bossBattle.Stop();
-            countdown.Play();
-        }
+        SetClip(countdown);
     }
 
     void PlayBossBattle()
     {
-        if (bossBattle && GameManager.Instance.GetComponent<AudioSource>())
-        {
-            GameManager.Instance.GetComponent<AudioSource>().Stop();
-            bossBattle.Play();
-        }
+        SetClip(bossBattle);
     }
 
-    void StopAll()
+    void SetClip(AudioClip clip)
     {
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-
-        foreach (GameObject obj in allObjects)
-        {
-            AudioSource[] audioSources = obj.GetComponents<AudioSource>();
-
-            foreach (AudioSource audioSource in audioSources)
-            {
-                audioSource.enabled = false;
-            }
-        }
+        if (!clip) return;
+        AudioSource.Stop();
+        AudioSource.clip = clip;
+        AudioSource.Play();
     }
 }

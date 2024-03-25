@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] Volume volumeHD;
     [SerializeField] Volume volumeRayTracing;
     [SerializeField] PlayerController playerController;
+    [SerializeField] AudioClip music;
 
     private bool invertYAxis;
     private float mouseSensitivity;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         #endregion
 
         //inputHandler = PlayerInputHadler.Instance;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -44,6 +48,10 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        audioSource.Stop();
+        audioSource.clip = music;
+        audioSource.Play();
+
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
