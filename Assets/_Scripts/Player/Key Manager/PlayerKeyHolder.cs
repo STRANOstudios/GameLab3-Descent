@@ -28,6 +28,7 @@ public class PlayerKeyHolder : MonoBehaviour
 
     void Push(int index, Collider other)
     {
+        keyIDs.Add(index);
         OnKeyPickUp?.Invoke(index);
         other.gameObject.SetActive(false);
     }

@@ -23,16 +23,14 @@ public class Door : MonoBehaviour
     {
         if(isBossDoor) bossfight?.Invoke();
 
-        anim.SetBool("CloseDoor", false);
+        //anim.SetBool("CloseDoor", false);
         if (needsKey)
         {
             playerKeys = other.GetComponent<PlayerKeyHolder>().keyIDs;
             foreach (var key in playerKeys)
             {
-                Debug.Log($"{key} == {valueID}");
                 if (key == valueID)
                 {
-                    Debug.Log("Opening door with key");
                     anim.SetBool("OpenDoor", true);
                     return;
                 }
