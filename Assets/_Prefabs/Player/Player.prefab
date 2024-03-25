@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 1261839760391201130}
   - component: {fileID: 3276733598999975590}
   - component: {fileID: 4851561862630736597}
+  - component: {fileID: 8635838847049631401}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -596,7 +597,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -617,6 +618,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyIDs: []
+--- !u!135 &8635838847049631401
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220118013458370093}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4394408584177356610
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1271712976391214273}
   - component: {fileID: 6328853155228026124}
   - component: {fileID: -1907465871194696011}
+  - component: {fileID: 4918901981725431725}
+  - component: {fileID: 1681765562440332526}
   m_Layer: 12
   m_Name: Energy Boosts
   m_TagString: BulletMagazine
@@ -108,6 +110,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 50
+  audioSource: {fileID: 0}
+--- !u!114 &4918901981725431725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392173798811960427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bacf290ff9587847bf4dbc94caf8f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpeed: 1
+  waveAmplitude: 0.1
+--- !u!114 &1681765562440332526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392173798811960427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbf0bf82bb15b647a4fc2b834115e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
 --- !u!1001 &3592804378959400959
 PrefabInstance:
   m_ObjectHideFlags: 0

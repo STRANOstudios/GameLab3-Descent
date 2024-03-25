@@ -1645,7 +1645,7 @@ PrefabInstance:
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -285.1
+      value: -295.2
       objectReference: {fileID: 0}
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
@@ -3150,6 +3150,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &132055728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3363,17 +3364,17 @@ PrefabInstance:
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -137
+      value: -115.3
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -250.16
+      value: -268.49
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59
+      value: 62.28
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
@@ -9782,7 +9783,7 @@ PrefabInstance:
     - target: {fileID: 1359243624819424776, guid: 37befe9d880b5d34bb6b00ae366b49a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.958004
+      value: -44.967
       objectReference: {fileID: 0}
     - target: {fileID: 1359243624819424776, guid: 37befe9d880b5d34bb6b00ae366b49a9,
         type: 3}
@@ -9867,6 +9868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 500
+  audioSource: {fileID: 0}
 --- !u!1 &232477682
 GameObject:
   m_ObjectHideFlags: 0
@@ -10355,7 +10357,7 @@ PrefabInstance:
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -343.9
+      value: -339.9
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
@@ -12669,6 +12671,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!4 &337166672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 808493066128062928, guid: fc2c9bdadb91f2848b9c2fb6cdfd2d3e,
@@ -22022,12 +22025,12 @@ PrefabInstance:
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -735.6
+      value: -723.5
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -205.3
+      value: -232.7
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
@@ -23557,7 +23560,7 @@ PrefabInstance:
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -296.7
+      value: -303.43
       objectReference: {fileID: 0}
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
@@ -25980,6 +25983,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &653526092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26391,7 +26395,7 @@ PrefabInstance:
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -163.5
+      value: -169.06
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
@@ -29780,6 +29784,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &851165528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30019,7 +30024,7 @@ PrefabInstance:
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -163.52
+      value: -164.92
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
@@ -30555,6 +30560,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &893409813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32403,7 +32409,7 @@ PrefabInstance:
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
@@ -33779,7 +33785,7 @@ PrefabInstance:
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -306
+      value: -310.7
       objectReference: {fileID: 0}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
@@ -33896,7 +33902,7 @@ PrefabInstance:
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 187
+      value: 199.7
       objectReference: {fileID: 0}
     - target: {fileID: 3574186651294796748, guid: 547434efbddbade46a46774bcaf1f122,
         type: 3}
@@ -34371,6 +34377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossBattle: {fileID: 0}
   countdown: {fileID: 0}
+  escpaed: {fileID: 0}
 --- !u!1 &1050258063
 GameObject:
   m_ObjectHideFlags: 0
@@ -46080,6 +46087,7 @@ MonoBehaviour:
   valueID: 2
   needsKey: 1
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &1419675616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61561,6 +61569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 2000
+  audioSource: {fileID: 0}
 --- !u!1 &1892755428
 GameObject:
   m_ObjectHideFlags: 0
@@ -61880,6 +61889,7 @@ MonoBehaviour:
   valueID: 1
   needsKey: 1
   isBossDoor: 1
+  audioSource: {fileID: 0}
 --- !u!65 &1901705027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62390,6 +62400,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &1929599195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64791,6 +64802,7 @@ MonoBehaviour:
   valueID: 3
   needsKey: 1
   isBossDoor: 1
+  audioSource: {fileID: 0}
 --- !u!65 &2078650058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65272,6 +65284,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
+  audioSource: {fileID: 0}
 --- !u!65 &2110824152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70395,6 +70408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635838847049631401, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
