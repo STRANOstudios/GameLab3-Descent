@@ -11,32 +11,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.7
+      value: -36.351433
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.664
+      value: -13.787405
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.325
+      value: 0.06327026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
@@ -46,17 +46,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368e59c5a4ad9f843953c2cdd1ebf9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 0}
-  bulletMagazine: 0
-  primaryOrSecondary: 1
+  gun: {fileID: 935624821663889665, guid: fe70ab9335cfc7e49b90a4b499e12ad8, type: 3}
+  bulletMagazine: 2
+  primaryOrSecondary: 0
 --- !u!114 &5070892475449271029
 MonoBehaviour:
   m_ObjectHideFlags: 0
