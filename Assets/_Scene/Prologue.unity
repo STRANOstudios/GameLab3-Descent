@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -2206,7 +2206,7 @@ MonoBehaviour:
     text: Welcome to Descent Inc. Commander Eagle, I am Alpha O One, main quest assistant
       for pilots who decide to embark on sub-planetary recovery missions on our behalf.
     delay: 8
-    enemy: {fileID: 812814235}
+    enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: Here at Descent Inc. we recover top secret files and prototypes contained
       in secret bases and if necessary destroy either one or both of them on behalf
