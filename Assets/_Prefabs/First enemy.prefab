@@ -308,7 +308,7 @@ MonoBehaviour:
   AttackDistance: 4
   firePointSX: {fileID: 3759944776038442956}
   firePointDX: {fileID: 2082082074217422828}
-  fireRate: 0.45
+  fireRate: 0.65
   spawnTime: 1
   waypoints:
   - {fileID: 0}
