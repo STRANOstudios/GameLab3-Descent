@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
@@ -9,8 +10,11 @@ public class HealthManager : MonoBehaviour
     [Header("Boosts")]
     [SerializeField, Min(0.0f)] float boostshield = 50f;
 
-    [Header("Core Damage")]
-    [SerializeField] float damage = 10.0f;
+    [Header("Damages")]
+    [SerializeField] float coreDamage = 10.0f;
+    [SerializeField] float lavaDamage = 10.0f;
+
+    private bool direIsEvile = true;
 
     public delegate void Healt(int value);
     public static event Healt healt = null;
@@ -36,14 +40,38 @@ public class HealthManager : MonoBehaviour
             case 14:
                 Damage(other.gameObject.GetComponent<Bullet>().Damage);
                 break;
+            case 15:
+                direIsEvile = true;
+                StartCoroutine(Lava(0.5f));
+                break;
             default:
                 break;
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.gameObject.layer)
+        {
+            case 15:
+                direIsEvile = false;
+                StopCoroutine("Lava");
+                break;
+        }
+    }
+
+    IEnumerator Lava(float delay)
+    {
+        while (direIsEvile) 
+        {
+            Damage(lavaDamage);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
     private void OnParticleCollision(GameObject other)
     {
-        Damage(damage);
+        Damage(coreDamage);
     }
 
     public void Damage(float damage)
