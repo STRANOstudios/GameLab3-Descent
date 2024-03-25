@@ -531,15 +531,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508b3e3197c6e8b4eb58d254dc91b008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6
+  Speed: 7.5
   sprintMultiplier: 2
   movementSmoothFactor: 0.8
   sprint: 0
   acceleration: 1
   viewSmoothFactor: 2
   invertYAxis: 0
-  mouseSensitivity: 0.6
+  mouseSensitivity: 0.4
   rotationSmoothFactor: 1
+  gunList: {fileID: 0}
   mainCamera: {fileID: 6704158883973917209}
   UI_FrontView: {fileID: 0}
   UI_RearView: {fileID: 0}
@@ -580,7 +581,8 @@ MonoBehaviour:
   health: 50
   maxHealth: 200
   boostshield: 50
-  damage: 10
+  coreDamage: 10
+  lavaDamage: 10
 --- !u!135 &3276733598999975590
 SphereCollider:
   m_ObjectHideFlags: 0
