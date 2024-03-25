@@ -2206,7 +2206,7 @@ MonoBehaviour:
     text: Welcome to Descent Inc. Commander Eagle, I am Alpha O One, main quest assistant
       for pilots who decide to embark on sub-planetary recovery missions on our behalf.
     delay: 8
-    enemy: {fileID: 0}
+    enemy: {fileID: 812814235}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: Here at Descent Inc. we recover top secret files and prototypes contained
       in secret bases and if necessary destroy either one or both of them on behalf
@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearColorMode: 2
+  clearColorMode: 1
   backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
   clearDepth: 1
   volumeLayerMask:
@@ -2515,7 +2515,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 711ebfb74ab0edd4494b710cd2365e98, type: 2}
   m_TargetDisplay: 0

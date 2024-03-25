@@ -25,8 +25,12 @@ public class Slides : MonoBehaviour
 
     [SerializeField] List<Sketch> sketch = new();
 
+    private Vector3 anouncerStartPos;
+
     private void Start()
     {
+        anouncerStartPos = announcer.position;
+
         if (sketch == null || sketch.Count == 0)
         {
             Debug.LogWarning("SketchItems list is empty. Exiting.");
@@ -40,13 +44,24 @@ public class Slides : MonoBehaviour
     {
         foreach (Sketch item in sketch)
         {
-            if (item.enemy != null) StartCoroutine(EnemyVfx(item));
+            float duration = item.delay * 0.1f;
+            if (item.enemy != null)
+            {
+                //StartCoroutine(EnemyVfx(item));
+                item.enemy.SetActive(true);
+                StartCoroutine(ResetPosition(Time.time, duration, false, target.position));
+            }
+            else
+            {
+                StartCoroutine(ResetPosition(Time.time, duration, true, anouncerStartPos));
+            }
 
             image.sprite = item.image;
 
             StartCoroutine(WriteText(item));
 
             yield return new WaitForSeconds(item.delay);
+            if (item.enemy != null) item.enemy.SetActive(false);
         }
         LoadNextScene();
     }
@@ -56,40 +71,26 @@ public class Slides : MonoBehaviour
         item.enemy.SetActive(true);
 
         float duration = item.delay * 0.1f;
-        float endTime = Time.time + item.delay - duration;
 
-        Vector3 startPosition = announcer.position;
-        Vector3 endPosition = target.position;
-
-        // Animazione di comparsa e movimento
-        float startTime = Time.time;
-        while (Time.time - startTime < duration)
-        {
-            float percentageComplete = (Time.time - startTime) / duration;
-            announcer.position = Vector3.Lerp(startPosition, endPosition, percentageComplete);
-            enemyPanel.alpha += percentageComplete;
-            yield return null;
-        }
+        StartCoroutine(ResetPosition(Time.time, duration, false, target.position));
 
         yield return new WaitForSeconds(duration * 7.5f);
 
-        while (Time.time < endTime)
-        {
-            float reverseStartTime = Time.time;
-            float reverseEndTime = Time.time + duration;
-
-            while (Time.time < reverseEndTime)
-            {
-                float percentageComplete = (Time.time - reverseStartTime) / duration;
-                announcer.position = Vector3.Lerp(endPosition, startPosition, percentageComplete);
-                enemyPanel.alpha -= percentageComplete;
-                yield return null;
-            }
-        }
+        StartCoroutine(ResetPosition(Time.time, duration, true, anouncerStartPos));
 
         item.enemy.SetActive(false);
     }
 
+    IEnumerator ResetPosition(float startTime, float duration, bool reverse, Vector3 endPosition)
+    {
+        while (Time.time - startTime < duration)
+        {
+            float percentageComplete = (Time.time - startTime) / duration;
+            announcer.position = Vector3.Lerp(announcer.position, endPosition, percentageComplete);
+            enemyPanel.alpha += reverse ? -percentageComplete : percentageComplete;
+            yield return null;
+        }
+    }
 
     private void LoadNextScene()
     {
