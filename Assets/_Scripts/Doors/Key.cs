@@ -5,8 +5,9 @@ public class Key : MonoBehaviour
 {
     [SerializeField] public float KeyID;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
+
     }
 }
