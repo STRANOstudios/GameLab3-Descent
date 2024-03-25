@@ -52,11 +52,11 @@ MonoBehaviour:
   spherecast: 0
   muzzlePosition:
   - {fileID: 4329171618499768353}
-  cooldownWindow: 0.05
+  cooldownWindow: 0.03
   collectionCheck: 1
   defaultCapacity: 20
-  maxSize: 10000
-  bulletMagazine: 2500
+  maxSize: 2000
+  bulletMagazine: 500
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0
