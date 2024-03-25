@@ -3907,7 +3907,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 5840359619420943485}
-  m_PlaneDistance: 0.10001
+  m_PlaneDistance: 0.11
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -26753,8 +26753,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 686468029
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2f758398285eea2499f69fde55ed8900, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
