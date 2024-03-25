@@ -7,7 +7,7 @@ public class BombStats : MonoBehaviour
     [SerializeField] float timerToExplode;
     [SerializeField] Transform explodeParticles;
     [SerializeField] float damage;
-    [SerializeField, Range(1, 5)] float radiusExplosion;
+    [SerializeField, Range(0, 5)] float radiusExplosion;
     [SerializeField] LayerMask layersHitByExplosion;
     List<Collider> hitObjects = new List<Collider>();
 
