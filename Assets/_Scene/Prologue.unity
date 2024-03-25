@@ -2186,17 +2186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855a74ff731860d43a110b5629bfa619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newGameLevel: Level 2
+  _newGameLevel: Level 3
   image: {fileID: 881587959}
   text: {fileID: 148866860}
   enemyPanel: {fileID: 255264707}
-  delayEndWrting: 2
+  delayEndWrting: 1
   announcer: {fileID: 881587958}
   target: {fileID: 1211125369}
   sketch:
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: Don't worry you will die soon
-    delay: 8
+    delay: 2
     enemy: {fileID: 819686872}
   - image: {fileID: 21300000, guid: 595ca88aace5d64489415e72953ba35e, type: 3}
     text: Your death will be so funny, trust me

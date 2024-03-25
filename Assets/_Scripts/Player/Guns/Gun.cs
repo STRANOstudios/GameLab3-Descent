@@ -29,12 +29,15 @@ public class Gun : MonoBehaviour
     [SerializeField] int defaultCapacity = 20;
     [SerializeField] int maxSize = 100;
 
-    [SerializeField] float bulletMagazine = 0;
+    [SerializeField] float bulletMagazine = 50;
 
     private float nextTimeToShoot;
 
     public delegate void Laser(int value);
     public static event Laser shoot = null;
+
+    public delegate void LaserGoliath(float value);
+    public static event LaserGoliath setMagazine = null;
 
     private void Awake()
     {
@@ -44,24 +47,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        if (this.name == "Laser" || this.name == "Goliath")
-        {
-            shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
-        }
-    }
-
-    private void OnEnable()
-    {
-        Gun.shoot += SetMagazine;
-    }
-    private void OnDisable()
-    {
-        Gun.shoot -= SetMagazine;
-    }
-
-    private void SetMagazine(int value)
-    {
-        if (this.name == "Laser" || this.name == "Goliath") { bulletMagazine = value; }
+        if (this.name == "Laser") shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -115,11 +101,11 @@ public class Gun : MonoBehaviour
                     bulletMagazine -= 0.25f;
                     shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
                 }
-                else if (this.name == "Goliath")
-                {
-                    bulletMagazine -= 5f;
-                    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
-                }
+                //else if (this.name == "Goliath")
+                //{
+                //    bulletMagazine -= 5f;
+                //    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+                //}
                 else
                 {
                     bulletMagazine--;

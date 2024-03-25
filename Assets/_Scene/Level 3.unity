@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8750,6 +8750,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1219154258}
     m_Modifications:
+    - target: {fileID: 715659635405506133, guid: 07f619a745a000a42b69f38b10414e37,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -8838,10 +8843,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 162190575}
-    - targetCorrespondingSourceObject: {fileID: 9069477450339153373, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 162190579}
   m_SourcePrefab: {fileID: 100100000, guid: 07f619a745a000a42b69f38b10414e37, type: 3}
 --- !u!1 &162190574 stripped
 GameObject:
@@ -8862,27 +8863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHP: 5
---- !u!65 &162190579
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162190574}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.05, y: 0.05, z: 0.01}
-  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!4 &162190581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
@@ -17470,7 +17450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &337478824
 Transform:
   m_ObjectHideFlags: 0
@@ -37959,7 +37939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1308787295
 Transform:
   m_ObjectHideFlags: 0
@@ -38043,27 +38023,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1901697757}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1314827677
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314827675}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.05, y: 0.05, z: 0.01}
-  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!114 &1314827678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44715,6 +44674,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1419675614}
+    - targetCorrespondingSourceObject: {fileID: 6325666096151693542, guid: 7bb62469f4ad0b841a053effd97e0d49,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1419675616}
   m_SourcePrefab: {fileID: 100100000, guid: 7bb62469f4ad0b841a053effd97e0d49, type: 3}
 --- !u!4 &1419675611 stripped
 Transform:
@@ -44737,6 +44700,27 @@ MonoBehaviour:
   valueID: 2
   needsKey: 1
   isBossDoor: 0
+--- !u!65 &1419675616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171990798}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05, y: 0.05, z: 0.05}
+  m_Center: {x: 0, y: 0.025, z: 0}
 --- !u!1001 &1422090611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59582,6 +59566,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1219154258}
     m_Modifications:
+    - target: {fileID: 715659635405506133, guid: 07f619a745a000a42b69f38b10414e37,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1943581541200131218, guid: 07f619a745a000a42b69f38b10414e37,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -59670,10 +59659,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1314827678}
-    - targetCorrespondingSourceObject: {fileID: 9069477450339153373, guid: 07f619a745a000a42b69f38b10414e37,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1314827677}
   m_SourcePrefab: {fileID: 100100000, guid: 07f619a745a000a42b69f38b10414e37, type: 3}
 --- !u!1 &1901705022 stripped
 GameObject:
@@ -62452,6 +62437,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2078650056}
+    - targetCorrespondingSourceObject: {fileID: 6325666096151693542, guid: 7bb62469f4ad0b841a053effd97e0d49,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2078650058}
   m_SourcePrefab: {fileID: 100100000, guid: 7bb62469f4ad0b841a053effd97e0d49, type: 3}
 --- !u!4 &2078650053 stripped
 Transform:
@@ -62474,6 +62463,27 @@ MonoBehaviour:
   valueID: 3
   needsKey: 1
   isBossDoor: 1
+--- !u!65 &2078650058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436447485}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.05, z: 0.1}
+  m_Center: {x: 0, y: 0.025, z: 0}
 --- !u!1 &2088117270
 GameObject:
   m_ObjectHideFlags: 0

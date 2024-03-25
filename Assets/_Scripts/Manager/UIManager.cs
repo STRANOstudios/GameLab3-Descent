@@ -119,7 +119,7 @@ public class UIManager : MonoBehaviour
     private void ScoreSet(int value)
     {
         scoreValue += value;
-        score.text = scoreValue.ToString("D5") + " ";
+        if (score != null) score.text = scoreValue.ToString("D5") + " ";
     }
 
     private void Energy(int value)
