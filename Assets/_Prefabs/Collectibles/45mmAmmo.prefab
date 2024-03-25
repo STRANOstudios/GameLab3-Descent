@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 935624821663889665, guid: 3c570503dbfc75c43b0fb95854f01d70, type: 3}
-  bulletMagazine: 2500
+  bulletMagazine: 500
   primaryOrSecondary: 1
 --- !u!114 &6328853155228026124
 MonoBehaviour:

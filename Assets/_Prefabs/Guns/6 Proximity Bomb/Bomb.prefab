@@ -48,7 +48,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4123247207829198094, guid: 23c4feade4624b340a4a996528eda8ab,
     type: 3}
   sprite: {fileID: -1804935602, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
-  muzzleVelocity: 700
+  muzzleVelocity: 0
   spherecast: 0
   muzzlePosition:
   - {fileID: 4329171618499768353}
@@ -56,7 +56,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 5
   maxSize: 10
-  bulletMagazine: 0
+  bulletMagazine: 9
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,12 +73,12 @@ PrefabInstance:
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}

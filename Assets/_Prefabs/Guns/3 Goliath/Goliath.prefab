@@ -48,7 +48,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4123247207829198094, guid: e7f8b3567785f9b4088c721e92c7624a,
     type: 3}
   sprite: {fileID: 379980275, guid: 213ae99fb2e334b4884969a35ac13ed7, type: 3}
-  muzzleVelocity: 700
+  muzzleVelocity: 450
   spherecast: 0
   muzzlePosition:
   - {fileID: 4329171618499768353}
@@ -73,12 +73,12 @@ PrefabInstance:
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}

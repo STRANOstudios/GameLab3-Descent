@@ -56,7 +56,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 20
   maxSize: 2000
-  bulletMagazine: 500
+  bulletMagazine: 0
 --- !u!1001 &42736875492275129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,12 +73,12 @@ PrefabInstance:
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4360498534070829976, guid: a451f4d5976b60f4e88fcfe26b84276a,
         type: 3}
