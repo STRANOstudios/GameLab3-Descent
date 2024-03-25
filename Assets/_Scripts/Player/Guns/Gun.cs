@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -42,10 +44,24 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        if (this.name == "Laser")
+        if (this.name == "Laser" || this.name == "Goliath")
         {
             shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
         }
+    }
+
+    private void OnEnable()
+    {
+        Gun.shoot += SetMagazine;
+    }
+    private void OnDisable()
+    {
+        Gun.shoot -= SetMagazine;
+    }
+
+    private void SetMagazine(int value)
+    {
+        if (this.name == "Laser" || this.name == "Goliath") { bulletMagazine = value; }
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -97,6 +113,11 @@ public class Gun : MonoBehaviour
                 if (this.name == "Laser")
                 {
                     bulletMagazine -= 0.25f;
+                    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+                }
+                else if (this.name == "Goliath")
+                {
+                    bulletMagazine -= 5f;
                     shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
                 }
                 else

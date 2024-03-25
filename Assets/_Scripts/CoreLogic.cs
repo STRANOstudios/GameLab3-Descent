@@ -40,7 +40,7 @@ public class CoreLogic : MonoBehaviour
         }
     }
 
-    void Damage(float value)
+    public void Damage(float value)
     {
         health -= value;
         if (health <= 0)
