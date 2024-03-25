@@ -59353,10 +59353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358369074250b7c4f98fd63c0976edb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 500
   nozzles: []
   fireRatio: 1
-  rotationSpeed: 50
+  rotationSpeed: 20
 --- !u!64 &1891373156
 MeshCollider:
   m_ObjectHideFlags: 0
