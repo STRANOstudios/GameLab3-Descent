@@ -23,7 +23,7 @@ public class Door : MonoBehaviour
     {
         if(isBossDoor) bossfight?.Invoke();
 
-        anim.SetBool("CloseDoor", false);
+        //anim.SetBool("CloseDoor", false);
         if (needsKey)
         {
             playerKeys = other.GetComponent<PlayerKeyHolder>().keyIDs;
