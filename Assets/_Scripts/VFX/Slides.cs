@@ -51,7 +51,7 @@ public class Slides : MonoBehaviour
         {
             if(audioSource) audioSource.Stop();
             Sketch item = sketch[i];
-            if (i != 0 && item.enemy != null) sketch[i - 1].enemy.SetActive(false);
+            if (i != 0 && item.enemy && sketch[i - 1].enemy) sketch[i - 1].enemy.SetActive(false);
             index = i;
 
             float duration = 0.2f;
