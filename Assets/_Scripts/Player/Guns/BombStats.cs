@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombStats : MonoBehaviour
+public class BombStats : Gun
 {
     [SerializeField] float timerToExplode;
     [SerializeField] Transform explodeParticles;
