@@ -81,6 +81,7 @@ public class StateManager : HP
         drop.CheckDropChance();
         Destroy(gameObject);
     }
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -91,4 +92,6 @@ public class StateManager : HP
 
         Gizmos.color = Color.blue;
     }
+
+#endif
 }
