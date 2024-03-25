@@ -10180,7 +10180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4354161053642928793, guid: 8c656279d6c8b52458bae90970b2d09a, type: 2}
+  - {fileID: 2100000, guid: cf1736c69d45fef4ba5d785ae91684eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56142,7 +56142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 100
+  blendDistance: 50
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 021f3a0c464655f4c9ff82b5f94c4975, type: 2}
 --- !u!65 &1728647027
@@ -63557,7 +63557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6378c2032e2a0e4a9a94d9662ef4b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 576f60d4e5ed47d45b479986b75fee74, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.95294124, g: 0.54901963, b: 0.3137255, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

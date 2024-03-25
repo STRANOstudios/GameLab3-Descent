@@ -129,7 +129,7 @@ public class GraphicsSettings : MonoBehaviour
 
     void SetGraphics()
     {
-        brightnessSlider.value = GetSavedInt("Brightness");
+        brightnessSlider.value = GetSavedInt("Brightness") == 0 ? 211 : GetSavedInt("Brightness");
         bool _isFullScreen = GetSavedInt("FullScreen") == 1;
         Screen.SetResolution((int)GetSavedFloat("Resolution_width"), (int)GetSavedFloat("Resolution_height"), _isFullScreen);
         fullScreenToggle.isOn = _isFullScreen;
