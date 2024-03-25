@@ -2190,24 +2190,60 @@ MonoBehaviour:
   image: {fileID: 881587959}
   text: {fileID: 148866860}
   enemyPanel: {fileID: 255264707}
-  delayEndWrting: 1
+  delayEndWrting: 2
   announcer: {fileID: 881587958}
   target: {fileID: 1211125369}
   sketch:
-  - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
-    text: Don't worry you will die soon
-    delay: 2
-    enemy: {fileID: 819686872}
-  - image: {fileID: 21300000, guid: 595ca88aace5d64489415e72953ba35e, type: 3}
-    text: Your death will be so funny, trust me
+  - image: {fileID: 21300000, guid: abc484ab1bfd7b749900768da4b92099, type: 3}
+    text: Welcome to Descent Inc. Commander Eagle, I am Alpha O One, main quest assistant
+      for pilots who decide to embark on sub-planetary recovery missions on our behalf.
     delay: 8
-    enemy: {fileID: 1494615669}
+    enemy: {fileID: 0}
+  - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
+    text: Here at Descent Inc. we recover top secret files and prototypes contained
+      in secret bases and if necessary destroy either one or both of them on behalf
+      of clients from all over the galaxy.
+    delay: 9
+    enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: 1cf9da9424783da41a96ab2d11c72065, type: 3}
-    text: You will be my toy, for the rest of your life
-    delay: 3
+    text: 'Your mission was assigned to us by Delta, an experimental agency that
+      wishes to remain anonymous: you have to infiltrate a base on the planet Ateroxos
+      and make it collapse on itself;'
+    delay: 8
+    enemy: {fileID: 0}
+  - image: {fileID: 21300000, guid: 595ca88aace5d64489415e72953ba35e, type: 3}
+    text: Delta also wants to get five crates back, but the main mission is to make
+      the core explode thus activating the meltdown chain reaction.
+    delay: 7
+    enemy: {fileID: 0}
+  - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
+    text: The base is filled by aggressive drones programmed to shoot you on sight,
+      you might have to shoot them down;
+    delay: 6
     enemy: {fileID: 0}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
-    text: It's simple, no?
+    text: 'Here are some useful informations about the dangers you might encounter:'
+    delay: 5
+    enemy: {fileID: 0}
+  - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
+    text: enemy 1
+    delay: 8
+    enemy: {fileID: 819686872}
+  - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
+    text: enemy 2
+    delay: 8
+    enemy: {fileID: 865030529}
+  - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
+    text: enemy 3
+    delay: 8
+    enemy: {fileID: 1494615669}
+  - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
+    text: "That\u2019s all. From this moment onwards all communications with Descent
+      Inc. will be interrupted for security reasons. "
+    delay: 6
+    enemy: {fileID: 0}
+  - image: {fileID: 21300000, guid: abc484ab1bfd7b749900768da4b92099, type: 3}
+    text: Comms off.
     delay: 3
     enemy: {fileID: 0}
 --- !u!1 &1384732724
