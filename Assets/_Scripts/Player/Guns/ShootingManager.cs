@@ -27,7 +27,7 @@ public class ShootingManager : MonoBehaviour
     private void Start()
     {
         inputHandler = PlayerInputHadler.Instance;
-        UpdateMonitors();
+        UpdateMonitors(true, true);
     }
 
     private void FixedUpdate()
@@ -88,7 +88,7 @@ public class ShootingManager : MonoBehaviour
             primaryGunEnable = primaryGunEnable >= primaryGuns.Count ? primaryGunEnable = 0 : primaryGunEnable;
             primaryGunEnable = primaryGunEnable < 0 ? primaryGuns.Count - 1 : primaryGunEnable;
         }
-        UpdateMonitors();
+        UpdateMonitors(true);
         StartCoroutine(DelayButton(0.1f));
     }
 
@@ -109,7 +109,8 @@ public class ShootingManager : MonoBehaviour
             secondaryGunEnable = secondaryGunEnable >= secondaryGuns.Count ? secondaryGunEnable = 0 : secondaryGunEnable;
             secondaryGunEnable = secondaryGunEnable < 0 ? secondaryGuns.Count - 1 : secondaryGunEnable;
         }
-        UpdateMonitors();
+        UpdateMonitors(false);
+        StartCoroutine(DelayButton(0.1f));
     }
 
     IEnumerator DelayChangeS(float delay = 0.3f)
@@ -187,9 +188,10 @@ public class ShootingManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
     }
 
-    void UpdateMonitors()
+    void UpdateMonitors(bool value, bool all = false)
     {
-        if (primaryGuns.Count > 0) Gun?.Invoke(true, primaryGuns[primaryGunEnable].GetSprite, primaryGuns[primaryGunEnable].name, primaryGuns[primaryGunEnable].MagazineBullet);
-        if (secondaryGuns.Count > 0) Gun?.Invoke(false, secondaryGuns[primaryGunEnable].GetSprite, secondaryGuns[primaryGunEnable].name, secondaryGuns[primaryGunEnable].MagazineBullet);
+        if (primaryGuns.Count > 0 && value) Gun?.Invoke(true, primaryGuns[primaryGunEnable].GetSprite, primaryGuns[primaryGunEnable].name, primaryGuns[primaryGunEnable].MagazineBullet);
+        if (all) value = !value;
+        if (secondaryGuns.Count > 0 && !value) Gun?.Invoke(false, secondaryGuns[secondaryGunEnable].GetSprite, secondaryGuns[secondaryGunEnable].name, secondaryGuns[secondaryGunEnable].MagazineBullet);
     }
 }
