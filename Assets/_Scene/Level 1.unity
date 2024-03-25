@@ -498,6 +498,7 @@ MonoBehaviour:
   volumeHD: {fileID: 0}
   volumeRayTracing: {fileID: 0}
   playerController: {fileID: 0}
+  music: {fileID: 0}
 --- !u!114 &337478827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,8 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   boostshield: 50
-  damage: 10
+  coreDamage: 10
+  lavaDamage: 10
 --- !u!135 &544331037
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4436,6 +4438,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0862b0e77ab276429d20f33b1b1b00b, type: 3}
+--- !u!1001 &4133376535200518202
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.664
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.325
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365674371348269363, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853241376303600521, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+      propertyPath: m_Name
+      value: bomba
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a9c0810574177b4f9f26ad9ec4ea391, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4452,3 +4522,4 @@ SceneRoots:
   - {fileID: 2331947553136609919}
   - {fileID: 1400127295}
   - {fileID: 1183396877}
+  - {fileID: 4133376535200518202}
