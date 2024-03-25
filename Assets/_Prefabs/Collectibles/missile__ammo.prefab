@@ -135,6 +135,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8335208729814626626}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b713204756288f94a8c6a3266f414f9c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6479568583837220819}
   m_SourcePrefab: {fileID: 100100000, guid: b713204756288f94a8c6a3266f414f9c, type: 3}
 --- !u!1 &455605136455610779 stripped
 GameObject:
@@ -178,3 +182,16 @@ MonoBehaviour:
   gun: {fileID: 935624821663889665, guid: 37400232c376cfd4fb09261bab53dddc, type: 3}
   bulletMagazine: 4
   primaryOrSecondary: 0
+--- !u!114 &6479568583837220819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455605136455610779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80043a61c846ee4f84207aa759811a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 50
