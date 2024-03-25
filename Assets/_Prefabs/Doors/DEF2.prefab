@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 808493066128062928}
   - component: {fileID: 4192505282632166414}
+  - component: {fileID: 877986642263501332}
+  - component: {fileID: 2455674094855310616}
   m_Layer: 0
   m_Name: DEF2
   m_TagString: Untagged
@@ -27,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 6.04, y: -0.00000047683716, z: 4.31}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1166.6666, y: 1250, z: 1166.6666}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7633868742895533888}
   - {fileID: 4055701094867012170}
@@ -57,6 +59,43 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &877986642263501332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60916350456603953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264d731a1dc427d46ac44ba936dceb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueID: 0
+  needsKey: 0
+  isBossDoor: 0
+  audioSource: {fileID: 0}
+--- !u!65 &2455674094855310616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60916350456603953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.045, y: 0.046000004, z: 0.0504728}
+  m_Center: {x: -4.1152004e-12, y: 0.019999998, z: -0.0008877567}
 --- !u!1 &3714839095369309857
 GameObject:
   m_ObjectHideFlags: 0
