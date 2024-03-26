@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
     [Header("Audio source")]
-    public AudioSource audioSource;
+    [SerializeField] AudioClip sound;
 
     Animator anim;
     bool canOpen;
+    private AudioSource audioSource;
 
     private void OnEnable()
     {
         CoreLogic.death += Timer;
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnDisable()
@@ -31,6 +31,9 @@ public class ExitDoor : MonoBehaviour
         {
             if (audioSource) audioSource.Play();
             anim.SetBool("OpenDoor", true);
+            audioSource.Stop();
+            audioSource.clip = sound;
+            audioSource.Play();
         }
     }
 }

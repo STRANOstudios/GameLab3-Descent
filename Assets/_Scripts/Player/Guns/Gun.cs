@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float cooldownWindow = 0.1f;
 
     [Header("Audio Source")]
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
 
     private IObjectPool<Projectile> objectPool;
 
@@ -32,6 +32,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float bulletMagazine = 50;
 
     private float nextTimeToShoot;
+    private AudioSource audioSource;
 
     public delegate void Laser(int value);
     public static event Laser shoot = null;
@@ -52,6 +53,7 @@ public class Gun : MonoBehaviour
             shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
             setMagazine?.Invoke(bulletMagazine);
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -95,6 +97,8 @@ public class Gun : MonoBehaviour
     {
         if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
         {
+            if (this.name == "Goliath") if (bulletMagazine < 5) return;
+
             Vector3 cameraForward = Camera.main.transform.forward;
 
             for (int i = 0; i < muzzlePosition.Count; i++)
@@ -116,15 +120,12 @@ public class Gun : MonoBehaviour
             if (this.name == "Laser")
             {
                 bulletMagazine -= 1f;
-                StartCoroutine(Fire());
+                Fire();
             }
             else if (this.name == "Goliath")
             {
-                if (bulletMagazine - 5f >= 0)
-                {
-                    bulletMagazine -= 5f;
-                    StartCoroutine(Fire());
-                }
+                bulletMagazine -= 5f;
+                Fire();
             }
             else
             {
@@ -132,12 +133,16 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (audioSource != null) audioSource.Play();
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = sound;
+            audioSource.Play();
+        }
     }
 
-    IEnumerator Fire(float delay = 0.1f)
+    void Fire()
     {
-        yield return new WaitForSeconds(delay);
         shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
         setMagazine?.Invoke(bulletMagazine);
     }
@@ -154,10 +159,4 @@ public class Gun : MonoBehaviour
     }
 
     public Sprite GetSprite => sprite;
-
-    public int MagazineBullet
-    {
-        get { return (int)bulletMagazine; }
-        set { bulletMagazine = value; }
-    }
 }

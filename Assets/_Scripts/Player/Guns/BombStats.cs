@@ -11,9 +11,15 @@ public class BombStats : MonoBehaviour
     [SerializeField] LayerMask layersHitByExplosion;
     List<Collider> hitObjects = new List<Collider>();
 
+    [Header("Audio source")]
+    [SerializeField] AudioClip sound;
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         StartCoroutine(ExplodeOnNothing());
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +32,13 @@ public class BombStats : MonoBehaviour
 
     void Explode()
     {
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = sound;
+            audioSource.Play();
+        }
+
         Instantiate(explodeParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

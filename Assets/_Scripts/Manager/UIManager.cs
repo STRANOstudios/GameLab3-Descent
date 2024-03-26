@@ -193,7 +193,7 @@ public class UIManager : MonoBehaviour
         magazine.gameObject.SetActive(true);
         magazine.text = bulletMagazine.ToString("D3");
 
-        if (name == "Laser") gunMagazineLeft.gameObject.SetActive(false);
+        if (name == "Laser" || name == "Goliath") gunMagazineLeft.gameObject.SetActive(false);
     }
 
     public void Resume()

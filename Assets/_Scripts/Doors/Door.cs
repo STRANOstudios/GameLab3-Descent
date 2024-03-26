@@ -26,12 +26,6 @@ public class Door : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        Debug.Log(playerKeys.Count);
-        Debug.Log("value id: " + valueID);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(isBossDoor) bossfight?.Invoke();

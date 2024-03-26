@@ -719,6 +719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7071310156027589347, guid: b9cd9e9d163be3f439809540032b58da,
         type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071310156027589347, guid: b9cd9e9d163be3f439809540032b58da,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -787,7 +792,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 587357635202004408, guid: b9cd9e9d163be3f439809540032b58da, type: 3}
+    - {fileID: 4974385854378088145, guid: b9cd9e9d163be3f439809540032b58da, type: 3}
+    - {fileID: 7071310156027589347, guid: b9cd9e9d163be3f439809540032b58da, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1073,7 +1081,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7600113800503593812, guid: 4cf9fd807f6337144b218e05bff92867, type: 3}
+    - {fileID: 5644067751237676902, guid: 4cf9fd807f6337144b218e05bff92867, type: 3}
+    - {fileID: 251610640412134415, guid: 4cf9fd807f6337144b218e05bff92867, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1208,6 +1219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: drop
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
@@ -1549,7 +1565,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7352811218977546963, guid: 1f203252f9413a34783d2321525abc60, type: 3}
+    - {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60, type: 3}
+    - {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2239,7 +2258,7 @@ MonoBehaviour:
     text: 'Here are some useful informations about the dangers you might encounter:'
     delay: 5
     enemy: {fileID: 0}
-    AudioClip: {fileID: 8300000, guid: 68f56e7d948147247ad8f205df94e814, type: 3}
+    AudioClip: {fileID: 8300000, guid: 04ab071604ba41a41abbdd8074e74d62, type: 3}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'CLASS 1 DRONE  agile and fast, they are armed with energy weapons that
       are fragile and weak when alone but lethal in groups '
@@ -2268,7 +2287,7 @@ MonoBehaviour:
     text: Comms off.
     delay: 3
     enemy: {fileID: 0}
-    AudioClip: {fileID: 8300000, guid: f61b4233000f45345b7c9be22272d1b0, type: 3}
+    AudioClip: {fileID: 8300000, guid: 8f62311f50e2d4b40bd4f3ca111bf9de, type: 3}
 --- !u!82 &1364465530
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2283,7 +2302,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.05
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2326,7 +2345,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2627,7 +2646,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 711ebfb74ab0edd4494b710cd2365e98, type: 2}
   m_TargetDisplay: 0

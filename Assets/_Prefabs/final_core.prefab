@@ -19533,5 +19533,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 2000
-  controller: {fileID: 0}
-  clip: {fileID: 0}
+  controller: {fileID: 24100000, guid: ac8f3e56fb44a5048a7e3d30289cdab8, type: 2}
+  clip: {fileID: 8300000, guid: 33088a5b6b7209044b1c608cd44ac69a, type: 3}
