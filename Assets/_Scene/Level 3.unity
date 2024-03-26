@@ -17861,11 +17861,6 @@ PrefabInstance:
       objectReference: {fileID: 544331031}
     - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
-      propertyPath: waypoints.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 868789487707039112, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 363973025}
@@ -17916,21 +17911,6 @@ PrefabInstance:
       objectReference: {fileID: 493000222}
     - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 195.2
       objectReference: {fileID: 0}
@@ -17979,20 +17959,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7429468292526457079, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8610203136196801484, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: m_Name
       value: First enemy (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8610203136196801484, guid: 1f203252f9413a34783d2321525abc60,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49693,6 +49663,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3276733598999975590, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276733598999975590, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -49704,7 +49679,7 @@ PrefabInstance:
     - target: {fileID: 4070147850547394483, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 65463
+      value: 130999
       objectReference: {fileID: 0}
     - target: {fileID: 4849802148837020762, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}

@@ -305,8 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHP: 50
   speed: 160
-  ChaseDistance: 5.5
-  AttackDistance: 4
+  ChaseDistance: 4
+  AttackDistance: 2
   firePointSX: {fileID: 3759944776038442956}
   firePointDX: {fileID: 2082082074217422828}
   fireRate: 0.65
@@ -322,8 +322,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  playerPrefab: {fileID: 4849802148837020762, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
-    type: 3}
+  playerPrefab: {fileID: 0}
   bulletPrefab: {fileID: 4513154710565032192, guid: ec0eaa54d0749af4498d28373195367c,
     type: 3}
   drop: {fileID: 3108690889683419578}

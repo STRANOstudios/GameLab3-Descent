@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8060579863272372950}
   - component: {fileID: 6675712782636285352}
   - component: {fileID: 1130634890929871835}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7162220179741058864}
   - component: {fileID: 8114425720347559945}
   - component: {fileID: 2000025783005956997}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: barra4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 4392060157863272614}
   - component: {fileID: 4828005193770731745}
   - component: {fileID: 8501398811566703652}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cornice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 7488378621688779963}
   - component: {fileID: 1032827900856373411}
   - component: {fileID: 8072893671050956513}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: barra2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 5358858275660785018}
   - component: {fileID: 4375789290877257327}
   - component: {fileID: 8993226142578059478}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: barra1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8862440330640557586}
   - component: {fileID: 3164352686134691088}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: porta_scorrevole_escape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 5881618553334921990}
   - component: {fileID: 1796776126988693709}
   - component: {fileID: 1937020125883166616}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: barra3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

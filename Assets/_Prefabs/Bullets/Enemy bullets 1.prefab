@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4513154710565032192}
   - component: {fileID: 1106940730494132288}
   - component: {fileID: 3097475276367053317}
-  - component: {fileID: 5439636446578065775}
+  - component: {fileID: 832460976402942439}
   m_Layer: 14
   m_Name: Enemy bullets 1
   m_TagString: Untagged
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   damage: 1
---- !u!64 &5439636446578065775
-MeshCollider:
+--- !u!136 &832460976402942439
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,18 +101,19 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 40695
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 24576
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Height: 1.04
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!1001 &3982178572195887803
 PrefabInstance:
   m_ObjectHideFlags: 0
