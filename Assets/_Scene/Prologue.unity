@@ -2208,67 +2208,67 @@ MonoBehaviour:
       for pilots who decide to embark on sub-planetary recovery missions on our behalf.
     delay: 8
     enemy: {fileID: 0}
-    AudioClip: {fileID: 8300000, guid: d1da3afb1c5a04649bde7802da1943fd, type: 3}
+    AudioClip: {fileID: 8300000, guid: 9c67f294f9e3ed04a98e1a2192dbaeeb, type: 3}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: Here at Descent Inc we recover and if necessary destroy top secret content
       files and prototypes in high security installations on behalf of clients from
       all over the galaxy
     delay: 9
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 697bd515295ba4c4abb52a99eaa8998f, type: 3}
   - image: {fileID: 21300000, guid: 1cf9da9424783da41a96ab2d11c72065, type: 3}
     text: Your mission will be to infiltrate a base on the planet Ateroxos and recover
       5 crates on behalf of Delta, an experimental agency that wishes to remain anonymous
     delay: 8
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 8f4bd43d52c513a49a6ed1a1e6b8a110, type: 3}
   - image: {fileID: 21300000, guid: 595ca88aace5d64489415e72953ba35e, type: 3}
     text: Delta wants to get the five crates back, but the main mission is to make
       the base collapse on itself by exploding the core and thus activating the fusion
       chain reaction
     delay: 7
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 93e87d79b5e2ef9418b781343f19dd5f, type: 3}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: The base is guarded by extremely aggressive drones programmed to shoot
       on sight, if you can't avoid them you will have to shoot them down
     delay: 6
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 6d9ce674d7ca1c84ba47e759aceae7f9, type: 3}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'Here are some useful informations about the dangers you might encounter:'
     delay: 5
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 68f56e7d948147247ad8f205df94e814, type: 3}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'CLASS 1 DRONE  agile and fast, they are armed with energy weapons that
       are fragile and weak when alone but lethal in groups '
     delay: 8
     enemy: {fileID: 922724410}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: f12109972fb2a194ca004d60806f14e7, type: 3}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'CLASS 2 DRONE resistant and armed with powerful miniguns, they are fearsome
       enemies even if they are not very agile '
     delay: 8
     enemy: {fileID: 812814235}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 178d2cc603a91e24faf0a2456771db11, type: 3}
   - image: {fileID: 21300000, guid: 953c0bbcaae7996418a8607db7b4299f, type: 3}
     text: 'SMALL HULK extremely resistant and heavily armed with plasma cannons face
       with caution '
     delay: 8
     enemy: {fileID: 765178620}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 8f5d49e8fa51b4040993ec12696821f2, type: 3}
   - image: {fileID: 21300000, guid: cb0dad63a511c6247b68530a5c527ca9, type: 3}
     text: "That\u2019s all. From this moment onwards all communications with Descent
       Inc. will be interrupted for security reasons. "
     delay: 6
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 9f337b63e4e861b40835feb6a6ddc661, type: 3}
   - image: {fileID: 21300000, guid: abc484ab1bfd7b749900768da4b92099, type: 3}
     text: Comms off.
     delay: 3
     enemy: {fileID: 0}
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: f61b4233000f45345b7c9be22272d1b0, type: 3}
 --- !u!82 &1364465530
 AudioSource:
   m_ObjectHideFlags: 0

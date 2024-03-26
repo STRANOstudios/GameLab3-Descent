@@ -47,7 +47,26 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        if (this.name == "Laser") shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+        if (this.name == "Laser")
+        {
+            shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+            setMagazine?.Invoke(bulletMagazine);
+        }
+    }
+
+    private void OnEnable()
+    {
+        Gun.setMagazine += SetBullet;
+    }
+
+    private void OnDisable()
+    {
+        Gun.setMagazine -= SetBullet;
+    }
+
+    void SetBullet(float value)
+    {
+        if (this.name == "Laser" || this.name == "Goliath") bulletMagazine = value;
     }
 
     private void OnDestroyPooledObject(Projectile pooledObject)
@@ -74,83 +93,53 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (!spherecast)
+        if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
         {
-            if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
+            Vector3 cameraForward = Camera.main.transform.forward;
+
+            for (int i = 0; i < muzzlePosition.Count; i++)
             {
-                Vector3 cameraForward = Camera.main.transform.forward;
+                Projectile bulletObject = objectPool.Get();
 
-                for (int i = 0; i < muzzlePosition.Count; i++)
-                {
-                    Projectile bulletObject = objectPool.Get();
+                if (bulletObject == null) return;
 
-                    if (bulletObject == null) return;
+                bulletObject.transform.position = muzzlePosition[0].transform.position;
 
-                    bulletObject.transform.position = muzzlePosition[0].transform.position;
+                bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
 
-                    bulletObject.transform.rotation = Quaternion.LookRotation(cameraForward);
-
-                    bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
-                    bulletObject.Deactivate();
-                }
-
-                nextTimeToShoot = Time.time + cooldownWindow;
-
-                if (this.name == "Laser")
-                {
-                    bulletMagazine -= 0.25f;
-                    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
-                }
-                //else if (this.name == "Goliath")
-                //{
-                //    bulletMagazine -= 5f;
-                //    shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
-                //}
-                else
-                {
-                    bulletMagazine--;
-                }
+                bulletObject.GetComponent<Rigidbody>().AddForce(cameraForward * muzzleVelocity, ForceMode.Acceleration);
+                bulletObject.Deactivate();
             }
 
-            if (audioSource != null) audioSource.Play();
+            nextTimeToShoot = Time.time + cooldownWindow;
 
-        }
-        else
-        {
-            if (Time.time > nextTimeToShoot && bulletMagazine > 0)
+            if (this.name == "Laser")
             {
-                nextTimeToShoot = Time.time + cooldownWindow;
+                bulletMagazine -= 1f;
+                StartCoroutine(Fire());
+            }
+            else if (this.name == "Goliath")
+            {
+                if (bulletMagazine - 5f >= 0)
+                {
+                    bulletMagazine -= 5f;
+                    StartCoroutine(Fire());
+                }
+            }
+            else
+            {
                 bulletMagazine--;
-
-                StartCoroutine(ShootSphereCast());
             }
         }
+
+        if (audioSource != null) audioSource.Play();
     }
 
-    IEnumerator ShootSphereCast()
+    IEnumerator Fire(float delay = 0.1f)
     {
-        Vector3 origin = transform.position;
-        Vector3 direction = transform.forward;
-        float radius = 0.5f;
-        RaycastHit hit;
-
-        if (Physics.SphereCast(origin, radius, direction, out hit, muzzleVelocity))
-        {
-            int hitLayer = hit.transform.gameObject.layer;
-
-            switch (hitLayer)
-            {
-                case 0:
-                    break;
-                case 12:
-                    break;
-                default:
-                    StopCoroutine(ShootSphereCast());
-                    break;
-            }
-        }
-
-        yield return new WaitForSeconds(projectilePrefab.GetRange);
+        yield return new WaitForSeconds(delay);
+        shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
+        setMagazine?.Invoke(bulletMagazine);
     }
 
     public void UpdateMonitor()
@@ -166,5 +155,9 @@ public class Gun : MonoBehaviour
 
     public Sprite GetSprite => sprite;
 
-    public int MagazineBullet => (int)bulletMagazine;
+    public int MagazineBullet
+    {
+        get { return (int)bulletMagazine; }
+        set { bulletMagazine = value; }
+    }
 }
