@@ -3,9 +3,10 @@ using UnityEngine;
 public class HiddenDoor : HP
 {
     [Header("Audio source")]
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
 
     private Animator anim;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -30,6 +31,8 @@ public class HiddenDoor : HP
         if (audioSource) audioSource.Play();
         anim.SetBool("OpenDoor", true);
         GetComponent<BoxCollider>().enabled = false;
-        //Destroy(gameobject);  maybe???????
+        audioSource.Stop();
+        audioSource.clip = sound;
+        audioSource.Play();
     }
 }
