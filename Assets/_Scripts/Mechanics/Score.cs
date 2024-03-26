@@ -1,26 +1,29 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Score : MonoBehaviour
 {
     [Header("Score settings")]
     [SerializeField] int score = 0;
 
-    [Header("Audio source")]
+    [Header("SFX settings")]
+    [SerializeField] AudioMixer controller;
     [SerializeField] AudioClip clip;
-
-    private AudioSource AudioSource;
 
     public delegate void ObjectDeactivated(int value);
     public static event ObjectDeactivated OnObjectDeactivated;
 
-    private void Start()
-    {
-        AudioSource = GetComponent<AudioSource>();
-    }
-
     void OnDisable()
     {
         OnObjectDeactivated?.Invoke(score);
-        if (clip && AudioSource) AudioSource.PlayOneShot(clip);
+
+        if (clip)
+        {
+            GameObject tempAudioObject = new GameObject("TempAudioSource");
+            AudioSource tempAudioSource = tempAudioObject.AddComponent<AudioSource>();
+            tempAudioSource.outputAudioMixerGroup = controller.FindMatchingGroups("Master")[2];
+            tempAudioSource.PlayOneShot(clip);
+            Destroy(tempAudioObject, clip.length);
+        }
     }
 }
