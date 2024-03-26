@@ -124,6 +124,47 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.208
       objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: drops.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: drops.Array.data[4]
+      value: 
+      objectReference: {fileID: 6392173798811960427, guid: 739f135ba3d026046b933562a66244b4,
+        type: 3}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[0]
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[3]
+      value: 52.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[4]
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3759944776038442956, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: m_LocalPosition.x
