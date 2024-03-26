@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Door : MonoBehaviour
 {
@@ -25,16 +26,25 @@ public class Door : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        Debug.Log(playerKeys.Count);
+        Debug.Log("value id: " + valueID);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(isBossDoor) bossfight?.Invoke();
+
 
         //anim.SetBool("CloseDoor", false);
         if (needsKey)
         {
             playerKeys = other.GetComponent<PlayerKeyHolder>().keyIDs;
+            
             foreach (var key in playerKeys)
             {
+                
                 if (key == valueID)
                 {
                     Open();

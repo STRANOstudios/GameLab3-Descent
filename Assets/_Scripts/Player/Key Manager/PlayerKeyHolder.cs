@@ -8,6 +8,7 @@ public class PlayerKeyHolder : MonoBehaviour
     public delegate void KeyPickUp(int key_id);
     public static event KeyPickUp OnKeyPickUp;
 
+
     private void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag)
