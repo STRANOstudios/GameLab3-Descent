@@ -54,7 +54,7 @@ MonoBehaviour:
   muzzlePosition:
   - {fileID: 4329171618499768353}
   cooldownWindow: 0.3
-  audioSource: {fileID: -3945453894170318643}
+  sound: {fileID: 8300000, guid: 9e054ad25e29abe47afb9e5c268b72ce, type: 3}
   collectionCheck: 1
   defaultCapacity: 20
   maxSize: 100
@@ -68,9 +68,10 @@ AudioSource:
   m_GameObject: {fileID: 935624821663889665}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4573486402041033941, guid: ac8f3e56fb44a5048a7e3d30289cdab8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 9e054ad25e29abe47afb9e5c268b72ce, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

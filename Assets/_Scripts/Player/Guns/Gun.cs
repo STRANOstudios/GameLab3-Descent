@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float cooldownWindow = 0.1f;
 
     [Header("Audio Source")]
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
 
     private IObjectPool<Projectile> objectPool;
 
@@ -32,6 +32,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float bulletMagazine = 50;
 
     private float nextTimeToShoot;
+    private AudioSource audioSource;
 
     public delegate void Laser(int value);
     public static event Laser shoot = null;
@@ -52,6 +53,7 @@ public class Gun : MonoBehaviour
             shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
             setMagazine?.Invoke(bulletMagazine);
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -131,7 +133,12 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (audioSource != null) audioSource.Play();
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = sound;
+            audioSource.Play();
+        }
     }
 
     void Fire()
