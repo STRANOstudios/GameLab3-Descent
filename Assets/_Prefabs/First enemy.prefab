@@ -342,8 +342,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47bdceddf3b32114baf245fcaa4d6fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chance: 50
-  powerup: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656, type: 3}
+  percentage:
+  - 22.5
+  - 15
+  - 7.5
+  - 55
+  drops:
+  - {fileID: 6392173798811960427, guid: 87541f950eda1b94889a8c205445a656, type: 3}
+  - {fileID: 3267089809814850456, guid: 547434efbddbade46a46774bcaf1f122, type: 3}
+  - {fileID: 455605136455610779, guid: 3ced0c123ad289240862293568906be7, type: 3}
+  - {fileID: 0}
 --- !u!114 &7352811218977546963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 100
+  controller: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1001 &2874214607391234396
 PrefabInstance:
   m_ObjectHideFlags: 0
