@@ -55,6 +55,58 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0243
       objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: drops.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: drops.Array.data[4]
+      value: 
+      objectReference: {fileID: 1433832528407642513, guid: 5c49d9d290b217143bea2f6a1af4cd86,
+        type: 3}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: drops.Array.data[5]
+      value: 
+      objectReference: {fileID: 1853241376303600521, guid: 4a9c0810574177b4f9f26ad9ec4ea391,
+        type: 3}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[2]
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[3]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108690889683419578, guid: 1f203252f9413a34783d2321525abc60,
+        type: 3}
+      propertyPath: percentage.Array.data[5]
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3759944776038442956, guid: 1f203252f9413a34783d2321525abc60,
         type: 3}
       propertyPath: m_LocalPosition.x
