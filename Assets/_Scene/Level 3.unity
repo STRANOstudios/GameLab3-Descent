@@ -9879,6 +9879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 500
+  controller: {fileID: 0}
   clip: {fileID: 0}
 --- !u!1 &232477682
 GameObject:
@@ -60749,9 +60750,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1907465871194696011, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf8897572a4e21e408347dcd489613d6, type: 3}
+    - target: {fileID: -1907465871194696011, guid: 87541f950eda1b94889a8c205445a656,
+        type: 3}
       propertyPath: score
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: -1907465871194696011, guid: 87541f950eda1b94889a8c205445a656,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 24100000, guid: ac8f3e56fb44a5048a7e3d30289cdab8,
+        type: 2}
     - target: {fileID: 4910112848308568303, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -60827,22 +60839,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Energy Boosts
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6328853155228026124, guid: 87541f950eda1b94889a8c205445a656, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6392173798811960427, guid: 87541f950eda1b94889a8c205445a656,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1865782621}
-    - targetCorrespondingSourceObject: {fileID: 6392173798811960427, guid: 87541f950eda1b94889a8c205445a656,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1865782627}
-    - targetCorrespondingSourceObject: {fileID: 6392173798811960427, guid: 87541f950eda1b94889a8c205445a656,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1865782633}
+      addedObject: {fileID: 1865782641}
   m_SourcePrefab: {fileID: 100100000, guid: 87541f950eda1b94889a8c205445a656, type: 3}
 --- !u!4 &1865782615 stripped
 Transform:
@@ -60850,47 +60855,103 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1865782614}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1865782621
-MonoBehaviour:
+--- !u!82 &1865782641
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862396657}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbf0bf82bb15b647a4fc2b834115e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
---- !u!114 &1865782627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862396657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bacf290ff9587847bf4dbc94caf8f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveSpeed: 1
-  waveAmplitude: 0.1
---- !u!114 &1865782633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862396657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bacf290ff9587847bf4dbc94caf8f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveSpeed: 1
-  waveAmplitude: 0.1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4573486402041033941, guid: ac8f3e56fb44a5048a7e3d30289cdab8,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: bf8897572a4e21e408347dcd489613d6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1866712838
 GameObject:
   m_ObjectHideFlags: 0
@@ -61467,6 +61528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 2000
+  controller: {fileID: 0}
   clip: {fileID: 0}
 --- !u!1 &1892755428
 GameObject:
@@ -69824,6 +69886,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1853241376303600521, guid: 049d225c3103ee542a02ef421f78fa8b,
         type: 3}
+    - target: {fileID: 7159281264619835593, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7159281264619835593, guid: 9fb71b9a3b7ac32478bc70bf5a118477,
         type: 3}
       propertyPath: bombNozzle
