@@ -54,7 +54,7 @@ public class Slides : MonoBehaviour
             if (i != 0 && item.enemy && sketch[i - 1].enemy) sketch[i - 1].enemy.SetActive(false);
             index = i;
 
-            float duration = 0.2f;
+            float duration = 1.5f;
             if (item.enemy != null)
             {
                 item.enemy.SetActive(true);
