@@ -176,12 +176,12 @@ public class ShootingManager : MonoBehaviour
                     int tp = Mathf.Clamp(Mathf.CeilToInt(gun.BulletMagazine + tmp.BulletMagazine), 0, 200);
                     if (gun.BulletMagazine + tmp.BulletMagazine - 200 >= 0) full = true;
                     gun.BulletMagazine = tp;
+                    check = true;
                     foreach (Gun gun2 in primaryGuns)
                     {
                         if (gun2.name == "Goliath")
                         {
                             gun2.BulletMagazine = tp;
-                            check = true;
                             break;
                         }
                     }

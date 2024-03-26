@@ -46,9 +46,13 @@ public class PlayerController : MonoBehaviour
     private float rotationAmount = -300f;
     private bool rear = false;
     private bool pause = false;
+    private bool immortalityIsActive = true;
 
     public delegate void Map(bool value);
     public static event Map map = null;
+
+    public delegate void Immortality();
+    public static event Immortality IsImmortal = null;
 
     private void Start()
     {
@@ -68,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
         RearView();
         //MiniMap();
+
+        CheckImmortality();
 
         ApplyFloatingOscillation();
     }
@@ -238,5 +244,21 @@ public class PlayerController : MonoBehaviour
     {
         invertYAxis = invertY;
         mouseSensitivity = controllerSen;
+    }
+
+    void CheckImmortality()
+    {
+        if (inputHandler.immortalitTrigger && immortalityIsActive)
+        {
+            IsImmortal?.Invoke();
+            StartCoroutine(DelayeImmortality(0.3f));
+        }
+    }
+
+    private IEnumerator DelayeImmortality(float value = 1f)
+    {
+        immortalityIsActive = false;
+        yield return new WaitForSeconds(value);
+        immortalityIsActive = true;
     }
 }

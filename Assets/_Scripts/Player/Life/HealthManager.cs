@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] float lavaDamage = 10.0f;
 
     private bool direIsEvile = true;
+    private bool isImmortal = false;
 
     public delegate void Healt(int value);
     public static event Healt healt = null;
@@ -38,9 +40,13 @@ public class HealthManager : MonoBehaviour
                 other.gameObject.SetActive(false);
                 break;
             case 14:
+                if (isImmortal) break;
+
                 Damage(other.gameObject.GetComponent<Bullet>().Damage);
                 break;
             case 15:
+                if (isImmortal) break;
+
                 direIsEvile = true;
                 StartCoroutine(Lava(0.5f));
                 break;
@@ -54,15 +60,33 @@ public class HealthManager : MonoBehaviour
         switch (other.gameObject.layer)
         {
             case 15:
+                if (isImmortal) break;
+
                 direIsEvile = false;
                 StopCoroutine("Lava");
                 break;
         }
     }
 
+    void OnEnable()
+    {
+        PlayerController.IsImmortal += Immortal;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.IsImmortal -= Immortal;
+    }
+
+    void Immortal()
+    {
+        isImmortal = !isImmortal;
+        Debug.Log($"Imortal is {(isImmortal ? "on" : "off")}");
+    }
+
     IEnumerator Lava(float delay)
     {
-        while (direIsEvile) 
+        while (direIsEvile)
         {
             Damage(lavaDamage);
             yield return new WaitForSeconds(delay);
@@ -71,6 +95,8 @@ public class HealthManager : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        if (isImmortal) return;
+
         Damage(coreDamage);
     }
 

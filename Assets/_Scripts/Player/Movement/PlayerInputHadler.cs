@@ -24,6 +24,7 @@ public class PlayerInputHadler : MonoBehaviour
     [SerializeField] private string list1 = "Primary List";
     [SerializeField] private string list2 = "Secondary List";
     [SerializeField] private string pause = "Pause";
+    [SerializeField] private string immortalit = "Immortality";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -47,6 +48,8 @@ public class PlayerInputHadler : MonoBehaviour
 
     private InputAction pauseAction;
 
+    private InputAction immortalitAction;
+
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public float FlyValue { get; private set; }
@@ -61,6 +64,7 @@ public class PlayerInputHadler : MonoBehaviour
     public bool mapTrigger { get; private set; }
     public bool rearViewTrigger { get; private set; }
     public bool pauseTrigger { get; private set; }
+    public bool immortalitTrigger { get; private set; }
 
     public static PlayerInputHadler Instance { get; private set; }
 
@@ -98,6 +102,7 @@ public class PlayerInputHadler : MonoBehaviour
         rearViewAction = playerControls.FindActionMap(actionMapName).FindAction(rearView);
 
         pauseAction = playerControls.FindActionMap(actionMapName).FindAction(pause);
+        immortalitAction = playerControls.FindActionMap(actionMapName).FindAction(immortalit);
 
         RegisterInputActions();
 
@@ -155,6 +160,9 @@ public class PlayerInputHadler : MonoBehaviour
 
         pauseAction.performed += context => pauseTrigger = true;
         pauseAction.canceled += context => pauseTrigger = false;
+
+        immortalitAction.performed += context => immortalitTrigger = true;
+        immortalitAction.canceled += context => immortalitTrigger = false;
     }
 
     private void OnEnable()
@@ -173,6 +181,7 @@ public class PlayerInputHadler : MonoBehaviour
         mapAction.Enable();
         rearViewAction.Enable();
         pauseAction.Enable();
+        immortalitAction.Enable();
 
         //InputSystem.onDeviceChange += OnDeviceChange;
     }
@@ -193,6 +202,7 @@ public class PlayerInputHadler : MonoBehaviour
         mapAction.Disable();
         rearViewAction.Disable();
         pauseAction.Disable();
+        immortalitAction.Disable();
 
         //InputSystem.onDeviceChange -= OnDeviceChange;
     }
