@@ -74,7 +74,7 @@ MonoBehaviour:
   valueID: 0
   needsKey: 0
   isBossDoor: 0
-  audioSource: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!65 &2455674094855310616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85,10 +85,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65463
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

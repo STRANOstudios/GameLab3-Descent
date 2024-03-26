@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.351433
+      value: -11.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.787405
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.06327026
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c126720f5b22c5c4790fb5c00264982f,
         type: 3}
@@ -160,21 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeebd9e2c6b2d894bac03c5a6293f7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  sprite: {fileID: 0}
-  muzzleVelocity: 0
-  spherecast: 0
-  muzzlePosition: []
-  cooldownWindow: 0.1
-  audioSource: {fileID: 0}
-  collectionCheck: 1
-  defaultCapacity: 10
-  maxSize: 10
-  bulletMagazine: 0
   timerToExplode: 10
-  explodeParticles: {fileID: 0}
+  explodeParticles: {fileID: 8942390716082412966, guid: e84c59dd006ad6148b78bee410047944,
+    type: 3}
   damage: 50
-  radiusExplosion: 2
+  radiusExplosion: 5
   layersHitByExplosion:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320
