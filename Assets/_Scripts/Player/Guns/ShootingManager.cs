@@ -181,6 +181,7 @@ public class ShootingManager : MonoBehaviour
                         if (gun2.name == "Goliath")
                         {
                             gun2.BulletMagazine = tp;
+                            check = true;
                             break;
                         }
                     }
@@ -218,8 +219,8 @@ public class ShootingManager : MonoBehaviour
 
     void UpdateMonitors(bool value, bool all = false)
     {
-        if (primaryGuns.Count > 0 && value) Gun?.Invoke(true, primaryGuns[primaryGunEnable].GetSprite, primaryGuns[primaryGunEnable].name, primaryGuns[primaryGunEnable].MagazineBullet);
+        if (primaryGuns.Count > 0 && value) Gun?.Invoke(true, primaryGuns[primaryGunEnable].GetSprite, primaryGuns[primaryGunEnable].name, primaryGuns[primaryGunEnable].BulletMagazine);
         if (all) value = !value;
-        if (secondaryGuns.Count > 0 && !value) Gun?.Invoke(false, secondaryGuns[secondaryGunEnable].GetSprite, secondaryGuns[secondaryGunEnable].name, secondaryGuns[secondaryGunEnable].MagazineBullet);
+        if (secondaryGuns.Count > 0 && !value) Gun?.Invoke(false, secondaryGuns[secondaryGunEnable].GetSprite, secondaryGuns[secondaryGunEnable].name, secondaryGuns[secondaryGunEnable].BulletMagazine);
     }
 }

@@ -95,6 +95,8 @@ public class Gun : MonoBehaviour
     {
         if (Time.time > nextTimeToShoot && objectPool != null && bulletMagazine > 0)
         {
+            if (this.name == "Goliath") if (bulletMagazine < 5) return;
+
             Vector3 cameraForward = Camera.main.transform.forward;
 
             for (int i = 0; i < muzzlePosition.Count; i++)
@@ -116,15 +118,12 @@ public class Gun : MonoBehaviour
             if (this.name == "Laser")
             {
                 bulletMagazine -= 1f;
-                StartCoroutine(Fire());
+                Fire();
             }
             else if (this.name == "Goliath")
             {
-                if (bulletMagazine - 5f >= 0)
-                {
-                    bulletMagazine -= 5f;
-                    StartCoroutine(Fire());
-                }
+                bulletMagazine -= 5f;
+                Fire();
             }
             else
             {
@@ -135,9 +134,8 @@ public class Gun : MonoBehaviour
         if (audioSource != null) audioSource.Play();
     }
 
-    IEnumerator Fire(float delay = 0.1f)
+    void Fire()
     {
-        yield return new WaitForSeconds(delay);
         shoot?.Invoke(Mathf.CeilToInt(bulletMagazine));
         setMagazine?.Invoke(bulletMagazine);
     }
@@ -154,10 +152,4 @@ public class Gun : MonoBehaviour
     }
 
     public Sprite GetSprite => sprite;
-
-    public int MagazineBullet
-    {
-        get { return (int)bulletMagazine; }
-        set { bulletMagazine = value; }
-    }
 }

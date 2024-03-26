@@ -7784,7 +7784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &337478824
 Transform:
   m_ObjectHideFlags: 0
@@ -19322,6 +19322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goliath
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462780922759223647, guid: 37befe9d880b5d34bb6b00ae366b49a9,
+        type: 3}
+      propertyPath: bulletMagazine
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
