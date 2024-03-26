@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21651,6 +21651,11 @@ PrefabInstance:
       propertyPath: cooldownWindow
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4267204329636343672, guid: 4426289252bae7c4b84f0b184d5898b3,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4329171618499768353, guid: 4426289252bae7c4b84f0b184d5898b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25223,6 +25228,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1253595558}
     m_Modifications:
+    - target: {fileID: 85069935928629325, guid: 37400232c376cfd4fb09261bab53dddc,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 935624821663889665, guid: 37400232c376cfd4fb09261bab53dddc,
         type: 3}
       propertyPath: m_Name
