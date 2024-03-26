@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.18533, g: 324.8582, b: 429.96686, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24023,10 +24023,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d37fadf6c97a54ba7511d7e4dba4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossBattle: {fileID: 0}
-  countdown: {fileID: 0}
-  escaped: {fileID: 0}
-  death: {fileID: 0}
+  bossBattle: {fileID: 8300000, guid: d1da3afb1c5a04649bde7802da1943fd, type: 3}
+  countdown: {fileID: 8300000, guid: 1feeb6da80945204ebfc034c2ee25699, type: 3}
+  escaped: {fileID: 8300000, guid: fc8ba8221cdfc834097f89eaf0f72d87, type: 3}
+  death: {fileID: 8300000, guid: 33088a5b6b7209044b1c608cd44ac69a, type: 3}
 --- !u!1 &1050258063
 GameObject:
   m_ObjectHideFlags: 0
