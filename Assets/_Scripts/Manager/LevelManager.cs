@@ -32,6 +32,9 @@ public class LevelManager : MonoBehaviour
     public delegate void Pause(bool value);
     public static event Pause pause = null;
 
+    public delegate void BackToMainMenu();
+    public static event BackToMainMenu quit = null;
+
     private void Start()
     {
         inputHandler = PlayerInputHadler.Instance;
@@ -183,5 +186,10 @@ public class LevelManager : MonoBehaviour
     private void Teletraport()
     {
         GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
+    }
+
+    public void ReturnToMenu()
+    {
+        quit?.Invoke();
     }
 }

@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+
         if (audioSource)
         {
             audioSource.Stop();
@@ -56,8 +57,10 @@ public class GameManager : MonoBehaviour
         }
 
         Time.timeScale = 1f;
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
 #if UNITY_EDITOR
         SceneManager.LoadScene("MainMenu");
 #else
