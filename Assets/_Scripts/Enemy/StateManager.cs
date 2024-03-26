@@ -78,7 +78,7 @@ public class StateManager : HP
 
     public override void Death()
     {
-        drop.CheckDropChance();
+        Instantiate(drop.drops[drop.GetRandomSpawn()], transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 #if UNITY_EDITOR
