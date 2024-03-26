@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4192505282632166414}
   - component: {fileID: 877986642263501332}
   - component: {fileID: 2455674094855310616}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DEF2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,10 +85,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 65463
+    m_Bits: 16640
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7633868742895533888}
   - component: {fileID: 2881587381479226300}
   - component: {fileID: 2942778864467699564}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polySurface55
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 7876573374867577097}
   - component: {fileID: 4967060020375201419}
   - component: {fileID: 614461508194098815}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: porta_sinistra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 6985735454292341038}
   - component: {fileID: 5382422255202767808}
   - component: {fileID: 2419046942571533040}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polySurface59
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 1557634989413850917}
   - component: {fileID: 4495756611045867175}
   - component: {fileID: 990923165753496500}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: pasted__pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

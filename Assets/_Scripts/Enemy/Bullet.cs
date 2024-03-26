@@ -13,7 +13,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<HP>(out var otherHP)) 
+        TestBullet(other);
+
+    }
+
+    private void TestBullet(Collider other)
+    {
+        if (other.TryGetComponent<HP>(out var otherHP))
         {
             otherHP.myHP -= damage;
             if (otherHP.myHP <= 0)
@@ -21,8 +27,13 @@ public class Bullet : MonoBehaviour
                 otherHP.Death();
             }
         }
-        Destroy(gameObject);
 
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        TestBullet(collision.collider);
     }
 
     public float Damage => damage;

@@ -13,6 +13,7 @@ public class AttackingState : EnemyBaseState
 
     public override void UpdateState(StateManager enemy)
     {
+        RaycastHit hit;
         enemy.transform.LookAt(enemy.playerPrefab);
         distanceFromTarget = Vector3.Distance(enemy.transform.position, enemy.playerPrefab.position);
 
@@ -35,13 +36,20 @@ public class AttackingState : EnemyBaseState
             OnExit(enemy);
         }
 
-       
+        //if (Physics.Raycast(enemy.transform.position, enemy.transform.forward, out hit))
+        //{
+        //    Debug.DrawRay(enemy.transform.position, enemy.transform.forward * hit.distance, Color.red);
+        //    if (hit.collider.gameObject.layer == 16)
+        //    {
+        //        Debug.Log("colpito porta");
+        //        enemy.ChangeState(new PatrollingState());
+        //    }
+        //}
+
     }
 
     public override void OnExit(StateManager enemy)
     { 
-        Debug.Log("sus");
-        enemy.ChangeState(new ChasingState());
-       
+        enemy.ChangeState(new ChasingState());    
     }
 }

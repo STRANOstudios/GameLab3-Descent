@@ -10,6 +10,7 @@ public class ChasingState : EnemyBaseState
 
     public override void UpdateState(StateManager enemy)
     {
+        RaycastHit hit;
         enemy.dir = enemy.playerPrefab.position - enemy.transform.position;
         
         enemy.transform.LookAt(enemy.playerPrefab);
@@ -27,6 +28,17 @@ public class ChasingState : EnemyBaseState
             enemy.ChangeState(new PatrollingState());
         }
 
+        
+        //if (Physics.Raycast(enemy.transform.position, enemy.transform.forward, out hit))
+        //{
+        //    Debug.DrawRay(enemy.transform.position, enemy.transform.forward * hit.distance, Color.red);
+
+        //    if (hit.collider.gameObject.TryGetComponent(out Door door))
+        //        {
+        //        enemy.ChangeState(new PatrollingState());
+        //    }
+        //}
+
     }
 
     public override void OnExit(StateManager enemy)
@@ -34,3 +46,15 @@ public class ChasingState : EnemyBaseState
         enemy.ChangeState(new AttackingState());
     }
 }
+
+
+//RaycastHit hit;
+//if (Physics.Raycast(transform.position, transform.forward, out hit))
+//{
+//    // Se il raycast colpisce un oggetto, controlla se è un oggetto con tag "Target"
+//    if (hit.collider.CompareTag("Target"))
+//    {
+//        // Se è un oggetto con tag "Target", stampa "Ciao" nella console
+//        Debug.Log("Ciao");
+//    }
+//}

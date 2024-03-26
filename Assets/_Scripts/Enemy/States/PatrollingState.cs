@@ -48,6 +48,18 @@ public class PatrollingState : EnemyBaseState
         {
             OnExit(enemy);
         }
+
+        //RaycastHit hit;
+
+        //if (Physics.Raycast(enemy.transform.position, enemy.transform.forward, out hit))
+        //{
+        //    Debug.DrawRay(enemy.transform.position, enemy.transform.forward * hit.distance, Color.red);
+
+        //    if (hit.collider.gameObject.TryGetComponent(out Door door))
+        //    {
+        //        enemy.ChangeState(new PatrollingState());
+        //    }
+        //}
     }
 
     public override void OnExit(StateManager enemy)
