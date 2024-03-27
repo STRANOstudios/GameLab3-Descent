@@ -52,7 +52,7 @@ These steps should allow you to copy a Unity project from GitHub, set it up in U
 
 ## Release
 
-[Download](coming soon)
+[Download](https://github.com/STRANOstudios/GameLab3-Descent/releases/tag/betav10)
 
 ## Contributors classmates
 
